@@ -1,97 +1,161 @@
-<div class="entry-meta">
-  <!-- ==============================
-  PAGE TITLE
-  =================================== -->
-  <? hm_get_template_part( 'template-parts/masthead-title', [ 'countryCode' => $countryCode ] ); ?>
+<?
+$categories = get_the_category();
+$categoryId = $categories[0]->term_id;
+?>
 
   <!-- ==============================
-  FEATURED IMAGE OR VIDEO
+  ADVICE
   =================================== -->
-  <? if(get_field('show_video_in_masthead')) { ?>
-    <? hm_get_template_part( 'template-parts/masthead-video' ); ?>
-  <? } else if ( has_post_thumbnail() ) { ?>
-    <? hm_get_template_part( 'template-parts/masthead-image' ); ?>
-  <? } ?>
+<? if ($categoryId == 5) { ?>
+  <header class="entry-meta masthead container">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+      <!-- FEATURED IMAGE OR VIDEO -->
+      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+    </header>
+
+  <!-- ==============================
+  DIY
+  =================================== -->
+  <? } else if ($categoryId == 8) { ?>
+    <header class="entry-meta masthead container">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- FEATURED IMAGE OR VIDEO -->
+      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+    </header>
 
 
   <!-- ==============================
-  LEAD CAPTION
+  ESSAY
   =================================== -->
-  <? if(get_field('lead_caption')) { ?>
-    <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
-  <? } ?>
+  <? } else if ($categoryId == 4) { ?>
+    <header class="entry-meta masthead container">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+
+      <!-- FEATURED IMAGE OR VIDEO -->
+      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+    </header>
 
   <!-- ==============================
-  CREDITS
+  ISLAND HOPPING / Q&A
   =================================== -->
-  <? if (have_rows('credits')) { ?>
-    <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+  <? } else if ($categoryId == 6) { ?>
+    <header class="entry-meta masthead container">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
 
-  <? } ?>
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+
+      <!-- CONTRIBUTORS -->
+      <? hm_get_template_part( 'template-parts/blocks-contributors' ); ?>
+    </header>
 
   <!-- ==============================
-  AUTHOR(S)
+  RECIPE
   =================================== -->
-  <? if (have_rows('authors')) { ?>
-    <? while( have_rows('authors') ): the_row(); ?>
-      <? if(get_sub_field('url')) { ?>
-        <a href="<?= get_sub_field('url') ?>" target="_blank">
-        <? } ?>
-        <? if(get_sub_field('name')) { ?>
-          <?= get_sub_field('name') ?>
-        <? } ?>
-      <? if(get_sub_field('url')) { ?>
-        </a>
-      <? } ?>
-    <? endwhile; ?>
+  <? } else if ($categoryId == 7) { ?>
+    <header class="entry-meta masthead container">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- FEATURED IMAGE OR VIDEO -->
+      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+      <!-- TOOLS -->
+      <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+    </header>
+
+  <!-- ==============================
+  WALKTHROUGH
+  =================================== -->
+  <? } else if ($categoryId == 3) { ?>
+    <header class="entry-meta masthead container">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- FEATURED IMAGE OR VIDEO -->
+      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+    </header>
+
+
+
+  <!-- ==============================
+  LIFESTYLE
+  =================================== -->
   <? } else { ?>
-    <span class="author vcard"><?php the_author_posts_link(); ?></span>
+    <header class="entry-meta masthead container">
+        <!-- CATEGORY -->
+        <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+        <!-- TITLE & AUTHOR -->
+        <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+        <!-- LEAD CAPTION -->
+        <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+        <!-- FEATURED IMAGE OR VIDEO -->
+        <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+        <!-- CREDITS -->
+        <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+    </header>
   <? } ?>
-
-
-  <!-- ==============================
-  DATE
-  =================================== -->
-  <span class="entry-date"><?php the_time( get_option( 'date_format' ) ); ?></span>
-
-
-
-
-
-  <!-- ==============================
-  CONTRIBUTORS
-  =================================== -->
-  <? if (have_rows('contributors')) { ?>
-    <? while( have_rows('contributors') ): the_row(); ?>
-      <? if(get_sub_field('contributor_image')) { ?>
-        <? $image = get_sub_field('contributor_image'); ?>
-        <img
-          <?php acf_responsive_image($image['id']); ?>
-          sizes="auto"
-          class="lazyload lazy-fade"
-          alt="<?= $image['alt'] ?>"
-          data-anim="scale"
-          />
-      <? } ?>
-      <? if(get_sub_field('contributor_name')) { ?>
-        <? if(get_sub_field('contributor_link')) { ?>
-          <a href="<?= the_field('contributor_link') ?>" target="blank">
-        <? } ?>
-          <? the_sub_field('contributor_name'); ?>
-        <? if(get_sub_field('contributor_link')) { ?>
-          </a>
-        <? } ?>
-      <? } ?>
-      <? if(get_sub_field('contributor_company')) { ?>
-        <? if(get_sub_field('contributor_company_link')) { ?>
-          <a href="<?= the_field('contributor_company_link') ?>" target="blank">
-        <? } ?>
-          <?= the_sub_field('contributor_company') ?>
-        <? if(get_sub_field('contributor_company_link')) { ?>
-          </a>
-        <? } ?>
-      <? } ?>
-    <? endwhile; ?>
-  <? } ?>
-
-</div>

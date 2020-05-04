@@ -1,8 +1,10 @@
 /* --------------------------------------------------------------------------
 Sizing - Gutters
 -----------------------------------------------------------------------------*/
-$gridColumnGutterSize: 2rem; /* Used in partials/_layout.scss */
-$gridRowGutterSize: 1.5rem; /* Used in partials/_layout.scss */
+$gridColumnGutterSize: 2rem;
+/* Used in partials/_layout.scss */
+$gridRowGutterSize: 1.5rem;
+/* Used in partials/_layout.scss */
 
 /* --------------------------------------------------------------------------
 Grid Styles
@@ -15,7 +17,6 @@ Grid Styles
 	grid-template-columns: 1fr;
 }
 
-/* 👉🏻  These classes go on the PARENT container, not the children. */
 .cols-2 {
 	@include tablet-up {
 		grid-template-columns: repeat(2, 1fr);
@@ -66,12 +67,26 @@ Grid Styles
 			}
 		}
 
-		.cols-2 > * { width: calc(50% - #{$gridColumnGutterSize}); }
-		.cols-3 > * { width: calc(33.3% - #{$gridColumnGutterSize}); }
-		.cols-4 > * { width: calc(25% - #{$gridColumnGutterSize}); }
-		.cols-1-2 > :first-of-type { width: calc(33.33% - #{$gridColumnGutterSize}); }
-		.cols-1-2 > :last-of-type { width: calc(66.66% - #{$gridColumnGutterSize}); }
-		.cols-2-1 > :first-of-type { width: calc(66.66% - #{$gridColumnGutterSize}); }
-		.cols-2-1 > :last-of-type { width: calc(33.33% - #{$gridColumnGutterSize}); }
+		.cols-2 > * {
+			width: calc(50% - #{$gridColumnGutterSize});
+		}
+		.cols-3 > * {
+			width: calc(33.3% - #{$gridColumnGutterSize});
+		}
+		.cols-4 > * {
+			width: calc(25% - #{$gridColumnGutterSize});
+		}
+		.cols-1-2 > :first-of-type {
+			width: calc(33.33% - #{$gridColumnGutterSize});
+		}
+		.cols-1-2 > :last-of-type {
+			width: calc(66.66% - #{$gridColumnGutterSize});
+		}
+		.cols-2-1 > :first-of-type {
+			width: calc(66.66% - #{$gridColumnGutterSize});
+		}
+		.cols-2-1 > :last-of-type {
+			width: calc(33.33% - #{$gridColumnGutterSize});
+		}
 	}
 }

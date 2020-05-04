@@ -1,13 +1,43 @@
-/* compiled by scssphp v0.7.6 on Tue, 28 Apr 2020 04:54:51 +0000 (0.1758s) */
+/* compiled by scssphp v0.7.6 on Mon, 04 May 2020 23:38:44 +0000 (0.3271s) */
+
+/* http://meyerweb.com/eric/tools/css/reset/
+ v2.0 | 20110126
+ License: none (public domain)
+ */
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
 
 body {
-  background: red; }
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 /*-----------------------------------------------------------
  Images
  -------------------------------------------------------------*/
 img {
   display: block;
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
 
 .imgSrc50Hero {
   width: 100%; }
@@ -99,59 +129,64 @@ div.imgSrc50.loaded {
 /* --------------------------------------------------------------------------
  Hosted Fonts
  -----------------------------------------------------------------------------*/
-/*
- 👋🏻  Replace the fonts in the fonts folder with the fonts used for your site and include each font you need below.
- 👉🏻  Don't add font files until you know you need them to keep your site fast
- 👉🏻  Use the https://transfonter.org/ generator if additional font file formats are needed
- */
 @font-face {
-  /* 👉🏻  If adding a font using @font-face, the name you use for the font here will be the name you hook up in variables.scss  */
-  font-family: 'Mark Regular';
-  src: url('../fonts/MarkOT.woff2') format('woff2'), url('../fonts/MarkOT.woff') format('woff'), url('../fonts/MarkOT.ttf') format('truetype'), url('../fonts/MarkOT.eot') format('embedded-opentype'); }
+  font-family: 'GT Super Display Bold';
+  src: url("../fonts/GTSuperDisplayTrial-Bold.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Bold.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Bold.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Bold.eot") format('embedded-opentype'); }
 
 @font-face {
-  font-family: 'Saol Medium';
-  src: url('../fonts/SaolText-Medium.woff2') format('woff2'), url('../fonts/SaolText-Medium.woff') format('woff'), url('../fonts/SaolText-Medium.ttf') format('truetype'), url('../fonts/SaolText-Medium.eot') format('embedded-opentype'); }
-/*
- TEMPLATE:
- @font-face {
- font-family: 'Font 1';
- src: url('../fonts/font1.woff2') format('woff2'),
- url('../fonts/font1.woff') format('woff'),
- url('../fonts/font1.ttf') format('truetype'),
- url('../fonts/font1.eot') format('embedded-opentype');
- }
- */
+  font-family: 'GT Super Display Bold Italic';
+  src: url("../fonts/GTSuperDisplayTrialBold-Italic.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrialBold-Italic.woff") format('woff'), url("../fonts/GTSuperDisplayTrialBold-Italic.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrialBold-Italic.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Super Display Medium';
+  src: url("../fonts/GTSuperDisplayTrial-Medium.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Medium.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Medium.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Medium.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Super Display Regular';
+  src: url("../fonts/GTSuperDisplayTrial-Regular.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Regular.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Regular.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Regular.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Super Display Regular Italic';
+  src: url("../fonts/GTSuperDisplayTrialRegular-Italic.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrialRegular-Italic.woff") format('woff'), url("../fonts/GTSuperDisplayTrialRegular-Italic.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrialRegular-Italic.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Walsheim Regular';
+  src: url("../fonts/GTWalsheimProTrial-Regular.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-Regular.woff") format('woff'), url("../fonts/GTWalsheimProTrial-Regular.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-Regular.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Walsheim Regular Italic';
+  src: url("../fonts/GTWalsheimProTrial-RegularOblique.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-RegularOblique.woff") format('woff'), url("../fonts/GTWalsheimProTrial-RegularOblique.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-RegularOblique.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Walsheim Bold';
+  src: url("../fonts/GTWalsheimProTrial-Bold.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-Bold.woff") format('woff'), url("../fonts/GTWalsheimProTrial-Bold.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-Bold.eot") format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'GT Walsheim Bold Italic';
+  src: url("../fonts/GTWalsheimProTrial-BoldOblique.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-BoldOblique.woff") format('woff'), url("../fonts/GTWalsheimProTrial-BoldOblique.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-BoldOblique.eot") format('embedded-opentype'); }
 /* --------------------------------------------------------------------------
  Fonts
  -----------------------------------------------------------------------------*/
-/* 👋🏻  Hook up your fonts from fonts.scss */
-/* 👋🏻  Choose a role for each font below. Add additional roles as needed. */
 /* --------------------------------------------------------------------------
  Colors
  -----------------------------------------------------------------------------*/
-/* 👋🏻  Add any colors used in the design */
-/* 👋🏻  Choose a color for each role below, and add any other variables needed. */
 /* --------------------------------------------------------------------------
  Font Sizes
  -----------------------------------------------------------------------------*/
-/* 👉🏻  It's recommended that you don't change this base size.  */
-/* 👉🏻  To have all type scale smaller on mobile, adjust the number below to anything less than 10px (optional).  */
-/* 👋🏻  Take a look at the design and replace/add any common font sizes in the design below. */
-/* These are already hooked up in typography.scss. */
-/* 👉🏻  Pointer: Use rems for sizing, 2.2rem is equivalent to 22px, 1.5rem is equvalent to 15px etc. */
 /* --------------------------------------------------------------------------
  Font Styles
  -----------------------------------------------------------------------------*/
-/* 👋🏻  Add any other common font styles here, such as line-height and letter-spacing */
 /* --------------------------------------------------------------------------
  Mixins
  -----------------------------------------------------------------------------*/
-/* 👋🏻  Add blocks of reusable styles here (optional). */
+.callout-section {
+  background-color: #f7f5f1;
+  color: #432f21; }
+  .callout-section a {
+    color: #432f21; }
 /* --------------------------------------------------------------------------
  Responsive Mixins
  -----------------------------------------------------------------------------*/
-/* Adjust breakpoints below if needed  */
 /* --------------------------------------------------------------------------
  Hide / Show
  -----------------------------------------------------------------------------*/
@@ -168,55 +203,134 @@ div.imgSrc50.loaded {
  Typography
  -----------------------------------------------------------------------------*/
 html {
-  font-size: 10px; }
+  font-size: 10px;
+  font-size: 0.6944444444vw; }
 
 body {
   background-color: #fff;
-  font-family: 'Mark Regular', sans-serif;
-  font-size: 1.8rem;
-  color: #383938;
-  line-height: 1.6;
-  letter-spacing: 0.05rem;
+  font-family: 'GT Walsheim Regular', sans-serif;
+  font-size: 1.6rem;
+  color: #302219;
+  line-height: 1.2;
+  letter-spacing: 0;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased; }
+  @media (max-width: 768px) {
+  body {
+    font-size: 1.6rem; } }
 /* --------------------------------------------------------------------------
  Anchors
  -----------------------------------------------------------------------------*/
 a {
-  color: #5d6787;
+  color: inherit;
   text-decoration: none;
   transition: all 0.3s ease-in-out; }
 
-a:hover, a:active {
-  color: #485069; }
+a:active, a:hover {
+  color: inherit; }
 /* --------------------------------------------------------------------------
  Headings
  -----------------------------------------------------------------------------*/
-h1, h2, h3, h4 {
-  font-family: 'Saol Medium', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'GT Super Display Medium', serif;
   font-weight: normal;
   font-style: normal; }
 
-h1 {
-  font-size: 2.7rem; }
+.h1, h1 {
+  font-size: 4.6rem;
+  line-height: 1.217;
+  margin-bottom: 3.33rem; }
+  @media (max-width: 768px) {
+  .h1, h1 {
+    margin-bottom: 1.4rem;
+    font-size: 2.6rem; } }
 
-h2 {
-  font-size: 2.4rem; }
+.h2, h2 {
+  font-size: 3.4rem;
+  line-height: 1.176;
+  margin-bottom: 4rem; }
+  @media (max-width: 768px) {
+  .h2, h2 {
+    margin-bottom: 1.4rem;
+    font-size: 2.1rem; } }
 
-h3 {
-  font-size: 2rem; }
 /* --------------------------------------------------------------------------
  Rules
  -----------------------------------------------------------------------------*/
+
 hr {
   border: 0;
   border-bottom: 1px solid #383938; }
 /* --------------------------------------------------------------------------
+ SMALL CAPS
+ -----------------------------------------------------------------------------*/
+.masthead .category-row a, .small-caps {
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 0.1rem;
+  font-family: 'GT Walsheim Bold', sans-serif;
+  font-size: 1.6rem;
+  color: #ba6b39; }
+  @media (max-width: 768px) {
+  .masthead .category-row a, .small-caps {
+    font-size: 1.2rem; } }
+/* --------------------------------------------------------------------------
+ OTHER TEXT
+ -----------------------------------------------------------------------------*/
+.desc, .desc-sans {
+  line-height: 1.625;
+  font-size: 1.6rem; }
+  @media (max-width: 768px) {
+  .desc, .desc-sans {
+    font-size: 1.3rem;
+    line-height: 1.4; } }
+  .desc a, .desc-sans a {
+    color: #ba6b39;
+    text-decoration: underline; }
+  .desc b, .desc-sans b, .desc strong, .desc-sans strong {
+    font-weight: normal; }
+  .desc em, .desc-sans em {
+    font-style: normal; }
+
+.desc {
+  font-family: 'GT Super Display Regular', serif; }
+  .desc em {
+    font-family: 'GT Super Display Regular Italic', serif; }
+
+[class*="desc-sans"] {
+  font-family: 'GT Walsheim Regular', sans-serif; }
+  [class*="desc-sans"] em {
+    font-family: 'GT Walsheim Regular Italic', sans-serif; }
+
+.desc-sm {
+  font-family: 'GT Super Display Bold', serif;
+  font-weight: normal; }
+
+.desc-sans-sm, .desc-sm {
+  line-height: 1.5;
+  font-size: 1.2rem; }
+  @media (max-width: 768px) {
+  .desc-sans-sm, .desc-sm {
+    font-size: 1rem; } }
+/* --------------------------------------------------------------------------
  Responsive Design
  -----------------------------------------------------------------------------*/
-@media only screen and (max-width: 750px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   html {
-    font-size: 9px; } }
+    font-size: 8px;
+    font-size: 0.8vw; } }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 2.5vw; } }
+
+@media only screen and (max-width: 768px) and (min-width: 580px) {
+  html {
+    font-size: 1.8vw; } }
+
+@media only screen and (min-width: 1800px) {
+  html {
+    font-size: 13px; } }
 /* --------------------------------------------------------------------------
  Layout Helpers
  -----------------------------------------------------------------------------*/
@@ -228,24 +342,70 @@ hr {
 * {
   box-sizing: border-box; }
 
-html, body {
+body, html {
   overflow-x: hidden; }
 /* --------------------------------------------------------------------------
  Vertical & Horizontal Alignment
  -----------------------------------------------------------------------------*/
 /* Center vertically  */
 /* Center vertically and horizontally */
+.split-aligner {
+  display: flex;
+  justify-content: space-between; }
+
+.end-aligner {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column; }
 /* --------------------------------------------------------------------------
  Centered Layout
  -----------------------------------------------------------------------------*/
+[class*="container"] {
+  width: 100%; }
+
 .container {
-  width: 92%;
-  max-width: 1200px;
+  padding-left: 14rem;
+  padding-right: 14rem; }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    [class*="container"] {
+      padding-left: 8rem;
+      padding-right: 8rem; } }
+  @media (max-width: 768px) {
+  [class*="container"] {
+    padding-left: 2.6rem;
+    padding-right: 2.6rem; } }
+  [class*="container"].right-only {
+    padding-left: 0; }
+  [class*="container"].left-only {
+    padding-right: 0; }
+
+.container-xs, .masthead .featured-caption {
+  max-width: 76.8rem;
   margin-left: auto;
   margin-right: auto; }
-  @media (min-width: 768px) {
-  .container .container {
-    width: 96%; } }
+
+.container-sm {
+  max-width: 86.4rem;
+  margin-left: auto;
+  margin-right: auto; }
+
+.container-md {
+  max-width: 96.4rem;
+  margin-left: auto;
+  margin-right: auto; }
+
+.padded {
+  padding-top: 6.5rem;
+  padding-bottom: 7rem; }
+  @media (max-width: 1024px) and (min-width: 769px) {
+  .padded {
+    padding-top: 12rem;
+    padding-bottom: 12rem; } }
+  @media (max-width: 768px) {
+  .padded {
+    padding-top: 9.5rem;
+    padding-bottom: 9.5rem; } }
 /* --------------------------------------------------------------------------
  Sticky Footer
  -----------------------------------------------------------------------------*/
@@ -261,7 +421,7 @@ html, body {
 /* --------------------------------------------------------------------------
  Clearfix helpers (for floats)
  -----------------------------------------------------------------------------*/
-.clearfix:before, .no-cssgrid [class^="cols"]:before, .clearfix:after, .no-cssgrid [class^="cols"]:after {
+.clearfix:after, .no-cssgrid [class^="cols"]:after, .clearfix:before, .no-cssgrid [class^="cols"]:before {
   display: table;
   content: " "; }
 
@@ -286,27 +446,27 @@ html, body {
   grid-column-gap: 2rem;
   grid-row-gap: 1.5rem;
   grid-template-columns: 1fr; }
-/* 👉🏻  These classes go on the PARENT container, not the children. */
-@media (min-width: 768px) {
+
+@media (min-width: 769px) {
     .cols-2 {
       grid-template-columns: repeat(2, 1fr); } }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .cols-3 {
       grid-template-columns: repeat(3, 1fr); } }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .cols-4 {
       grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
   .cols-4 {
     grid-template-columns: repeat(4, 1fr); } }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .cols-1-2 {
       grid-template-columns: 1fr 2fr; } }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .cols-2-1 {
       grid-template-columns: 2fr 1fr; } }
 /* ⭐  Styles for IE & OLDER BROWSERS that don't support CSS Grid using Modernizr's .no-cssgrid class  */
@@ -314,7 +474,7 @@ html, body {
   /* Use floats for older browsers to turn elements into columns for screens larger than the tablet-up breakpoint in variables.scss */ }
   .no-cssgrid [class^="cols"] > * {
     margin-bottom: 1.5rem; }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
   .no-cssgrid [class^="cols"] {
     margin-left: -2rem; }
     .no-cssgrid [class^="cols"] > * {
@@ -370,19 +530,19 @@ input, textarea {
 
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #454645; }
+  color: #412e22; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #454645; }
+  color: #412e22; }
 
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #454645; }
+  color: #412e22; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #454645; }
+  color: #412e22; }
 /* --------------------------------------------------------------------------
  Validation
  -----------------------------------------------------------------------------*/
@@ -435,10 +595,10 @@ input, textarea {
  Header Navigation Styles
  -----------------------------------------------------------------------------*/
 .nav-wrapper nav a, .nav-wrapper nav a:visited {
-  color: #5d6787;
+  color: #302219;
   margin-left: 18px; }
   .nav-wrapper nav a:hover {
-    color: #33394b; }
+    color: #000; }
   .nav-wrapper nav .current-page {
     /* Styles for the currently active link */ }
 /* ==============   MOBILE NAV STYLES  ============== */
@@ -532,4 +692,62 @@ footer nav a, footer nav a:visited {
 /* --------------------------------------------------------------------------
  Section Comment
  -----------------------------------------------------------------------------*/
-/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22scss%5C%2Fstyle.scss%22%2C%22scss%5C%2Fpartials%5C%2F_images.scss%22%2C%22scss%5C%2Fpartials%5C%2F_fonts.scss%22%2C%22scss%5C%2Fpartials%5C%2F_variables.scss%22%2C%22scss%5C%2Fpartials%5C%2F_typography.scss%22%2C%22scss%5C%2Fpartials%5C%2F_layout.scss%22%2C%22scss%5C%2Fpartials%5C%2F_grid.scss%22%2C%22scss%5C%2Fpartials%5C%2F_forms.scss%22%2C%22scss%5C%2Fpartials%5C%2F_nav.scss%22%2C%22scss%5C%2Fpartials%5C%2Ffooter.scss%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAAD%3BAAAA%2CkBAAA%2CEAAA%3BAAAA%3B%3BgEAAA%3BACGC%3BAAAA%3BkBAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BaAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3BkCAAA%2CEAAA%3BADxBD%3B%3BgEAAA%3BACqCC%3BAAAA%3B%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3BuBAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BkCAAA%2CEAAA%3BADjED%3B%3BgEAAA%3BAC2EC%3BAAAA%3B%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BAASE%3BAAAA%2CeAAA%2CEAAA%3BAAGD%3BAAAA%3B%3B%3B%3B%3B%3BeAAA%2CEAAA%3BAASC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByCAAA%2CEAAA%3BAAcE%3BAAAA%3ByBAAA%2CEAAA%3BAD9GL%3B%3BgFAAA%3BAAAA%3B%3B%3B%3BGAAA%3BAESC%3BAAAA%3B%3BuMAAA%2CEAAA%3BAAAA%3BAASA%3BAAAA%3B2OAAA%2CEAAA%3BAFlBD%3B%3B%3B%3B%3B%3B%3B%3B%3BGAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CkDAAA%3BAAAA%2CkFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CiDAAA%3BAAAA%2CuFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CuEAAA%3BAAAA%2CyHAAA%3BAAAA%2CoGAAA%3BAAAA%2CqDAAA%3BAAAA%2C4GAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2C6FAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2C8DAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CyCAAA%3BAAAA%3B%3BgFAAA%3BAGmGC%3BAAAA%2CgBAAA%2CEAAA%3BAA3BE%3BAAAA%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAHxEH%3B%3BgFAAA%3BAIGC%3BAAAA%2CkBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3B%3BsCAAA%2CEAAA%3BAJPD%3B%3BgFAAA%3BAIsBC%3BAAAA%3B%3BmCAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CiBAAA%2CEAAA%3BAJ5BD%3B%3BgFAAA%3BAIoCC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CoBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CoBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CkBAAA%2CEAAA%3BAJlDD%3B%3BgFAAA%3BAIyDC%3BAAAA%3BmCAAA%2CEAAA%3BAJzDD%3B%3BgFAAA%3BAIiEC%3BAACE%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAJlEH%3B%3BgFAAA%3BAKGC%3BAAAA%2CgBAAA%2CEAAA%3BALHD%3B%3BgFAAA%3BAKUC%3BAAAA%2CyBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CqBAAA%2CEAAA%3BALdD%3B%3BgFAAA%3BAAAA%2CwBAAA%3BAAAA%2CwCAAA%3BAAAA%3B%3BgFAAA%3BAKuDC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%3BAF6BE%3BAEvBA%3BAAAA%2CeAAA%2CEAAA%2CEAAA%3BAL7DH%3B%3BgFAAA%3BAKsEC%3BAAAA%3BoGAAA%2CEAAA%3BAAEC%3BAAAA%3B%3B2BAAA%2CEAAA%3BAAOA%3BAAAA%2CYAAA%2CEAAA%3BAL%5C%2FEF%3B%3BgFAAA%3BAKuFC%3BAAAA%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3BcAAA%2CEAAA%3BALjGD%3B%3BgFAAA%3BAAAA%2CmCAAA%3BAAAA%2CmCAAA%3BAAAA%3B%3BgFAAA%3BAMSC%3BAAAA%3B%3B%3B%3B6BAAA%2CEAAA%3BANTD%2C2EAAA%3BAGoFG%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2C0CAAA%2CEAAA%2CEAAA%3BAAAA%3BAANA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAHpFH%2C0GAAA%3BAMkDC%3BAAAA%2CsIAAA%2CEAAA%3BAAGE%3BAAAA%2C0BAAA%2CEAAA%3BAH%2BBA%3BAGxBA%3BAAAA%2CuBAAA%2CEAAA%3BAAEC%3BAAAA%3BwBAAA%2CEAAA%3BAAAA%3BAAMD%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CgCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%2CEAAA%3BAN1EH%3B%3BgFAAA%3BAOGC%3BAAAA%3B%3B%3B%3B%3B%3B%3ByIAAA%2CEAAA%3BAPHD%3B%3BkFAAA%3BAAAA%3BAOsBC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B0BAAA%2CEAAA%3BAAAA%3BAAcA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAP7CD%3B%3BgFAAA%3BAOqDC%3BAAAA%3BsBAAA%2CEAAA%3BAJmBE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAIZF%3BAAAA%3B%3B%3B%3B8BAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByBAAA%2CEAAA%3BAAmBC%3BAAAA%3BkBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAP3FF%3B%3BgFAAA%3BAQGC%3BAAAA%3B%3BmBAAA%2CEAAA%3BARHD%3B%3BgFAAA%3BAQaE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%2C8CAAA%2CEAAA%3BARrBF%2CwDAAA%3BAGwEG%3BAK5CD%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BwBAAA%2CEAAA%3BAAeC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%2CEAAA%3BAR3CH%2CsDAAA%3BAQqDC%3BAAAA%2C0DAAA%2CEAAA%3BAACC%3BAAAA%3BwBAAA%2CEAAA%3BARtDF%3B%3BgFAAA%3BAQkEC%3BAAAA%3B%3B%3B%3B%3B%3B%3BkBAAA%2CEAAA%3BAASC%3BAAAA%3B%3B%3B%3B%3BqCAAA%2CEAAA%3BAAQA%3BAAAA%2CWAAA%2CEAAA%3BAAGA%3BAAAA%2CaAAA%2CEAAA%3BAAGA%3BAAAA%2CcAAA%2CEAAA%3BARzFF%2C8DAAA%3BAGwEG%3BAKwBD%3BAAAA%3BoBAAA%2CEAAA%2CEAAA%3BARhGF%2CuEAAA%3BAQuGC%3BAAAA%2CiCAAA%2CEAAA%3BAAEC%3BAAAA%2CoBAAA%2CEAAA%3BAAEC%3BAAAA%3BgCAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3B%2BBAAA%2CEAAA%3BARnHH%3B%3BgFAAA%3BASIE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CmBAAA%2CEAAA%3BATTF%3B%3BgFAAA%3BASiBC%3BAAAA%3B%3B%3BoBAAA%2CEAAA%3BATjBD%3B%3BgFAAA%22%7D */
+/* --------------------------------------------------------------------------
+ GENERAL
+ -----------------------------------------------------------------------------*/
+.masthead {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  text-align: center; }
+/* --------------------------------------------------------------------------
+ CATEGORY
+ -----------------------------------------------------------------------------*/
+.masthead .category-row {
+  margin-bottom: 5.2rem; }
+  @media (max-width: 768px) {
+  .masthead .category-row {
+    margin-bottom: 1.8rem; } }
+  /* --------------------------------------------------------------------------
+   TITLE
+   -----------------------------------------------------------------------------*/
+
+.masthead .main-heading {
+  max-width: 86.4rem;
+  margin-left: auto;
+  margin-right: auto; }
+/* --------------------------------------------------------------------------
+ AUTHOR
+ -----------------------------------------------------------------------------*/
+.masthead .author {
+  color: #ba6b39;
+  margin-bottom: 4rem; }
+  @media (max-width: 768px) {
+  .masthead .author {
+    margin-bottom: 1.4rem; } }
+/* --------------------------------------------------------------------------
+ CAPTION
+ -----------------------------------------------------------------------------*/
+.masthead .caption {
+  max-width: 60.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4.8rem; }
+  @media (max-width: 768px) {
+  .masthead .caption {
+    margin-bottom: 1.8rem; } }
+/* --------------------------------------------------------------------------
+ IMAGE / VIDEO
+ -----------------------------------------------------------------------------*/
+.masthead .featured-image img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  .masthead .featured-image + .featured-caption {
+    margin-top: 4.18rem; }
+    @media (max-width: 768px) {
+  .masthead .featured-image + .featured-caption {
+    margin-top: 1.2rem; } }
+  /* --------------------------------------------------------------------------
+   CREDITS
+   -----------------------------------------------------------------------------*/
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22scss%5C%2Fstyle.scss%22%2C%22scss%5C%2Fpartials%5C%2F_reset.scss%22%2C%22scss%5C%2Fpartials%5C%2F_images.scss%22%2C%22scss%5C%2Fpartials%5C%2F_fonts.scss%22%2C%22scss%5C%2Fpartials%5C%2F_variables.scss%22%2C%22scss%5C%2Fpartials%5C%2F_typography.scss%22%2C%22scss%5C%2Fpartials%5C%2F_layout.scss%22%2C%22scss%5C%2Fpartials%5C%2F_grid.scss%22%2C%22scss%5C%2Fpartials%5C%2F_forms.scss%22%2C%22scss%5C%2Fpartials%5C%2F_nav.scss%22%2C%22scss%5C%2Fpartials%5C%2Ffooter.scss%22%2C%22scss%5C%2Fsections%5C%2Fmasthead.scss%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AACD%3B%3B%3BGAAA%3BACIC%3BAAAA%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BADJD%2CiDAAA%3BAC6FC%3BAAAA%2CiBAAA%2CEAAA%3BAAAA%3BAAaA%3BAAAA%2CiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CeAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BgBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BoBAAA%2CEAAA%3BAD5HD%3B%3BgEAAA%3BAEEC%3BAAAA%3B%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BaAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3BkCAAA%2CEAAA%3BAFxBD%3B%3BgEAAA%3BAEoCC%3BAAAA%3B%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3BuBAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BkCAAA%2CEAAA%3BAFhED%3B%3BgEAAA%3BAE0EC%3BAAAA%3B%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BAASE%3BAAAA%2CeAAA%2CEAAA%3BAAGA%3BAAAA%3B%3B%3B%3B%3B%3BeAAA%2CEAAA%3BAASA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByCAAA%2CEAAA%3BAAcE%3BAAAA%3ByBAAA%2CEAAA%3BAF7GL%3B%3BgFAAA%3BAGEC%3BAAAA%3B%2BQAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuSAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuRAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B2RAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BmTAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuRAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BmTAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B2QAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuSAAA%2CEAAA%3BAH1CD%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAIuCC%3BAAAA%3BiBAAA%2CEAAA%3BAAIE%3BAAAA%2CmBAAA%2CEAAA%3BAJ3CH%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAIiHC%3BAAAA%2CgBAAA%2CEAAA%3BAAxDE%3BAAAA%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAKEC%3BAAAA%3B4BAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3B%3B%3B%3B%3B%3BsCAAA%2CEAAA%3BADkDE%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAKwBC%3BAAAA%3B%3BmCAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CiBAAA%2CEAAA%3BAL9BD%3B%3BgFAAA%3BAKsCC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAWA%3BAAAA%3B%3ByBAAA%2CEAAA%3BADQE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAAAA%3BACGF%3BAAAA%3B%3BsBAAA%2CEAAA%3BADHE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAAAA%3BAJzDH%3B%3BgFAAA%3BAAAA%3BAK4EC%3BAAAA%3BmCAAA%2CEAAA%3BAL5ED%3B%3BgFAAA%3BAKoFC%3BAAAA%3B%3B%3B%3B%3BiBAAA%2CEAAA%3BAD3BE%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAKoGC%3BAAAA%3BoBAAA%2CEAAA%3BAD3CE%3BAAAA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BACmDA%3BAAAA%3B%2BBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAAIA%3BAAAA%2CuBAAA%2CEAAA%3BAAAA%3BAAKF%3BAAAA%2CiDAAA%2CEAAA%3BAAEE%3BAAAA%2C0DAAA%2CEAAA%3BAAAA%3BAAKF%3BAAAA%2CiDAAA%2CEAAA%3BAAEE%3BAAAA%2C0DAAA%2CEAAA%3BAAAA%3BAAMF%3BAAAA%3BsBAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BoBAAA%2CEAAA%3BADpFE%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAIqEG%3BACqFA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BAAAA%3BADjGA%3BACwGA%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAKF%3BAACE%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAKF%3BAACE%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAL7KH%3B%3BgFAAA%3BAMEC%3BAAAA%2CgBAAA%2CEAAA%3BANFD%3B%3BgFAAA%3BAMSC%3BAAAA%2CyBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CqBAAA%2CEAAA%3BANbD%3B%3BgFAAA%3BAAAA%2CwBAAA%3BAAAA%2CwCAAA%3BAMoDC%3BAAAA%3BiCAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3ByBAAA%2CEAAA%3BANzDD%3B%3BgFAAA%3BAMqEC%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BuBAAA%2CEAAA%3BAAAA%3BAFJE%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAE8BD%3BAAAA%2CoBAAA%2CEAAA%3BAAGA%3BAAAA%2CqBAAA%2CEAAA%3BAAAA%3BAAKD%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%3BuBAAA%2CEAAA%3BAF5CE%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%3B2BAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAMiIC%3BAAAA%3BoGAAA%2CEAAA%3BAAEC%3BAAAA%3B%3B2BAAA%2CEAAA%3BAAOA%3BAAAA%2CYAAA%2CEAAA%3BAN1IF%3B%3BgFAAA%3BAMkJC%3BAAAA%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3BcAAA%2CEAAA%3BAN5JD%3B%3BgFAAA%3BAAAA%2CmCAAA%3BAAAA%2CmCAAA%3BAAAA%3B%3BgFAAA%3BAOUC%3BAAAA%3B%3B%3B%3B6BAAA%2CEAAA%3BAAAA%3BAHiEE%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2C0CAAA%2CEAAA%2CEAAA%3BAAAA%3BAANA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAJ3EH%2C0GAAA%3BAOkDC%3BAAAA%2CsIAAA%2CEAAA%3BAAGE%3BAAAA%2C0BAAA%2CEAAA%3BAHsBA%3BAGfA%3BAAAA%2CuBAAA%2CEAAA%3BAAEC%3BAAAA%3BwBAAA%2CEAAA%3BAAAA%3BAAMD%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CgCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%2CEAAA%3BAPtFH%3B%3BgFAAA%3BAQEC%3BAAAA%3B%3B%3B%3B%3B%3B%3ByIAAA%2CEAAA%3BARFD%3B%3BkFAAA%3BAAAA%3BAQqBC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B0BAAA%2CEAAA%3BAAAA%3BAAcA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAR5CD%3B%3BgFAAA%3BAQoDC%3BAAAA%3BsBAAA%2CEAAA%3BAJKE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAIEF%3BAAAA%3B%3B%3B%3B8BAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByBAAA%2CEAAA%3BAAmBC%3BAAAA%3BkBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAR1FF%3B%3BgFAAA%3BASEC%3BAAAA%3B%3BmBAAA%2CEAAA%3BATFD%3B%3BgFAAA%3BASYE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CgBAAA%2CEAAA%3BAAGA%3BAAAA%2C8CAAA%2CEAAA%3BATpBF%2CwDAAA%3BAIyDG%3BAK9BD%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BwBAAA%2CEAAA%3BAAeC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%2CEAAA%3BAT1CH%2CsDAAA%3BASoDC%3BAAAA%2C0DAAA%2CEAAA%3BAACC%3BAAAA%3BwBAAA%2CEAAA%3BATrDF%3B%3BgFAAA%3BASiEC%3BAAAA%3B%3B%3B%3B%3B%3B%3BkBAAA%2CEAAA%3BAASC%3BAAAA%3B%3B%3B%3B%3BqCAAA%2CEAAA%3BAAQA%3BAAAA%2CWAAA%2CEAAA%3BAAGA%3BAAAA%2CaAAA%2CEAAA%3BAAGA%3BAAAA%2CcAAA%2CEAAA%3BATxFF%2C8DAAA%3BAIyDG%3BAKsCD%3BAAAA%3BoBAAA%2CEAAA%2CEAAA%3BAT%5C%2FFF%2CuEAAA%3BASsGC%3BAAAA%2CiCAAA%2CEAAA%3BAAEC%3BAAAA%2CoBAAA%2CEAAA%3BAAEC%3BAAAA%3BgCAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3B%2BBAAA%2CEAAA%3BATlHH%3B%3BgFAAA%3BAUGE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CmBAAA%2CEAAA%3BAVRF%3B%3BgFAAA%3BAUgBC%3BAAAA%3B%3B%3BoBAAA%2CEAAA%3BAVhBD%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAWEC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAXFD%3B%3BgFAAA%3BAWWC%3BAAAA%2CwBAAA%2CEAAA%3BAP8CE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BkFAAA%3BAAAA%3BAWwBC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAXxBD%3B%3BgFAAA%3BAWiCC%3BAAAA%3BsBAAA%2CEAAA%3BAPwBE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAW2CC%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BAPcE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BgFAAA%3BAWyDK%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAMF%3BAAAA%2CwBAAA%2CEAAA%3BAPNA%3BAAAA%3BAAAA%2CuBAAA%2CEAAA%2CEAAA%3BAJzDH%3B%3BkFAAA%22%7D */

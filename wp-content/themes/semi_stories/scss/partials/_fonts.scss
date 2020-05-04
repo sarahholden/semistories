@@ -1,47 +1,63 @@
 /* --------------------------------------------------------------------------
 Hosted Fonts
 -----------------------------------------------------------------------------*/
-/*
-👋🏻  Replace the fonts in the fonts folder with the fonts used for your site and include each font you need below.
-   👉🏻  Don't add font files until you know you need them to keep your site fast
-   👉🏻  Use the https://transfonter.org/ generator if additional font file formats are needed
-*/
-
 @font-face {
-  /* 👉🏻  If adding a font using @font-face, the name you use for the font here will be the name you hook up in variables.scss  */
-  font-family: 'Mark Regular';
-  src: url('../fonts/MarkOT.woff2') format('woff2'),
-       url('../fonts/MarkOT.woff') format('woff'),
-       url('../fonts/MarkOT.ttf') format('truetype'),
-       url('../fonts/MarkOT.eot') format('embedded-opentype');
+  font-family: 'GT Super Display Bold';
+  src: url("../fonts/GTSuperDisplayTrial-Bold.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Bold.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Bold.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Bold.eot") format('embedded-opentype');
 }
 
 @font-face {
-  font-family: 'Saol Medium';
-  src: url('../fonts/SaolText-Medium.woff2') format('woff2'),
-       url('../fonts/SaolText-Medium.woff') format('woff'),
-       url('../fonts/SaolText-Medium.ttf') format('truetype'),
-       url('../fonts/SaolText-Medium.eot') format('embedded-opentype');
+  font-family: 'GT Super Display Bold Italic';
+  src: url("../fonts/GTSuperDisplayTrialBold-Italic.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrialBold-Italic.woff") format('woff'), url("../fonts/GTSuperDisplayTrialBold-Italic.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrialBold-Italic.eot") format('embedded-opentype');
 }
 
-/*
-TEMPLATE:
 @font-face {
-  font-family: 'Font 1';
-  src: url('../fonts/font1.woff2') format('woff2'),
-       url('../fonts/font1.woff') format('woff'),
-       url('../fonts/font1.ttf') format('truetype'),
-       url('../fonts/font1.eot') format('embedded-opentype');
+  font-family: 'GT Super Display Medium';
+  src: url("../fonts/GTSuperDisplayTrial-Medium.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Medium.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Medium.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Medium.eot") format('embedded-opentype');
 }
-*/
+
+@font-face {
+  font-family: 'GT Super Display Regular';
+  src: url("../fonts/GTSuperDisplayTrial-Regular.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Regular.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Regular.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Regular.eot") format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'GT Super Display Regular Italic';
+  src: url("../fonts/GTSuperDisplayTrialRegular-Italic.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrialRegular-Italic.woff") format('woff'), url("../fonts/GTSuperDisplayTrialRegular-Italic.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrialRegular-Italic.eot") format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'GT Walsheim Regular';
+  src: url("../fonts/GTWalsheimProTrial-Regular.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-Regular.woff") format('woff'), url("../fonts/GTWalsheimProTrial-Regular.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-Regular.eot") format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'GT Walsheim Regular Italic';
+  src: url("../fonts/GTWalsheimProTrial-RegularOblique.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-RegularOblique.woff") format('woff'), url("../fonts/GTWalsheimProTrial-RegularOblique.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-RegularOblique.eot") format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'GT Walsheim Bold';
+  src: url("../fonts/GTWalsheimProTrial-Bold.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-Bold.woff") format('woff'), url("../fonts/GTWalsheimProTrial-Bold.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-Bold.eot") format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'GT Walsheim Bold Italic';
+  src: url("../fonts/GTWalsheimProTrial-BoldOblique.woff2") format('woff2'), url("../fonts/GTWalsheimProTrial-BoldOblique.woff") format('woff'), url("../fonts/GTWalsheimProTrial-BoldOblique.ttf") format('truetype'), url("../fonts/GTWalsheimProTrial-BoldOblique.eot") format('embedded-opentype');
+}
 
 /* --------------------------------------------------------------------------
 Fonts
 -----------------------------------------------------------------------------*/
-/* 👋🏻  Hook up your fonts from fonts.scss */
-$markRegular: 'Mark Regular', sans-serif;
-$saolMedium: 'Saol Medium', sans-serif;
+$superReg: 'GT Super Display Regular', serif;
+$superRegItalic: 'GT Super Display Regular Italic', serif;
+$superMed: 'GT Super Display Medium', serif;
+$superBold: 'GT Super Display Bold', serif;
+$superBoldItalic: 'GT Super Display Bold Italic', serif;
+$walsheimReg: 'GT Walsheim Regular', sans-serif;
+$walsheimRegItalic: 'GT Walsheim Regular Italic', sans-serif;
+$walsheimBold: 'GT Walsheim Bold', sans-serif;
+$walsheimBoldItalic: 'GT Walsheim Bold Italic', sans-serif;
 
-/* 👋🏻  Choose a role for each font below. Add additional roles as needed. */
-$bodyTextFont: $markRegular;
-$headingFont: $saolMedium;
+$bodyTextFont: $walsheimReg;
+$headingFont: $superMed;

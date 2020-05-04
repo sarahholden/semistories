@@ -1,6 +1,5 @@
-body {
-  background: red;
-}
+
+@import 'partials/reset';
 @import 'partials/images';
 @import 'partials/fonts';
 @import 'partials/variables';
@@ -14,3 +13,4 @@ body {
 /* --------------------------------------------------------------------------
 Section Comment
 -----------------------------------------------------------------------------*/
+@import 'sections/masthead';
