@@ -1,0 +1,111 @@
+/* --------------------------------------------------------------------------
+Colors
+-----------------------------------------------------------------------------*/
+/* 👋🏻  Add any colors used in the design */
+$black: #383938;
+$white: #FFF;
+$grayBlue: #5d6787;
+$cream: #F4F2EC;
+
+
+/* 👋🏻  Choose a color for each role below, and add any other variables needed. */
+$primaryBgColor: $white;
+$primaryTextColor: $black;
+$primaryAnchorColor: $grayBlue;
+
+$secondaryBgColor: $cream;
+$secondaryTextColor: $black;
+
+$borderColor: #383938;
+$border: 1px solid $borderColor;
+
+
+/* --------------------------------------------------------------------------
+Font Sizes
+-----------------------------------------------------------------------------*/
+/* 👉🏻  It's recommended that you don't change this base size.  */
+$baseSize: 10px;
+/* 👉🏻  To have all type scale smaller on mobile, adjust the number below to anything less than 10px (optional).  */
+$mobileBaseSize: 9px;
+
+
+/* 👋🏻  Take a look at the design and replace/add any common font sizes in the design below. */
+/* These are already hooked up in typography.scss. */
+  /* 👉🏻  Pointer: Use rems for sizing, 2.2rem is equivalent to 22px, 1.5rem is equvalent to 15px etc. */
+$bodyTextFontSize: 1.8rem;
+
+$largeHeadingFontSize: 2.7rem;
+$mediumHeadingFontSize: 2.4rem;
+$smallHeadingFontSize: 2rem;
+
+/* --------------------------------------------------------------------------
+Font Styles
+-----------------------------------------------------------------------------*/
+/* 👋🏻  Add any other common font styles here, such as line-height and letter-spacing */
+$bodyTextLineHeight: 1.6;
+$bodyTextLetterSpacing: .05rem;
+
+/* --------------------------------------------------------------------------
+Mixins
+-----------------------------------------------------------------------------*/
+/* 👋🏻  Add blocks of reusable styles here (optional). */
+%smallCaps {
+  text-transform: uppercase;
+  font-size: $smallHeadingFontSize;
+  line-height: 1.6;
+  letter-spacing: .1rem;
+}
+
+%secondarySection {
+  background-color: $secondaryBgColor;
+  color: $secondaryTextColor;
+}
+
+/* --------------------------------------------------------------------------
+Responsive Mixins
+-----------------------------------------------------------------------------*/
+
+/* Adjust breakpoints below if needed  */
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile-only {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+Hide / Show
+-----------------------------------------------------------------------------*/
+.hide-mobile {
+  display: none;
+  @include mobile-only {
+    display: block;
+  }
+}
+
+.show-mobile {
+  @include mobile-only {
+    display: none;
+  }
+}

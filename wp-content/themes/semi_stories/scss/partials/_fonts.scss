@@ -1,0 +1,47 @@
+/* --------------------------------------------------------------------------
+Hosted Fonts
+-----------------------------------------------------------------------------*/
+/*
+👋🏻  Replace the fonts in the fonts folder with the fonts used for your site and include each font you need below.
+   👉🏻  Don't add font files until you know you need them to keep your site fast
+   👉🏻  Use the https://transfonter.org/ generator if additional font file formats are needed
+*/
+
+@font-face {
+  /* 👉🏻  If adding a font using @font-face, the name you use for the font here will be the name you hook up in variables.scss  */
+  font-family: 'Mark Regular';
+  src: url('../fonts/MarkOT.woff2') format('woff2'),
+       url('../fonts/MarkOT.woff') format('woff'),
+       url('../fonts/MarkOT.ttf') format('truetype'),
+       url('../fonts/MarkOT.eot') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'Saol Medium';
+  src: url('../fonts/SaolText-Medium.woff2') format('woff2'),
+       url('../fonts/SaolText-Medium.woff') format('woff'),
+       url('../fonts/SaolText-Medium.ttf') format('truetype'),
+       url('../fonts/SaolText-Medium.eot') format('embedded-opentype');
+}
+
+/*
+TEMPLATE:
+@font-face {
+  font-family: 'Font 1';
+  src: url('../fonts/font1.woff2') format('woff2'),
+       url('../fonts/font1.woff') format('woff'),
+       url('../fonts/font1.ttf') format('truetype'),
+       url('../fonts/font1.eot') format('embedded-opentype');
+}
+*/
+
+/* --------------------------------------------------------------------------
+Fonts
+-----------------------------------------------------------------------------*/
+/* 👋🏻  Hook up your fonts from fonts.scss */
+$markRegular: 'Mark Regular', sans-serif;
+$saolMedium: 'Saol Medium', sans-serif;
+
+/* 👋🏻  Choose a role for each font below. Add additional roles as needed. */
+$bodyTextFont: $markRegular;
+$headingFont: $saolMedium;

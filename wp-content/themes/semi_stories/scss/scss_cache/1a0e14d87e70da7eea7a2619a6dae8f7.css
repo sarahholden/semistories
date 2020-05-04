@@ -1,0 +1,535 @@
+/* compiled by scssphp v0.7.6 on Tue, 28 Apr 2020 04:54:51 +0000 (0.1758s) */
+
+body {
+  background: red; }
+/*-----------------------------------------------------------
+ Images
+ -------------------------------------------------------------*/
+img {
+  display: block;
+  max-width: 100%; }
+
+.imgSrc50Hero {
+  width: 100%; }
+
+img.imgSrcLoad {
+  opacity: 0; }
+
+img.imgSrc50, img.lazy-load {
+  opacity: 0;
+  width: 100%;
+  position: relative;
+  z-index: 1; }
+
+img.imgSrcLoadOn {
+  opacity: 1;
+  height: auto;
+  -moz-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out; }
+/*-----------------------------------------------------------
+ Background Images
+ -------------------------------------------------------------*/
+div.imgSrc50 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s; }
+
+div.imgSrc50.loaded {
+  opacity: 1; }
+
+.bgFadeImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.bgFadeImage.loaded {
+  opacity: 1; }
+
+.bg-img--full-height {
+  height: calc(100vh - 174px);
+  max-height: 752px;
+  min-height: 550px;
+  background-position: center top; }
+/*-----------------------------------------------------------
+ Responsive Videos
+ -------------------------------------------------------------*/
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.3%;
+  height: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 2rem; }
+  .video-wrapper .placeholder {
+    z-index: 1; }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; }
+  .video-wrapper .video-play-button {
+    background: rgba(38, 57, 88, 0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: opacity 0.3s ease-in-out; }
+  .video-wrapper.playing .video-play-button {
+    opacity: 0;
+    pointer-events: none; }
+/* --------------------------------------------------------------------------
+ Hosted Fonts
+ -----------------------------------------------------------------------------*/
+/*
+ 👋🏻  Replace the fonts in the fonts folder with the fonts used for your site and include each font you need below.
+ 👉🏻  Don't add font files until you know you need them to keep your site fast
+ 👉🏻  Use the https://transfonter.org/ generator if additional font file formats are needed
+ */
+@font-face {
+  /* 👉🏻  If adding a font using @font-face, the name you use for the font here will be the name you hook up in variables.scss  */
+  font-family: 'Mark Regular';
+  src: url('../fonts/MarkOT.woff2') format('woff2'), url('../fonts/MarkOT.woff') format('woff'), url('../fonts/MarkOT.ttf') format('truetype'), url('../fonts/MarkOT.eot') format('embedded-opentype'); }
+
+@font-face {
+  font-family: 'Saol Medium';
+  src: url('../fonts/SaolText-Medium.woff2') format('woff2'), url('../fonts/SaolText-Medium.woff') format('woff'), url('../fonts/SaolText-Medium.ttf') format('truetype'), url('../fonts/SaolText-Medium.eot') format('embedded-opentype'); }
+/*
+ TEMPLATE:
+ @font-face {
+ font-family: 'Font 1';
+ src: url('../fonts/font1.woff2') format('woff2'),
+ url('../fonts/font1.woff') format('woff'),
+ url('../fonts/font1.ttf') format('truetype'),
+ url('../fonts/font1.eot') format('embedded-opentype');
+ }
+ */
+/* --------------------------------------------------------------------------
+ Fonts
+ -----------------------------------------------------------------------------*/
+/* 👋🏻  Hook up your fonts from fonts.scss */
+/* 👋🏻  Choose a role for each font below. Add additional roles as needed. */
+/* --------------------------------------------------------------------------
+ Colors
+ -----------------------------------------------------------------------------*/
+/* 👋🏻  Add any colors used in the design */
+/* 👋🏻  Choose a color for each role below, and add any other variables needed. */
+/* --------------------------------------------------------------------------
+ Font Sizes
+ -----------------------------------------------------------------------------*/
+/* 👉🏻  It's recommended that you don't change this base size.  */
+/* 👉🏻  To have all type scale smaller on mobile, adjust the number below to anything less than 10px (optional).  */
+/* 👋🏻  Take a look at the design and replace/add any common font sizes in the design below. */
+/* These are already hooked up in typography.scss. */
+/* 👉🏻  Pointer: Use rems for sizing, 2.2rem is equivalent to 22px, 1.5rem is equvalent to 15px etc. */
+/* --------------------------------------------------------------------------
+ Font Styles
+ -----------------------------------------------------------------------------*/
+/* 👋🏻  Add any other common font styles here, such as line-height and letter-spacing */
+/* --------------------------------------------------------------------------
+ Mixins
+ -----------------------------------------------------------------------------*/
+/* 👋🏻  Add blocks of reusable styles here (optional). */
+/* --------------------------------------------------------------------------
+ Responsive Mixins
+ -----------------------------------------------------------------------------*/
+/* Adjust breakpoints below if needed  */
+/* --------------------------------------------------------------------------
+ Hide / Show
+ -----------------------------------------------------------------------------*/
+.hide-mobile {
+  display: none; }
+  @media (max-width: 768px) {
+  .hide-mobile {
+    display: block; } }
+
+@media (max-width: 768px) {
+    .show-mobile {
+      display: none; } }
+/* --------------------------------------------------------------------------
+ Typography
+ -----------------------------------------------------------------------------*/
+html {
+  font-size: 10px; }
+
+body {
+  background-color: #fff;
+  font-family: 'Mark Regular', sans-serif;
+  font-size: 1.8rem;
+  color: #383938;
+  line-height: 1.6;
+  letter-spacing: 0.05rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased; }
+/* --------------------------------------------------------------------------
+ Anchors
+ -----------------------------------------------------------------------------*/
+a {
+  color: #5d6787;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out; }
+
+a:hover, a:active {
+  color: #485069; }
+/* --------------------------------------------------------------------------
+ Headings
+ -----------------------------------------------------------------------------*/
+h1, h2, h3, h4 {
+  font-family: 'Saol Medium', sans-serif;
+  font-weight: normal;
+  font-style: normal; }
+
+h1 {
+  font-size: 2.7rem; }
+
+h2 {
+  font-size: 2.4rem; }
+
+h3 {
+  font-size: 2rem; }
+/* --------------------------------------------------------------------------
+ Rules
+ -----------------------------------------------------------------------------*/
+hr {
+  border: 0;
+  border-bottom: 1px solid #383938; }
+/* --------------------------------------------------------------------------
+ Responsive Design
+ -----------------------------------------------------------------------------*/
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 9px; } }
+/* --------------------------------------------------------------------------
+ Layout Helpers
+ -----------------------------------------------------------------------------*/
+.hide {
+  display: none; }
+/* --------------------------------------------------------------------------
+ Default Box sizing, Overflow Styles
+ -----------------------------------------------------------------------------*/
+* {
+  box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden; }
+/* --------------------------------------------------------------------------
+ Vertical & Horizontal Alignment
+ -----------------------------------------------------------------------------*/
+/* Center vertically  */
+/* Center vertically and horizontally */
+/* --------------------------------------------------------------------------
+ Centered Layout
+ -----------------------------------------------------------------------------*/
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (min-width: 768px) {
+  .container .container {
+    width: 96%; } }
+/* --------------------------------------------------------------------------
+ Sticky Footer
+ -----------------------------------------------------------------------------*/
+.cssgrid {
+  /* Add to the body element */
+  /* Add to the main element (or whichever element includes your site content and not the footer) */ }
+  .cssgrid .site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column; }
+  .cssgrid .site-content {
+    flex: 1; }
+/* --------------------------------------------------------------------------
+ Clearfix helpers (for floats)
+ -----------------------------------------------------------------------------*/
+.clearfix:before, .no-cssgrid [class^="cols"]:before, .clearfix:after, .no-cssgrid [class^="cols"]:after {
+  display: table;
+  content: " "; }
+
+.clearfix:after, .no-cssgrid [class^="cols"]:after {
+  clear: both; }
+
+.clearer {
+  content: "";
+  display: table;
+  clear: both; }
+/* --------------------------------------------------------------------------
+ Sizing - Gutters
+ -----------------------------------------------------------------------------*/
+/* Used in partials/_layout.scss */
+/* Used in partials/_layout.scss */
+/* --------------------------------------------------------------------------
+ Grid Styles
+ -----------------------------------------------------------------------------*/
+[class^="cols"] {
+  display: grid;
+  grid-template-rows: auto;
+  grid-column-gap: 2rem;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: 1fr; }
+/* 👉🏻  These classes go on the PARENT container, not the children. */
+@media (min-width: 768px) {
+    .cols-2 {
+      grid-template-columns: repeat(2, 1fr); } }
+
+@media (min-width: 768px) {
+    .cols-3 {
+      grid-template-columns: repeat(3, 1fr); } }
+
+@media (min-width: 768px) {
+    .cols-4 {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) {
+  .cols-4 {
+    grid-template-columns: repeat(4, 1fr); } }
+
+@media (min-width: 768px) {
+    .cols-1-2 {
+      grid-template-columns: 1fr 2fr; } }
+
+@media (min-width: 768px) {
+    .cols-2-1 {
+      grid-template-columns: 2fr 1fr; } }
+/* ⭐  Styles for IE & OLDER BROWSERS that don't support CSS Grid using Modernizr's .no-cssgrid class  */
+.no-cssgrid {
+  /* Use floats for older browsers to turn elements into columns for screens larger than the tablet-up breakpoint in variables.scss */ }
+  .no-cssgrid [class^="cols"] > * {
+    margin-bottom: 1.5rem; }
+  @media (min-width: 768px) {
+  .no-cssgrid [class^="cols"] {
+    margin-left: -2rem; }
+    .no-cssgrid [class^="cols"] > * {
+      float: left;
+      margin-left: 2rem; }
+
+    .no-cssgrid .cols-2 > * {
+      width: calc(50% - 2rem); }
+
+    .no-cssgrid .cols-3 > * {
+      width: calc(33.3% - 2rem); }
+
+    .no-cssgrid .cols-4 > * {
+      width: calc(25% - 2rem); }
+
+    .no-cssgrid .cols-1-2 > :first-of-type {
+      width: calc(33.33% - 2rem); }
+
+    .no-cssgrid .cols-1-2 > :last-of-type {
+      width: calc(66.66% - 2rem); }
+
+    .no-cssgrid .cols-2-1 > :first-of-type {
+      width: calc(66.66% - 2rem); }
+
+    .no-cssgrid .cols-2-1 > :last-of-type {
+      width: calc(33.33% - 2rem); } }
+/* --------------------------------------------------------------------------
+ Buttons
+ -----------------------------------------------------------------------------*/
+.button, button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  transition: all 0.3s ease-in-out;
+  font-family: inherit;
+  outline: none;
+  display: inline-block;
+  /* background-color: transparent;  👋🏻 NOTE: Make sure to add a bg color for Firefox & Safari or use transparent for no bg color*/ }
+  /* --------------------------------------------------------------------------
+   Inputs
+   -----------------------------------------------------------------------------*/
+
+input, textarea {
+  border: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #383938;
+  background-color: transparent;
+  box-shadow: none;
+  padding-bottom: 4px;
+  letter-spacing: 0.05rem; }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #454645; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #454645; }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #454645; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #454645; }
+/* --------------------------------------------------------------------------
+ Validation
+ -----------------------------------------------------------------------------*/
+.validation-wrapper {
+  position: relative;
+  margin-bottom: 40px; }
+  @media (max-width: 768px) {
+  .validation-wrapper {
+    margin-bottom: 30px; } }
+
+.error {
+  font-size: 1.1rem;
+  margin-top: 0;
+  position: absolute;
+  bottom: -16px;
+  transform: translateY(100%); }
+
+.thanks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: none;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .thanks h1 {
+    margin-bottom: 0;
+    margin-top: 0; }
+  .thanks p {
+    margin-bottom: 3rem; }
+/* --------------------------------------------------------------------------
+ Body Open Mobile Nav Styles
+ -----------------------------------------------------------------------------*/
+.open-mobile-nav {
+  /* Prevent the body from scrolling under the mobile navigation */
+  position: fixed;
+  overflow: hidden; }
+/* --------------------------------------------------------------------------
+ Header Navigation Styles
+ -----------------------------------------------------------------------------*/
+.nav-wrapper nav a, .nav-wrapper nav a:visited {
+  color: #5d6787;
+  margin-left: 18px; }
+  .nav-wrapper nav a:hover {
+    color: #33394b; }
+  .nav-wrapper nav .current-page {
+    /* Styles for the currently active link */ }
+/* ==============   MOBILE NAV STYLES  ============== */
+@media (max-width: 768px) {
+  .nav-wrapper nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .nav-wrapper nav a {
+      display: block;
+      margin: 0;
+      font-size: 2rem;
+      line-height: 2; } }
+/* ==============   OPEN MOBILE NAV  ============== */
+.open-mobile-nav {
+  /* Styles for when the user clicks the hamburger icon */ }
+  .open-mobile-nav .nav-wrapper nav {
+    opacity: 1;
+    visibility: visible; }
+/* --------------------------------------------------------------------------
+ Hamburger Icon styles
+ -----------------------------------------------------------------------------*/
+.hamburger {
+  width: 30px;
+  height: 15px;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  display: none;
+  z-index: 201;
+  cursor: pointer; }
+  .hamburger span {
+    display: block;
+    border-bottom: 2px solid #383938;
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    transition: all 0.2s ease-in-out; }
+  .hamburger span:first-of-type {
+    top: 0; }
+  .hamburger span:nth-of-type(2) {
+    top: 50%; }
+  .hamburger span:last-of-type {
+    top: 100%; }
+/* ==============   HAMBURGER MOBILE STYLES  ============== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: fixed; } }
+/* ==============   OPEN MOBILE NAV HAMBURGER STYLES  ============== */
+.open-mobile-nav {
+  /* Rotate lines to form an X */ }
+  .open-mobile-nav .hamburger {
+    position: fixed; }
+    .open-mobile-nav .hamburger span:first-of-type {
+      top: 50%;
+      transform: rotate(-45deg); }
+    .open-mobile-nav .hamburger span:nth-of-type(2) {
+      transform: translateX(-20%);
+      opacity: 0; }
+    .open-mobile-nav .hamburger span:last-of-type {
+      top: 50%;
+      transform: rotate(45deg); }
+/* --------------------------------------------------------------------------
+ Footer Navigation Styles
+ -----------------------------------------------------------------------------*/
+footer nav a, footer nav a:visited {
+  color: #4c4b4b;
+  margin-left: 18px; }
+  footer nav a:hover {
+    color: #191818; }
+/* --------------------------------------------------------------------------
+ LK Site Credit
+ -----------------------------------------------------------------------------*/
+.site-credit {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  display: block;
+  text-align: right; }
+/* --------------------------------------------------------------------------
+ Section Comment
+ -----------------------------------------------------------------------------*/
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22scss%5C%2Fstyle.scss%22%2C%22scss%5C%2Fpartials%5C%2F_images.scss%22%2C%22scss%5C%2Fpartials%5C%2F_fonts.scss%22%2C%22scss%5C%2Fpartials%5C%2F_variables.scss%22%2C%22scss%5C%2Fpartials%5C%2F_typography.scss%22%2C%22scss%5C%2Fpartials%5C%2F_layout.scss%22%2C%22scss%5C%2Fpartials%5C%2F_grid.scss%22%2C%22scss%5C%2Fpartials%5C%2F_forms.scss%22%2C%22scss%5C%2Fpartials%5C%2F_nav.scss%22%2C%22scss%5C%2Fpartials%5C%2Ffooter.scss%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAAD%3BAAAA%2CkBAAA%2CEAAA%3BAAAA%3B%3BgEAAA%3BACGC%3BAAAA%3BkBAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BaAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3BkCAAA%2CEAAA%3BADxBD%3B%3BgEAAA%3BACqCC%3BAAAA%3B%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3BuBAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BkCAAA%2CEAAA%3BADjED%3B%3BgEAAA%3BAC2EC%3BAAAA%3B%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BAASE%3BAAAA%2CeAAA%2CEAAA%3BAAGD%3BAAAA%3B%3B%3B%3B%3B%3BeAAA%2CEAAA%3BAASC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByCAAA%2CEAAA%3BAAcE%3BAAAA%3ByBAAA%2CEAAA%3BAD9GL%3B%3BgFAAA%3BAAAA%3B%3B%3B%3BGAAA%3BAESC%3BAAAA%3B%3BuMAAA%2CEAAA%3BAAAA%3BAASA%3BAAAA%3B2OAAA%2CEAAA%3BAFlBD%3B%3B%3B%3B%3B%3B%3B%3B%3BGAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CkDAAA%3BAAAA%2CkFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CiDAAA%3BAAAA%2CuFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CuEAAA%3BAAAA%2CyHAAA%3BAAAA%2CoGAAA%3BAAAA%2CqDAAA%3BAAAA%2C4GAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2C6FAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2C8DAAA%3BAAAA%3B%3BgFAAA%3BAAAA%2CyCAAA%3BAAAA%3B%3BgFAAA%3BAGmGC%3BAAAA%2CgBAAA%2CEAAA%3BAA3BE%3BAAAA%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAHxEH%3B%3BgFAAA%3BAIGC%3BAAAA%2CkBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3B%3BsCAAA%2CEAAA%3BAJPD%3B%3BgFAAA%3BAIsBC%3BAAAA%3B%3BmCAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CiBAAA%2CEAAA%3BAJ5BD%3B%3BgFAAA%3BAIoCC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CoBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CoBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CkBAAA%2CEAAA%3BAJlDD%3B%3BgFAAA%3BAIyDC%3BAAAA%3BmCAAA%2CEAAA%3BAJzDD%3B%3BgFAAA%3BAIiEC%3BAACE%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAJlEH%3B%3BgFAAA%3BAKGC%3BAAAA%2CgBAAA%2CEAAA%3BALHD%3B%3BgFAAA%3BAKUC%3BAAAA%2CyBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CqBAAA%2CEAAA%3BALdD%3B%3BgFAAA%3BAAAA%2CwBAAA%3BAAAA%2CwCAAA%3BAAAA%3B%3BgFAAA%3BAKuDC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%3BAF6BE%3BAEvBA%3BAAAA%2CeAAA%2CEAAA%2CEAAA%3BAL7DH%3B%3BgFAAA%3BAKsEC%3BAAAA%3BoGAAA%2CEAAA%3BAAEC%3BAAAA%3B%3B2BAAA%2CEAAA%3BAAOA%3BAAAA%2CYAAA%2CEAAA%3BAL%5C%2FEF%3B%3BgFAAA%3BAKuFC%3BAAAA%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3BcAAA%2CEAAA%3BALjGD%3B%3BgFAAA%3BAAAA%2CmCAAA%3BAAAA%2CmCAAA%3BAAAA%3B%3BgFAAA%3BAMSC%3BAAAA%3B%3B%3B%3B6BAAA%2CEAAA%3BANTD%2C2EAAA%3BAGoFG%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2C0CAAA%2CEAAA%2CEAAA%3BAAAA%3BAANA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAHpFH%2C0GAAA%3BAMkDC%3BAAAA%2CsIAAA%2CEAAA%3BAAGE%3BAAAA%2C0BAAA%2CEAAA%3BAH%2BBA%3BAGxBA%3BAAAA%2CuBAAA%2CEAAA%3BAAEC%3BAAAA%3BwBAAA%2CEAAA%3BAAAA%3BAAMD%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CgCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAACA%3BAAAA%2CiCAAA%2CEAAA%2CEAAA%3BAN1EH%3B%3BgFAAA%3BAOGC%3BAAAA%3B%3B%3B%3B%3B%3B%3ByIAAA%2CEAAA%3BAPHD%3B%3BkFAAA%3BAAAA%3BAOsBC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B0BAAA%2CEAAA%3BAAAA%3BAAcA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAP7CD%3B%3BgFAAA%3BAOqDC%3BAAAA%3BsBAAA%2CEAAA%3BAJmBE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAIZF%3BAAAA%3B%3B%3B%3B8BAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByBAAA%2CEAAA%3BAAmBC%3BAAAA%3BkBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAP3FF%3B%3BgFAAA%3BAQGC%3BAAAA%3B%3BmBAAA%2CEAAA%3BARHD%3B%3BgFAAA%3BAQaE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%2C8CAAA%2CEAAA%3BARrBF%2CwDAAA%3BAGwEG%3BAK5CD%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BwBAAA%2CEAAA%3BAAeC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%2CEAAA%3BAR3CH%2CsDAAA%3BAQqDC%3BAAAA%2C0DAAA%2CEAAA%3BAACC%3BAAAA%3BwBAAA%2CEAAA%3BARtDF%3B%3BgFAAA%3BAQkEC%3BAAAA%3B%3B%3B%3B%3B%3B%3BkBAAA%2CEAAA%3BAASC%3BAAAA%3B%3B%3B%3B%3BqCAAA%2CEAAA%3BAAQA%3BAAAA%2CWAAA%2CEAAA%3BAAGA%3BAAAA%2CaAAA%2CEAAA%3BAAGA%3BAAAA%2CcAAA%2CEAAA%3BARzFF%2C8DAAA%3BAGwEG%3BAKwBD%3BAAAA%3BoBAAA%2CEAAA%2CEAAA%3BARhGF%2CuEAAA%3BAQuGC%3BAAAA%2CiCAAA%2CEAAA%3BAAEC%3BAAAA%2CoBAAA%2CEAAA%3BAAEC%3BAAAA%3BgCAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3B%2BBAAA%2CEAAA%3BARnHH%3B%3BgFAAA%3BASIE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CmBAAA%2CEAAA%3BATTF%3B%3BgFAAA%3BASiBC%3BAAAA%3B%3B%3BoBAAA%2CEAAA%3BATjBD%3B%3BgFAAA%22%7D */
