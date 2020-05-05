@@ -105,6 +105,18 @@ hr {
   }
 }
 
+%xsCaps,
+.xs-caps {
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 0.1rem;
+  font-family: $walsheimBold;
+  font-size: 1.2rem;
+  @include mobile-only {
+    font-size: 1rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
 OTHER TEXT
 -----------------------------------------------------------------------------*/

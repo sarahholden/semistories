@@ -14,6 +14,19 @@
 }
 
 /* --------------------------------------------------------------------------
+  BANNER
+-----------------------------------------------------------------------------*/
+.banner-image {
+  position: relative;
+  .image-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
   CATEGORY
 -----------------------------------------------------------------------------*/
 .masthead .category-row {
@@ -172,7 +185,9 @@
   .caption + .credit-row {
     text-align: center;
   }
+  &.post-diy,
   &.post-lifestyle,
+  &.post-recipe,
   &.post-walkthrough {
     .credit-row {
       @extend .container-md;
@@ -181,7 +196,6 @@
   &.post-diy {
     .credit-row {
       margin-top: 9.6rem;
-      @extend .container-md;
     }
   }
 }
@@ -208,19 +222,53 @@
   CONTRIBUTORS
 -----------------------------------------------------------------------------*/
 .contributor-row {
+  margin-bottom: 3rem;
+  @include mobile-only {
+    margin-bottom: 4.5rem;
+  }
+  &:first-of-type {
+    margin-top: 6.5rem;
+  }
+
+  .text-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  h2 {
+    margin-bottom: 3rem;
+    @include mobile-only {
+      margin-bottom: 1rem;
+    }
+  }
+  h5 {
+    @include mobile-only {
+      margin-bottom: 2rem;
+    }
+  }
   h2,
   h5 {
     color: $gold;
+    max-width: 21.8rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &:nth-of-type(even) {
     h2,
     h5 {
       color: $darkGrey;
+
     }
   }
+}
 
-  /* FLEX ALTERNATING ROWS ================== */
+/* FLEX ALTERNATING ROWS ================== */
+.contributor-row {
   @include tablet-up {
     display: flex;
     > div:first-of-type {
@@ -232,5 +280,77 @@
     &:nth-of-type(even) {
       flex-direction: row-reverse;
     }
+  }
+  @include mobile-only {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+}
+
+/* IMAGES WITH BG SHAPES ================== */
+.bg-shape-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 5.4rem;
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+  }
+  .bg-shape {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+  }
+}
+
+.contributor-row {
+  &:nth-of-type(even) {
+    .bg-shape {
+      right: auto;
+      left: 0;
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      path {
+        fill: $darkGrey;
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+  TOOLS
+-----------------------------------------------------------------------------*/
+.tools-box {
+  margin: 6.5rem 4rem;
+  border: 0.6rem solid #EAEBE6;
+  padding: 5rem 6rem;
+  color: $brown;
+  @include mobile-only {
+    border: 0.3rem solid #EAEBE6;
+  }
+  h2 {
+    margin-bottom: 5rem;
+    @include mobile-only {
+      margin-bottom: 3rem;
+    }
+  }
+  .desc-large {
+    font-family: $headingFont;
+    font-size: 4.6rem;
+    margin-bottom: 1rem;
+    @include mobile-only {
+      font-size: 3rem;
+    }
+
+  }
+  .tools-grid {
+    @include tablet-up {
+      display: flex;
+      justify-content: space-between;
+    }
+
   }
 }

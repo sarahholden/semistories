@@ -1,5 +1,22 @@
 <? $categories = get_the_category(); ?>
 <? $categoryName = ! empty( $categories ) ? strtolower($categories[0]->name) : ''; ?>
+<?
+  function seoUrl($string) {
+    //Lower case everything
+    $string = strtolower($string);
+    //Make alphanumeric (removes all other characters)
+    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+    //Clean up multiple dashes or whitespaces
+    $string = preg_replace("/[\s-]+/", " ", $string);
+    //Convert whitespaces and underscore to dash
+    $string = preg_replace("/[\s_]/", "-", $string);
+    return $string;
+  }
+
+  $categoryName = seoUrl($categoryName);
+
+  $stepIndex = 1;
+?>
 
 
 
@@ -17,15 +34,17 @@
         <!-- ==============================
         COPY BLOCK W/OPTIONAL HEADING
         =================================== -->
-        <? if ( get_row_layout() == 'copy_block_has_heading' ||  get_row_layout() == 'copy_block' || get_row_layout() == 'copy_block_drop_cap' ) { ?>
-          <? if(get_sub_field('body')) { ?>
+        <? if ( get_row_layout() == 'copy_block_has_heading'  ||  get_row_layout() == 'copy_block' || get_row_layout() == 'copy_block_drop_cap' ) { ?>
+          <? if(get_sub_field('body') || get_sub_field('heading')) { ?>
             <section class="copy-block <? if (get_sub_field('show_drop_cap')) { ?>drop-cap<? } ?>">
               <? if(get_sub_field('heading')) { ?>
                 <h2><?= get_sub_field('heading') ?></h2>
               <? } ?>
+              <? if(get_sub_field('body')) { ?>
                 <div class="desc">
                   <?= get_sub_field('body') ?>
                 </div>
+              <? } ?>
             </section>
           <? } ?>
 
@@ -33,12 +52,27 @@
         SINGLE IMAGE BLOCK
         =================================== -->
         <? } else if (get_row_layout() == 'image_block') { ?>
-          <section class="image-block">
+          <section class="image-block single-image-block">
             <? if(get_sub_field('image')) { ?>
-              <? $image = get_field('image'); ?>
-              <img src="<?= get_sub_field('image')['url'] ?>" alt="<?= get_sub_field('image')['alt'] ?>">
+              <div class="bg-shape-wrapper">
+                <? $image = get_sub_field('image'); ?>
+                <img
+                  <?php acf_responsive_image($image['id']); ?>
+                  sizes="auto"
+                  class="lazyload lazy-fade"
+                  alt="<?= $image['alt'] ?>"
+                  data-anim="scale"
+                  />
+
+                  <? if ($post->ID == 179) { ?>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-shape" viewBox="0 0 558.39 370.847">
+                      <path id="Path_107" data-name="Path 107" d="M13240.055,1974.013l-443.44,54.98-114.949-370.847h558.39Z" transform="translate(-12681.665 -1658.146)" fill="#c19115"/>
+                    </svg>
+                  <? } ?>
+              </div>
+
               <? if($image && !empty($image['caption'])) { ?>
-                <?= $image['caption'] ?>
+                <p class="caption desc-sans-sm"><?= $image['caption'] ?></p>
               <? } ?>
             <? } ?>
           </section>
@@ -161,29 +195,38 @@
         STEP BLOCK
         =================================== -->
         <? } else if ( get_row_layout() == 'step_block' ) { ?>
+          <? if ($stepIndex == 1) { ?>
+            <h2 class="h1 steps-header">Steps</h2>
+          <? } ?>
           <section class="step-block">
-            Step #
-            <? if(get_sub_field('body')) { ?>
-              <div class="desc">
-                <?= get_sub_field('body') ?>
-              </div>
-            <? } ?>
-            <? $images = get_sub_field('images');
-              if( $images ) { ?>
-                  <? foreach( $images as $image ) { ?>
-                    <a href="<? echo esc_url($image['url']); ?>" class="js-open-lightbox-gallery">
-                      <img
-                      <? acf_responsive_image($image['id']); ?>
-                      sizes="auto"
-                      class="lazyload lazy-fade"
-                      alt="<?= esc_attr($image['alt']); ?>"
-                      />
-                    </a>
-                    <p><? echo esc_html($image['caption']); ?></p>
-                  <? } ?>
+            <div class="unit-and-index">
+              <p class="step-unit">Step</p>
+              <p class="step-index"><?= $stepIndex ?></p>
+            </div>
+            <div class="text-content">
+              <? if(get_sub_field('body')) { ?>
+                <div class="desc">
+                  <?= get_sub_field('body') ?>
+                </div>
               <? } ?>
+              <? $images = get_sub_field('images');
+              if( $images ) { ?>
+                <? foreach( $images as $image ) { ?>
+                  <div class="image-wrapper">
+                    <img
+                    <? acf_responsive_image($image['id']); ?>
+                    sizes="auto"
+                    class="lazyload lazy-fade"
+                    alt="<?= esc_attr($image['alt']); ?>"
+                    />
+                  </div>
+                  <p class="caption desc-sans-sm"><? echo esc_html($image['caption']); ?></p>
+                <? } ?>
+              <? } ?>
+            </div>
 
           </section>
+          <? $stepIndex++ ?>
         <? } else if ( get_row_layout() == 'test' ) { ?>
         <? } else if ( get_row_layout() == 'test' ) { ?>
 

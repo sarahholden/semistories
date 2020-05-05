@@ -1,9 +1,11 @@
+$leftPadding: 10rem;
+
 /* --------------------------------------------------------------------------
   LIFESTYLE
 -----------------------------------------------------------------------------*/
 .blog-content {
   @include desktop-up {
-    padding-left: 10rem;
+    padding-left: $leftPadding;
   }
   h2 {
     color: $orange;
@@ -44,14 +46,12 @@
   }
 }
 
-/* BANNER IMAGE ================== */
-.banner-image {
-  position: relative;
-  .image-mask {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+/* SINGLE IMAGE BLOCK ================== */
+.single-image-block {
+  width: 100%;
+  margin-bottom: 10rem;
+  @include mobile-only {
+    margin-bottom: 5rem;
   }
 }
 
@@ -78,13 +78,17 @@
   }
 }
 
-/* Q & ANSWER BLOCK ================== */
+/* Q & ANSWER BLOCK - GENERAL ================== */
 .qa-block {
   margin-bottom: 7rem;
   h5 {
     @extend %smallCaps;
     margin-bottom: 1rem;
   }
+}
+
+/* Q & ANSWER BLOCK - QUESTION ================== */
+.qa-block {
   &.question_block {
     color: $green;
     h5 {
@@ -94,23 +98,103 @@
       font-family: $superMed;
       font-size: 2.4rem;
       line-height: 1.416;
-
     }
   }
-  .answer_block {
+}
+/* Q & ANSWER BLOCK - ANSWER ================== */
+.qa-block {
+  &.answer_block {
     h5 {
       color: $orange;
     }
   }
 }
 
+/* Q & ANSWER BLOCK - DISCUSSION ================== */
+.qa-block {
+  &.qa_blocks {
+    display: flex;
+    h5 {
+      width: 7.3rem;
+      padding-top: 0.8rem;
+      border-top: 4px solid $gold;
+    }
+    .desc {
+      flex-grow: 1;
+      padding-left: 2rem;
+    }
+  }
+}
+
+/* STEP BLOCK ================== */
+.step-block {
+  display: flex;
+  border-top: 4px solid $brown;
+  padding-top: 5.5rem;
+  @include mobile-only {
+    padding-top: 3.4rem;
+  }
+  .unit-and-index {
+    width: 10rem;
+    text-align: center;
+    padding-right: 1rem;
+  }
+  .step-unit {
+    @extend %xsCaps;
+    margin-bottom: 0.8rem;
+    @include tablet-up {
+      font-size: 1.1rem;
+    }
+
+  }
+  .step-index {
+    font-size: 4.4rem;
+    @include mobile-only {
+      font-size: 2.2rem;
+    }
+  }
+  .text-content {
+    width: calc(100% - 11rem);
+  }
+
+  .step-index,
+  .step-unit {
+    color: $orange;
+  }
+  .step-index {
+    font-family: $headingFont;
+  }
+
+}
+
+.step-block {
+  .image-wrapper {
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+  }
+  img {
+    width: 100%;
+    max-width: unset;
+    display: block;
+  }
+  .caption {
+    margin-bottom: 6.6rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
-  Island Hopping
+  POST - Island Hopping
 -----------------------------------------------------------------------------*/
-.blog-content .post-island-hopping {
+.post-island-hopping-qampa .blog-content,
+.postid-179 .blog-content {
   h2 {
+    @extend .h3;
     color: $gold;
   }
+  .single-image-block {
+    position: relative;
+  }
+
 }
 
 /* --------------------------------------------------------------------------
@@ -119,3 +203,37 @@
 
 .post-walkthrough,
 .postid-137 {}
+
+/* --------------------------------------------------------------------------
+POST - RECIPE & DIY
+-----------------------------------------------------------------------------*/
+.post-diy,
+.post-recipe {
+  .blog-content {
+    padding-left: 0;
+  }
+  .copy-block {
+    padding-left: $leftPadding;
+  }
+}
+
+.post-diy {
+  .blog-content {
+    h2 {
+      color: $gold;
+    }
+  }
+
+  .steps-header {
+    display: none;
+  }
+  .step-index,
+  .step-unit {
+    color: $brown;
+  }
+  .image-gallery,
+  .single-image-block {
+    padding-left: $leftPadding;
+    margin-top: 4rem;
+  }
+}
