@@ -193,13 +193,11 @@ add_action( 'plugins_loaded', 'add_my_options_page' );
 
 add_action( 'admin_init', 'hide_editor' );
 function hide_editor() {
-  $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
-  if( !isset( $post_id ) ) return;
-  $home = get_the_title($post_id);
-  //$contact = get_the_title($post_id);
-  if($home == 'Home' || $contact == 'Contact'){
-    remove_post_type_support('page', 'editor');
+  if (!isset($_POST["post_ID"]) && !isset($_GET['post'])) {
+    return;
   }
+  $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'];
+  if( !isset( $post_id ) || $post_id == '' ) return;
 }
 
 add_action( 'init', function() {

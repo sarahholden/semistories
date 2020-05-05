@@ -9,7 +9,7 @@ $gridRowGutterSize: 1.5rem;
 /* --------------------------------------------------------------------------
 Grid Styles
 -----------------------------------------------------------------------------*/
-[class^="cols"] {
+[class*="cols"] {
 	display: grid;
 	grid-template-rows: auto;
 	grid-column-gap: $gridColumnGutterSize;
@@ -45,6 +45,16 @@ Grid Styles
 .cols-2-1 {
 	@include tablet-up {
 		grid-template-columns: 2fr 1fr;
+	}
+}
+
+.cols-blog {
+	@include tablet-up {
+		grid-template-columns: 8fr 3fr;
+		grid-gap: 5rem;
+	}
+	@include desktop-up {
+		grid-gap: 10rem;
 	}
 }
 

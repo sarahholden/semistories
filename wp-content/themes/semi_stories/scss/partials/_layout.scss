@@ -75,6 +75,7 @@ $containerPadding: 14rem;
 .container {
 	padding-left: $containerPadding;
 	padding-right: $containerPadding;
+	// border: 1px solid pink;
 }
 
 [class*="container"] {
@@ -98,18 +99,21 @@ $containerPadding: 14rem;
 	max-width: 76.8rem;
 	margin-left: auto;
 	margin-right: auto;
+	// border: 1px solid pink;
 }
 
 .container-sm {
 	max-width: 86.4rem;
 	margin-left: auto;
 	margin-right: auto;
+	// border: 1px solid pink;
 }
 
 .container-md {
 	max-width: 96.4rem;
 	margin-left: auto;
 	margin-right: auto;
+	// border: 1px solid pink;
 }
 
 .padded {

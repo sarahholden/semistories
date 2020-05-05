@@ -1,0 +1,121 @@
+/* --------------------------------------------------------------------------
+  LIFESTYLE
+-----------------------------------------------------------------------------*/
+.blog-content {
+  @include desktop-up {
+    padding-left: 10rem;
+  }
+  h2 {
+    color: $orange;
+  }
+
+}
+
+/* COPY BLOCK ================== */
+.copy-block {
+  margin-bottom: 10rem;
+  @include tablet-only {
+    margin-bottom: 6rem;
+  }
+  @include mobile-only {
+    margin-bottom: 4rem;
+  }
+}
+
+.image-gallery + .copy-block {
+  margin-top: 7.8rem;
+  @include mobile-only {
+    margin-top: 4.5rem;
+  }
+}
+
+/* IMAGE GALLERY ROW ================== */
+.image-gallery {
+  .gallery-row {
+    margin-bottom: 3.4rem;
+  }
+  [class*="cols-"] {
+    @include tablet-up {
+      grid-column-gap: 4rem;
+    }
+  }
+  p {
+    display: inline-block;
+  }
+}
+
+/* BANNER IMAGE ================== */
+.banner-image {
+  position: relative;
+  .image-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+/* BEFORE / AFTER BLOCK ================== */
+.before-after-block {
+  margin-bottom: 8rem;
+  @include mobile-only {
+    margin-bottom: 4.5rem;
+  }
+  .cols-2 {
+    @include tablet-up {
+      grid-column-gap: 4rem;
+    }
+  }
+  h2 {
+    font-family: $superMedItalic;
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  img {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Q & ANSWER BLOCK ================== */
+.qa-block {
+  margin-bottom: 7rem;
+  h5 {
+    @extend %smallCaps;
+    margin-bottom: 1rem;
+  }
+  &.question_block {
+    color: $green;
+    h5 {
+      color: $green;
+    }
+    .desc {
+      font-family: $superMed;
+      font-size: 2.4rem;
+      line-height: 1.416;
+
+    }
+  }
+  .answer_block {
+    h5 {
+      color: $orange;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+  Island Hopping
+-----------------------------------------------------------------------------*/
+.blog-content .post-island-hopping {
+  h2 {
+    color: $gold;
+  }
+}
+
+/* --------------------------------------------------------------------------
+  POST - WALKTHROUGH
+-----------------------------------------------------------------------------*/
+
+.post-walkthrough,
+.postid-137 {}

@@ -17,6 +17,11 @@ Hosted Fonts
 }
 
 @font-face {
+  font-family: 'GT Super Display Medium Italic';
+  src: url("../fonts/GTSuperDisplayTrialMedium-Italic.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrialMedium-Italic.woff") format('woff'), url("../fonts/GTSuperDisplayTrialMedium-Italic.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrialMedium-Italic.eot") format('embedded-opentype');
+}
+
+@font-face {
   font-family: 'GT Super Display Regular';
   src: url("../fonts/GTSuperDisplayTrial-Regular.woff2") format('woff2'), url("../fonts/GTSuperDisplayTrial-Regular.woff") format('woff'), url("../fonts/GTSuperDisplayTrial-Regular.ttf") format('truetype'), url("../fonts/GTSuperDisplayTrial-Regular.eot") format('embedded-opentype');
 }
@@ -52,6 +57,7 @@ Fonts
 $superReg: 'GT Super Display Regular', serif;
 $superRegItalic: 'GT Super Display Regular Italic', serif;
 $superMed: 'GT Super Display Medium', serif;
+$superMedItalic: 'GT Super Display Medium Italic', serif;
 $superBold: 'GT Super Display Bold', serif;
 $superBoldItalic: 'GT Super Display Bold Italic', serif;
 $walsheimReg: 'GT Walsheim Regular', sans-serif;

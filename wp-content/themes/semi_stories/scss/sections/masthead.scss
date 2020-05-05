@@ -7,11 +7,17 @@
   text-align: center;
 }
 
+.post-walkthrough {
+  &.masthead {
+    padding-top: 6rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
   CATEGORY
 -----------------------------------------------------------------------------*/
 .masthead .category-row {
-  margin-bottom: 5.2rem;
+  margin-bottom: 4.8rem;
   @include mobile-only {
     margin-bottom: 1.8rem;
   }
@@ -29,6 +35,21 @@
   margin-right: auto;
 }
 
+.masthead {
+  &.post-advice {
+    .main-heading {
+      @extend .container-md;
+      margin-top: 7rem;
+      @include tablet-up {
+        text-align: left;
+      }
+      @include mobile-only {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
 /* --------------------------------------------------------------------------
   AUTHOR
 -----------------------------------------------------------------------------*/
@@ -39,6 +60,7 @@
     margin-bottom: 1.4rem;
   }
 }
+
 /* --------------------------------------------------------------------------
   CAPTION
 -----------------------------------------------------------------------------*/
@@ -63,7 +85,7 @@
     }
   }
   .featured-image + .featured-caption {
-    margin-top: 4.18rem;
+    margin-top: 3.2rem;
     @include mobile-only {
       margin-top: 1.2rem;
     }
@@ -72,6 +94,143 @@
     @extend .container-xs;
   }
 }
+
+/* CATEGORY-SPECIFIC STYLES ================== */
+.masthead {
+  .credit-row + .featured-image-wrapper {
+    margin-top: 7.4rem;
+    @include mobile-only {
+      margin-top: 2.4rem;
+    }
+  }
+  &.post-diy,
+  &.post-lifestyle,
+  &.post-walkthrough {
+    .featured-image-wrapper,
+    .featured-video-wrapper {
+      @extend .container-md;
+    }
+  }
+  &.post-essay {
+    .featured-caption {
+      @extend .container-md;
+      text-align: left;
+    }
+  }
+  &.post-recipe {
+    .featured-image-wrapper,
+    .featured-video-wrapper {
+      @extend .container-xs;
+    }
+  }
+
+}
+
 /* --------------------------------------------------------------------------
   CREDITS
 -----------------------------------------------------------------------------*/
+.masthead {
+  .credit-row {
+    text-align: left;
+    color: $slate;
+    line-height: 1;
+    @include mobile-only {
+      font-size: 1rem;
+    }
+    .date {
+      @include tablet-up {
+        padding-right: 3.6rem;
+      }
+    }
+    .credit {
+      @include tablet-up {
+        padding-right: 3.6rem;
+        padding-left: 3.6rem;
+        border-left: 1px solid $slate;
+      }
+    }
+    .credit,
+    .date {
+      @include mobile-only {
+        display: block;
+        margin-bottom: 0.8rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* CATEGORY-SPECIFIC STYLES ================== */
+.masthead {
+  .featured-image-wrapper + .credit-row {
+    margin-top: 9rem;
+    @include mobile-only {
+      margin-top: 3.2rem;
+    }
+  }
+
+  .caption + .credit-row {
+    text-align: center;
+  }
+  &.post-lifestyle,
+  &.post-walkthrough {
+    .credit-row {
+      @extend .container-md;
+    }
+  }
+  &.post-diy {
+    .credit-row {
+      margin-top: 9.6rem;
+      @extend .container-md;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+  ADVICE
+-----------------------------------------------------------------------------*/
+.masthead {
+  &.post-advice {
+    .author,
+    .caption,
+    .credit-row,
+    .main-heading {
+      @extend .container-md;
+      @include tablet-up {
+        text-align: left;
+      }
+
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+  CONTRIBUTORS
+-----------------------------------------------------------------------------*/
+.contributor-row {
+  h2,
+  h5 {
+    color: $gold;
+  }
+
+  &:nth-of-type(even) {
+    h2,
+    h5 {
+      color: $darkGrey;
+    }
+  }
+
+  /* FLEX ALTERNATING ROWS ================== */
+  @include tablet-up {
+    display: flex;
+    > div:first-of-type {
+      width: 57%;
+    }
+    > div:last-of-type {
+      width: 43%;
+    }
+    &:nth-of-type(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}
