@@ -172,8 +172,13 @@
             <? if(get_sub_field('quote')) { ?>
               <div class="desc-large">
                 <?= get_sub_field('quote') ?>
+                <? if (get_sub_field('layout') == 'center') { ?>
+                  <span class="quote-top">&ldquo;</span>
+                  <span class="quote-bottom">&rdquo;</span>
+                <? } ?>
               </div>
             <? } ?>
+
           </div>
 
         <!-- ==============================
@@ -269,13 +274,78 @@
       <div class="share">
         <h2>Share, and share and like.</h2>
         <h5 class="small-caps">Share this story on.</h5>
+        <div class="social-links">
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
+          </a>
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Twitter">
+          </a>
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Pinterest">
+          </a>
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Instagram">
+          </a>
+
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
+          <path id="Spacer_1" data-name="Spacer 1" d="M4080.714,3014.242l-.367-.1-189.09-50.437.524-3.931,188.724,50.339,103.836-50.266.916,3.784Z" transform="translate(-3891.257 -2959.777)" fill="#b8d2cf"/>
+        </svg>
+
       </div>
+
+
+
+      <!-- ==============================
+      POPULAR POSTS
+      =================================== -->
+
+      <? $featuredArgs = array(
+        'post_type' => 'post',
+        'posts_per_page' => 5,
+      );
+      $featuredQuery = new WP_Query( $featuredArgs );
+      ?>
+
+      <?wp_reset_postdata();?>
       <div class="popular-posts">
         <h2 class="h1">Popular Posts</h2>
+        <ol>
+          <? $i = 0; ?>
+          <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+            <? $className = $i == 0 ? 'featured-article' : 'blog-landing-article'; ?>
+            <li>
+              <a href="<? the_permalink() ?>">
+                <? the_title(); ?>
+              </a>
+            </li>
+            <?$i++;?>
+          <?endwhile;?>
+
+        </ol>
+        <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
+          <path id="Spacer_1" data-name="Spacer 1" d="M4080.714,3014.242l-.367-.1-189.09-50.437.524-3.931,188.724,50.339,103.836-50.266.916,3.784Z" transform="translate(-3891.257 -2959.777)" fill="#b8d2cf"/>
+        </svg>
 
       </div>
       <div class="follow">
         <h2>Follow Semihandmade</h2>
+        <div class="social-links">
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
+          </a>
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Twitter">
+          </a>
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Pinterest">
+          </a>
+          <a href="">
+            <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Instagram">
+          </a>
+
+        </div>
       </div>
     </aside>
   </div>

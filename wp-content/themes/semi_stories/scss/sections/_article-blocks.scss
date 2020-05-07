@@ -31,6 +31,23 @@ $leftPadding: 10rem;
   }
 }
 
+/* DROP CAPS ================== */
+.drop-cap {
+  p:first-child:first-letter {
+    color: $lightBlueText;
+    float: left;
+    font-family: $superBoldItalic;
+    font-size: 6.8rem;
+    line-height: 0.85;
+    padding-top: 0;
+    margin-right: 4rem;
+    padding-left: 1rem;
+    border-bottom: 2px solid $lightBlueText;
+    position: relative;
+    top: -2rem;
+  }
+}
+
 /* IMAGE GALLERY ROW ================== */
 .image-gallery {
   .gallery-row {
@@ -182,6 +199,138 @@ $leftPadding: 10rem;
   }
 }
 
+/* PULLOUT QUOTE ================== */
+.circle-image {
+  border-radius: 100%;
+  overflow: hidden;
+  height: 0;
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.quote {
+  position: relative;
+  color: $orange;
+  .desc-large {
+    font-size: 2.4rem;
+    font-weight: 400;
+    font-family: $superMed;
+    line-height: 1.416;
+    @include mobile-only {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/* QUOTE - CENTER ================== */
+.quote.layout-center {
+  padding-top: 18rem;
+  padding-bottom: 14rem;
+  text-align: center;
+  .circle-image {
+    width: 14.4rem;
+    padding-bottom: 14.4rem;
+    top: 0;
+    right: 2rem;
+    position: absolute;
+    @include mobile-only {
+      width: 10rem;
+      padding-bottom: 10rem;
+    }
+  }
+  .desc-large {
+    font-size: 3.4rem;
+    position: relative;
+    @include mobile-only {
+      font-size: 2.1rem;
+
+    }
+  }
+  .quote-bottom,
+  .quote-top {
+    font-size: 8rem;
+    font-family: $walsheimReg;
+    position: absolute;
+    left: 50%;
+
+  }
+  .quote-top {
+    top: 0;
+    transform: translate(-50%, -77%);
+  }
+  .quote-bottom {
+    bottom: -2rem;
+    transform: translate(-50%, 100%);
+  }
+}
+
+/* QUOTE - RIGHT ================== */
+.quote.layout-right {
+  padding-top: 7rem;
+  padding-bottom: 10rem;
+  @include mobile-only {
+    padding-top: 8rem;
+    padding-bottom: 7rem;
+  }
+  .circle-image {
+    width: 12rem;
+    padding-bottom: 12rem;
+    top: 0;
+    left: -2rem;
+    position: absolute;
+    @include mobile-only {
+      left: -1rem;
+      width: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+  .desc-large {
+    max-width: 47.4rem;
+    margin-left: auto;
+    padding-top: 1rem;
+    border-top: 4px solid $orange;
+    @include mobile-only {
+      max-width: 75%;
+      margin-left: auto;
+    }
+  }
+}
+
+/* QUOTE - LEFT ================== */
+.quote.layout-left {
+  padding-top: 7rem;
+  padding-bottom: 10rem;
+  @include mobile-only {
+    padding-bottom: 13rem;
+  }
+  .circle-image {
+    width: 20rem;
+    padding-bottom: 20rem;
+    right: -3rem;
+    bottom: 6rem;
+    position: absolute;
+    @include mobile-only {
+      right: -1rem;
+      width: 11rem;
+      padding-bottom: 11rem;
+    }
+  }
+  .desc-large {
+    max-width: 47.4rem;
+    padding-top: 1rem;
+    border-top: 4px solid $orange;
+    @include mobile-only {
+      max-width: 80%;
+
+    }
+  }
+}
+
 /* --------------------------------------------------------------------------
   POST - Island Hopping
 -----------------------------------------------------------------------------*/
@@ -194,7 +343,37 @@ $leftPadding: 10rem;
   .single-image-block {
     position: relative;
   }
+  .quote {
+    color: $gold;
+    padding-top: 4rem;
 
+  }
+}
+
+/* --------------------------------------------------------------------------
+  POST - ADVICE
+-----------------------------------------------------------------------------*/
+.post-advice {
+  .quote {
+    color: $green;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    .desc-large {
+      font-size: 2.4rem;
+      max-width: 47rem;
+      margin-left: auto;
+      margin-right: auto;
+      border-top: 4px solid $green;
+      padding-top: 1rem;
+      @include mobile-only {
+        font-size: 1.8rem;
+      }
+    }
+    .quote-bottom,
+    .quote-top {
+      display: none;
+    }
+  }
 }
 
 /* --------------------------------------------------------------------------
