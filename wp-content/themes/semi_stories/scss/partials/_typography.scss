@@ -46,6 +46,9 @@ h6 {
   font-family: $headingFont;
   font-weight: normal;
   font-style: normal;
+  em {
+    font-family: $superMedItalic;
+  }
 }
 
 .h1,

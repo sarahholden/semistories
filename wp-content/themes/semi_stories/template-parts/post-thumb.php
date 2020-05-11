@@ -1,7 +1,7 @@
 <?
   $currentPostId = $template_args['post'];
   $className = $template_args['className'];
-
+  $url = wp_get_attachment_url( get_post_thumbnail_id() );
 ?>
 
 <article class="post-card <?= $className ?> "
@@ -9,20 +9,13 @@
   data-offset="-300" >
 
   <!-- Article Image -->
-  <? if ($className == 'blog-landing-article') { ?>
-    <? if(has_post_thumbnail()) { ?>
-      <div class="slide--right">
-        <div class="sliding-bg"></div>
-        <? $image = the_post_thumbnail('full', ['class' => 'image-with-sliding-bg image-with-sliding-bg--horizontal post-thumb'])?>
-      </div>
-    <? } ?>
-  <? } else { ?>
-    <? if ( has_post_thumbnail() ) { ?>
+  <? if ( has_post_thumbnail() ) { ?>
+    <div class="thumb-wrapper bg-image-wrapper">
       <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb">
-        <? the_post_thumbnail(); ?>
+        <div style="background-image: url(<?= $url ?>);" class=" bg-image"></div>
       </a>
-    <? } ?>
-  <? }?>
+    </div>
+  <? } ?>
 
 
   <!-- Text Content -->

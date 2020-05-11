@@ -1,23 +1,42 @@
 /* --------------------------------------------------------------------------
 Footer Navigation Styles
 -----------------------------------------------------------------------------*/
-footer nav {
+footer {
+	color: $orange;
+	background: $lightGreyBg;
 	a,
 	a:visited {
-		color: #4c4b4b;
-		margin-left: 18px;
+		color: $orange;
 	}
-	a:hover {
-		color: darken(#4c4b4b, 20%);
+
+	.desc-sans {
+		max-width: 50rem;
+		padding-top: 0.4rem;
 	}
+	nav a {
+		display: block;
+		@extend .small-caps;
+	}
+	.social-links {
+		justify-content: flex-end;
+		img {
+			width: 3rem;
+			margin-left: 1rem;
+		}
+	}
+	h5 {
+		text-align: right;
+		margin-bottom: 1rem;
+	}
+
 }
 
 /* --------------------------------------------------------------------------
 LK Site Credit
 -----------------------------------------------------------------------------*/
 .site-credit {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  display: block;
-  text-align: right;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	display: block;
+	text-align: right;
 }

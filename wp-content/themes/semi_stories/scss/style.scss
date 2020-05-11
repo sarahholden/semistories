@@ -1,14 +1,15 @@
 
 @import 'partials/reset';
-@import 'partials/images';
 @import 'partials/fonts';
 @import 'partials/variables';
 @import 'partials/typography';
+@import 'partials/images';
 @import 'partials/layout';
 @import 'partials/grid';
 @import 'partials/forms';
 @import 'partials/nav';
 @import 'partials/footer';
+@import 'partials/mailchimp';
 
 /* --------------------------------------------------------------------------
 Section Comment
@@ -16,6 +17,7 @@ Section Comment
 @import 'sections/masthead';
 @import 'sections/article-blocks';
 @import 'sections/sidebar';
+@import 'sections/home';
 
 .banner {
   background: $gold;
@@ -23,31 +25,22 @@ Section Comment
   padding-bottom: 4rem;
   color: white;
   text-align: center;
+  position: relative;
   h2 {
     margin: 0;
   }
-}
-
-.post-card {
-  text-align: center;
-  .category-row {
-    @extend .small-caps;
-    text-align: center;
-    margin-bottom: 2.3rem;
+  .shape-right-sm {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
   }
-  h2 {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .text-content {
-    max-width: 37.8rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .post-thumb {
-    margin-bottom: 5rem;
-    display: block;
+  .shape-left-sm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
   }
 }
-.post-card.stacked {}

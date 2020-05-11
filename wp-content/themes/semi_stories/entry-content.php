@@ -1,5 +1,6 @@
 <? $categories = get_the_category(); ?>
 <? $categoryName = ! empty( $categories ) ? strtolower($categories[0]->name) : ''; ?>
+<? $categoryId = $categories[0]->term_id; ?>
 <?
   function seoUrl($string) {
     //Lower case everything
@@ -269,6 +270,7 @@
 
       <? } ?>
 
+
     </div>
     <aside class="sidebar">
       <div class="share">
@@ -351,6 +353,65 @@
   </div>
 
 
+  <!-- ==============================
+  MUST HAVES (FOR ADVICE)
+  =================================== -->
+  <? if ($categoryId == 5) { ?>
+      <?php
+        $args = array(
+          'post_type' => 'post',
+          'posts_per_page' => 4
+        );
 
-<div class="entry-links"><? wp_link_pages(); ?></div>
+        $featuredQuery = new WP_Query( $args );
+      ?>
+
+      <section class="container padded more-stories-section must-haves">
+        <div class="inner">
+          <h2 class="h1">Must Haves</h2>
+          <div class="cols-2">
+            <? $i = 0; ?>
+            <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+              <? $className = 'stacked'; ?>
+
+              <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
+
+              <?$i++;?>
+            <?endwhile;?>
+          </div>
+        </div>
+      </section>
+      <?wp_reset_postdata();?>
+    <? } ?>
+
+
+  <!-- ==============================
+  TOP STORIES
+  =================================== -->
+    <?php
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3
+      );
+
+      $featuredQuery = new WP_Query( $args );
+    ?>
+
+    <section class="container padded more-stories-section">
+      <div class="inner">
+        <h2 class="h1">More <em>Stories...</em></h2>
+        <div class="cols-3">
+          <? $i = 0; ?>
+          <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+            <? $className = 'stacked'; ?>
+
+            <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
+
+            <?$i++;?>
+          <?endwhile;?>
+        </div>
+      </div>
+    </section>
+    <?wp_reset_postdata();?>
+
 </div>

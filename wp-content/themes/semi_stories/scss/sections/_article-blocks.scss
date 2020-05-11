@@ -416,3 +416,34 @@ POST - RECIPE & DIY
     margin-top: 4rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+  MORE STORIES
+-----------------------------------------------------------------------------*/
+.must-haves {
+  text-align: center;
+  .category-row {
+    display: none;
+  }
+  .post-card .text-content {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    h2 {
+      width: 100%;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.more-stories-section {
+  .inner {
+    border-top: 0.4rem solid $brown;
+    padding-top: 7.8rem;
+  }
+  .h1 {
+    margin-bottom: 7.5rem;
+  }
+}

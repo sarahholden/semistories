@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.7.6 on Thu, 07 May 2020 04:08:08 +0000 (0.4382s) */
+/* compiled by scssphp v0.7.6 on Thu, 07 May 2020 20:58:54 +0000 (0.3562s) */
 
 /* http://meyerweb.com/eric/tools/css/reset/
  v2.0 | 20110126
@@ -31,101 +31,6 @@ blockquote:after, blockquote:before, q:after, q:before {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
-/*-----------------------------------------------------------
- Images
- -------------------------------------------------------------*/
-img {
-  display: block;
-  max-width: 100%;
-  height: auto; }
-
-.imgSrc50Hero {
-  width: 100%; }
-
-img.imgSrcLoad {
-  opacity: 0; }
-
-img.imgSrc50, img.lazy-load {
-  opacity: 0;
-  width: 100%;
-  position: relative;
-  z-index: 1; }
-
-img.imgSrcLoadOn {
-  opacity: 1;
-  height: auto;
-  -moz-transition: opacity 1s ease-out;
-  -o-transition: opacity 1s ease-out;
-  -webkit-transition: opacity 1s ease-out;
-  transition: opacity 1s ease-out; }
-/*-----------------------------------------------------------
- Background Images
- -------------------------------------------------------------*/
-div.imgSrc50 {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 100%;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.3s; }
-
-div.imgSrc50.loaded {
-  opacity: 1; }
-
-.bgFadeImage {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 100%;
-  opacity: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s; }
-
-.bgFadeImage.loaded {
-  opacity: 1; }
-
-.bg-img--full-height {
-  height: calc(100vh - 174px);
-  max-height: 752px;
-  min-height: 550px;
-  background-position: center top; }
-/*-----------------------------------------------------------
- Responsive Videos
- -------------------------------------------------------------*/
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.3%;
-  height: 0;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center center;
-  margin-bottom: 2rem; }
-  .video-wrapper .placeholder {
-    z-index: 1; }
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2; }
-  .video-wrapper .video-play-button {
-    background: rgba(38, 57, 88, 0.85);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    transition: opacity 0.3s ease-in-out; }
-  .video-wrapper.playing .video-play-button {
-    opacity: 0;
-    pointer-events: none; }
 /* --------------------------------------------------------------------------
  Hosted Fonts
  -----------------------------------------------------------------------------*/
@@ -183,10 +88,10 @@ div.imgSrc50.loaded {
 /* --------------------------------------------------------------------------
  Mixins
  -----------------------------------------------------------------------------*/
-.callout-section {
+.top-stories-section, .callout-section {
   background-color: #f7f5f1;
   color: #432f21; }
-  .callout-section a {
+  .top-stories-section a, .callout-section a {
     color: #432f21; }
 /* --------------------------------------------------------------------------
  Responsive Mixins
@@ -239,6 +144,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'GT Super Display Medium', serif;
   font-weight: normal;
   font-style: normal; }
+  h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+    font-family: 'GT Super Display Medium Italic', serif; }
 
 .h1, h1 {
   font-size: 4.6rem;
@@ -275,7 +182,7 @@ hr {
 /* --------------------------------------------------------------------------
  SMALL CAPS
  -----------------------------------------------------------------------------*/
-.masthead .category-row a, .qa-block h5, .small-caps, .post-card .category-row {
+.masthead .category-row a, .qa-block h5, .small-caps, footer nav a, .post-card .category-row {
   text-transform: uppercase;
   line-height: 2;
   letter-spacing: 0.1rem;
@@ -283,7 +190,7 @@ hr {
   font-size: 1.6rem;
   color: #ba6b39; }
   @media (max-width: 768px) {
-  .masthead .category-row a, .qa-block h5, .small-caps, .post-card .category-row {
+  .masthead .category-row a, .qa-block h5, .small-caps, footer nav a, .post-card .category-row {
     font-size: 1.2rem; } }
 
 .step-block .step-unit, .xs-caps {
@@ -357,6 +264,69 @@ hr {
 @media only screen and (min-width: 1800px) {
   html {
     font-size: 13px; } }
+/*-----------------------------------------------------------
+ Images
+ -------------------------------------------------------------*/
+img {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
+.bg-image-wrapper {
+  position: relative;
+  overflow: hidden; }
+
+.bg-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%; }
+
+.icon-orange .update-fill {
+  fill: #ba6b39; }
+  .icon-orange .update-stroke {
+    stroke: #ba6b39; }
+/*-----------------------------------------------------------
+ Responsive Videos
+ -------------------------------------------------------------*/
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.3%;
+  height: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 2rem; }
+  .video-wrapper .placeholder {
+    z-index: 1; }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; }
+  .video-wrapper .video-play-button {
+    background: rgba(38, 57, 88, 0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: opacity 0.3s ease-in-out; }
+  .video-wrapper.playing .video-play-button {
+    opacity: 0;
+    pointer-events: none; }
 /* --------------------------------------------------------------------------
  Layout Helpers
  -----------------------------------------------------------------------------*/
@@ -374,6 +344,17 @@ body, html {
  Vertical & Horizontal Alignment
  -----------------------------------------------------------------------------*/
 /* Center vertically  */
+.v-aligner, .post-card.img-left .text-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 /* Center vertically and horizontally */
 .split-aligner {
   display: flex;
@@ -405,6 +386,11 @@ body, html {
     padding-left: 0; }
   [class*="container"].left-only {
     padding-right: 0; }
+
+@media (min-width: 769px) {
+    .container-full {
+      padding-left: 9.6rem;
+      padding-right: 9.6rem; } }
 
 .container-xs, .masthead .featured-caption, .masthead.post-recipe .featured-image-wrapper, .masthead.post-recipe .featured-video-wrapper {
   max-width: 76.8rem;
@@ -469,8 +455,8 @@ body, html {
 [class*="cols"] {
   display: grid;
   grid-template-rows: auto;
-  grid-column-gap: 2rem;
-  grid-row-gap: 1.5rem;
+  grid-column-gap: 4.6rem;
+  grid-row-gap: 10rem;
   grid-template-columns: 1fr; }
 
 @media (min-width: 769px) {
@@ -507,34 +493,34 @@ body, html {
 .no-cssgrid {
   /* Use floats for older browsers to turn elements into columns for screens larger than the tablet-up breakpoint in variables.scss */ }
   .no-cssgrid [class^="cols"] > * {
-    margin-bottom: 1.5rem; }
+    margin-bottom: 10rem; }
   @media (min-width: 769px) {
   .no-cssgrid [class^="cols"] {
-    margin-left: -2rem; }
+    margin-left: -4.6rem; }
     .no-cssgrid [class^="cols"] > * {
       float: left;
-      margin-left: 2rem; }
+      margin-left: 4.6rem; }
 
     .no-cssgrid .cols-2 > * {
-      width: calc(50% - 2rem); }
+      width: calc(50% - 4.6rem); }
 
     .no-cssgrid .cols-3 > * {
-      width: calc(33.3% - 2rem); }
+      width: calc(33.3% - 4.6rem); }
 
     .no-cssgrid .cols-4 > * {
-      width: calc(25% - 2rem); }
+      width: calc(25% - 4.6rem); }
 
     .no-cssgrid .cols-1-2 > :first-of-type {
-      width: calc(33.33% - 2rem); }
+      width: calc(33.33% - 4.6rem); }
 
     .no-cssgrid .cols-1-2 > :last-of-type {
-      width: calc(66.66% - 2rem); }
+      width: calc(66.66% - 4.6rem); }
 
     .no-cssgrid .cols-2-1 > :first-of-type {
-      width: calc(66.66% - 2rem); }
+      width: calc(66.66% - 4.6rem); }
 
     .no-cssgrid .cols-2-1 > :last-of-type {
-      width: calc(33.33% - 2rem); } }
+      width: calc(33.33% - 4.6rem); } }
 /* --------------------------------------------------------------------------
  Buttons
  -----------------------------------------------------------------------------*/
@@ -547,10 +533,15 @@ body, html {
   outline: none;
   display: inline-block;
   /* background-color: transparent;  👋🏻 NOTE: Make sure to add a bg color for Firefox & Safari or use transparent for no bg color*/ }
-  /* --------------------------------------------------------------------------
-   Inputs
-   -----------------------------------------------------------------------------*/
-
+  button.text-only {
+    font-family: inherit;
+    font-size: inherit;
+    background: transparent;
+    padding: 0;
+    margin: 0; }
+/* --------------------------------------------------------------------------
+ Inputs
+ -----------------------------------------------------------------------------*/
 input, textarea {
   border: none;
   outline: none;
@@ -628,13 +619,46 @@ input, textarea {
 /* --------------------------------------------------------------------------
  Header Navigation Styles
  -----------------------------------------------------------------------------*/
-.nav-wrapper nav a, .nav-wrapper nav a:visited {
-  color: #302219;
-  margin-left: 18px; }
-  .nav-wrapper nav a:hover {
-    color: #000; }
-  .nav-wrapper nav .current-page {
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem; }
+  .nav-wrapper a, .nav-wrapper a:visited {
+    color: #ba6b39;
+    margin-right: 18px; }
+  .nav-wrapper a:hover {
+    color: #ba6b39;
+    text-decoration: underline; }
+
+.nav-wrapper nav {
+  flex-grow: 1;
+  padding-left: 8rem;
+  display: flex;
+  align-items: flex-end;
+  transform: translateY(-0.3rem); }
+  .nav-wrapper nav a {
+    text-transform: uppercase;
+    font-family: 'GT Walsheim Bold', sans-serif;
+    font-weight: 400; }
+  .nav-wrapper .search {
+    padding-left: 8rem;
+    transform: translateY(0.2rem); }
+  .nav-wrapper .menu {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1; }
+  .nav-wrapper .menu .current-page {
     /* Styles for the currently active link */ }
+/* LOGO WRAPPER ================== */
+.nav-wrapper .logo-wrapper {
+  width: 24.7rem; }
+  .nav-wrapper .logo-wrapper h1 {
+    margin-bottom: 0;
+    line-height: 1; }
+  .nav-wrapper .logo-wrapper h1 a:hover {
+    opacity: 0.8;
+    text-decoration: none; }
 /* ==============   MOBILE NAV STYLES  ============== */
 @media (max-width: 768px) {
   .nav-wrapper nav {
@@ -698,23 +722,36 @@ input, textarea {
   /* Rotate lines to form an X */ }
   .open-mobile-nav .hamburger {
     position: fixed; }
-    .open-mobile-nav .hamburger span:first-of-type {
-      top: 50%;
-      transform: rotate(-45deg); }
-    .open-mobile-nav .hamburger span:nth-of-type(2) {
-      transform: translateX(-20%);
-      opacity: 0; }
-    .open-mobile-nav .hamburger span:last-of-type {
-      top: 50%;
-      transform: rotate(45deg); }
+  .open-mobile-nav .hamburger span:first-of-type {
+    top: 50%;
+    transform: rotate(-45deg); }
+  .open-mobile-nav .hamburger span:nth-of-type(2) {
+    transform: translateX(-20%);
+    opacity: 0; }
+  .open-mobile-nav .hamburger span:last-of-type {
+    top: 50%;
+    transform: rotate(45deg); }
 /* --------------------------------------------------------------------------
  Footer Navigation Styles
  -----------------------------------------------------------------------------*/
-footer nav a, footer nav a:visited {
-  color: #4c4b4b;
-  margin-left: 18px; }
-  footer nav a:hover {
-    color: #191818; }
+footer {
+  color: #ba6b39;
+  background: #f7f5f1; }
+  footer a, footer a:visited {
+    color: #ba6b39; }
+  footer .desc-sans {
+    max-width: 50rem;
+    padding-top: 0.4rem; }
+  footer nav a {
+    display: block; }
+  footer .social-links {
+    justify-content: flex-end; }
+  footer .social-links img {
+    width: 3rem;
+    margin-left: 1rem; }
+  footer h5 {
+    text-align: right;
+    margin-bottom: 1rem; }
 /* --------------------------------------------------------------------------
  LK Site Credit
  -----------------------------------------------------------------------------*/
@@ -723,6 +760,84 @@ footer nav a, footer nav a:visited {
   text-transform: uppercase;
   display: block;
   text-align: right; }
+/* --------------------------------------------------------------------------
+ NEWSLETTER SIGNUP - GENERAL
+ -----------------------------------------------------------------------------*/
+.newsletter-signup {
+  background: #3b5641;
+  color: white;
+  text-align: center;
+  position: relative; }
+  .newsletter-signup .h1 {
+    margin-bottom: 3rem; }
+  .newsletter-signup .desc-sans {
+    margin-bottom: 3rem; }
+  .newsletter-signup .inner {
+    max-width: 76.8rem;
+    margin-left: auto;
+    margin-right: auto; }
+  .newsletter-signup .shape-left, .newsletter-signup .shape-right {
+    position: absolute; }
+  .newsletter-signup .shape-right {
+    bottom: 0;
+    right: 0;
+    width: 18.4rem; }
+  .newsletter-signup .shape-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18.8rem; }
+/* --------------------------------------------------------------------------
+ NEWSLETTER SIGNUP - MAILCHIMP
+ -----------------------------------------------------------------------------*/
+.newsletter-signup #mc_embed_signup {
+  background: transparent; }
+  .newsletter-signup #mc_embed_signup #mc_embed_signup_scroll {
+    display: flex;
+    border-bottom: 4px solid #ba6b39;
+    align-items: flex-end; }
+  .newsletter-signup #mc_embed_signup .mc-field-group input {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 3.4rem;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 1.2rem;
+    font-family: 'GT Super Display Medium', serif;
+    font-weight: 400;
+    text-transform: lowercase; }
+  .newsletter-signup #mc_embed_signup .mc-field-group {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: unset;
+    height: auto; }
+  .newsletter-signup #mc_embed_signup #mce-responses {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%); }
+  .newsletter-signup #mc_embed_signup .icon-btn {
+    margin: 0 0 1.2rem; }
+  .newsletter-signup #mc_embed_signup .icon-btn svg {
+    width: 8.2rem; }
+  .newsletter-signup #mc_embed_signup ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: white; }
+  .newsletter-signup #mc_embed_signup ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: white; }
+  .newsletter-signup #mc_embed_signup :-ms-input-placeholder {
+    /* IE 10+ */
+    color: white; }
+  .newsletter-signup #mc_embed_signup :-moz-placeholder {
+    /* Firefox 18- */
+    color: white; }
 /* --------------------------------------------------------------------------
  Section Comment
  -----------------------------------------------------------------------------*/
@@ -1241,6 +1356,28 @@ footer nav a, footer nav a:visited {
     padding-left: 10rem;
     margin-top: 4rem; }
 /* --------------------------------------------------------------------------
+ MORE STORIES
+ -----------------------------------------------------------------------------*/
+.must-haves {
+  text-align: center; }
+  .must-haves .category-row {
+    display: none; }
+  .must-haves .post-card .text-content {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto; }
+  .must-haves .post-card .text-content h2 {
+    width: 100%;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto; }
+
+.more-stories-section .inner {
+  border-top: 0.4rem solid #432f21;
+  padding-top: 7.8rem; }
+  .more-stories-section .h1 {
+    margin-bottom: 7.5rem; }
+/* --------------------------------------------------------------------------
  SIDEBAR
  -----------------------------------------------------------------------------*/
 .sidebar .spacer {
@@ -1282,21 +1419,82 @@ footer nav a, footer nav a:visited {
   margin-bottom: 5rem; }
   .social-links img {
     width: 4rem; }
-
-.banner {
-  background: #c19115;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+/* --------------------------------------------------------------------------
+ HERO SLIDESHOW
+ -----------------------------------------------------------------------------*/
+.masthead-slideshow .masthead-slide-wrapper {
+  height: 90vh;
+  width: 100%;
+  max-height: 86.8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: white;
+  text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem; }
+  @media (max-width: 768px) {
+    .masthead-slideshow .masthead-slide-wrapper {
+      padding-top: 6rem;
+      padding-bottom: 6rem; } }
+  .masthead-slideshow .overlay-bg {
+    background: rgba(125, 117, 108, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply; }
+  .masthead-slideshow .text-content {
+    position: relative;
+    z-index: 3;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto; }
+  .masthead-slideshow h1 {
+    font-size: 6.8rem;
+    font-family: 'GT Super Display Bold', serif;
+    margin-bottom: 3rem; }
+  @media (max-width: 768px) {
+    .masthead-slideshow h1 {
+      margin-bottom: 2.5rem; } }
+  .masthead-slideshow h1 em {
+    font-family: 'GT Super Display Bold Italic', serif; }
+  .masthead-slideshow h2 {
+    margin-bottom: 3rem; }
+  .masthead-slideshow .desc-sans {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto; }
+  .masthead-slideshow button svg {
+    width: 8.2rem;
+    display: block;
+    margin-top: 5.5rem; }
+  @media (max-width: 768px) {
+    .masthead-slideshow button svg {
+      margin-top: 2.5rem; } }
+/* --------------------------------------------------------------------------
+ HOME SECTIONS
+ -----------------------------------------------------------------------------*/
+.top-stories-section {
   text-align: center; }
-  .banner h2 {
-    margin: 0; }
+  .top-stories-section h3 {
+    margin-bottom: 7.6rem; }
+  @media (max-width: 768px) {
+    .top-stories-section h3 {
+      margin-bottom: 3.5rem; } }
 
 .post-card {
   text-align: center; }
   .post-card .category-row {
     text-align: center;
     margin-bottom: 2.3rem; }
+  .post-card .category-row a {
+    color: #ba6b39; }
   .post-card h2 {
     max-width: 90%;
     margin-left: auto;
@@ -1305,7 +1503,58 @@ footer nav a, footer nav a:visited {
     max-width: 37.8rem;
     margin-left: auto;
     margin-right: auto; }
-  .post-card .post-thumb {
-    margin-bottom: 5rem;
-    display: block; }
-/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22scss%5C%2Fstyle.scss%22%2C%22scss%5C%2Fpartials%5C%2F_reset.scss%22%2C%22scss%5C%2Fpartials%5C%2F_images.scss%22%2C%22scss%5C%2Fpartials%5C%2F_fonts.scss%22%2C%22scss%5C%2Fpartials%5C%2F_variables.scss%22%2C%22scss%5C%2Fpartials%5C%2F_typography.scss%22%2C%22scss%5C%2Fpartials%5C%2F_layout.scss%22%2C%22scss%5C%2Fpartials%5C%2F_grid.scss%22%2C%22scss%5C%2Fpartials%5C%2F_forms.scss%22%2C%22scss%5C%2Fpartials%5C%2F_nav.scss%22%2C%22scss%5C%2Fpartials%5C%2Ffooter.scss%22%2C%22scss%5C%2Fsections%5C%2Fmasthead.scss%22%2C%22scss%5C%2Fsections%5C%2F_article-blocks.scss%22%2C%22scss%5C%2Fsections%5C%2F_sidebar.scss%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AACD%3B%3B%3BGAAA%3BACIC%3BAAAA%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BADJD%2CiDAAA%3BAC6FC%3BAAAA%2CiBAAA%2CEAAA%3BAAAA%3BAAaA%3BAAAA%2CiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CeAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BgBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BoBAAA%2CEAAA%3BAD5HD%3B%3BgEAAA%3BAEEC%3BAAAA%3B%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BaAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3BkCAAA%2CEAAA%3BAFxBD%3B%3BgEAAA%3BAEoCC%3BAAAA%3B%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3BuBAAA%2CEAAA%3BAAAA%3BAAUA%3BAAAA%2CaAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BkCAAA%2CEAAA%3BAFhED%3B%3BgEAAA%3BAE0EC%3BAAAA%3B%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BAASE%3BAAAA%2CeAAA%2CEAAA%3BAAGA%3BAAAA%3B%3B%3B%3B%3B%3BeAAA%2CEAAA%3BAASA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByCAAA%2CEAAA%3BAAcE%3BAAAA%3ByBAAA%2CEAAA%3BAF7GL%3B%3BgFAAA%3BAGEC%3BAAAA%3B%2BQAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuSAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuRAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%2BSAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B2RAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BmTAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuRAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BmTAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B2QAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuSAAA%2CEAAA%3BAH%5C%2FCD%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAI6CC%3BAAAA%3BiBAAA%2CEAAA%3BAAIE%3BAAAA%2CmBAAA%2CEAAA%3BAJjDH%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAIuHC%3BAAAA%2CgBAAA%2CEAAA%3BAAxDE%3BAAAA%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAKEC%3BAAAA%3B4BAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3B%3B%3B%3B%3B%3BsCAAA%2CEAAA%3BADwDE%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAKwBC%3BAAAA%3B%3BmCAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CiBAAA%2CEAAA%3BAL9BD%3B%3BgFAAA%3BAKsCC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAWA%3BAAAA%3B%3ByBAAA%2CEAAA%3BADcE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAAAA%3BACHF%3BAAAA%3B%3BwBAAA%2CEAAA%3BADGE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAAAA%3BACQF%3BAAAA%3B%3BsBAAA%2CEAAA%3BADRE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAKqFC%3BAAAA%3BmCAAA%2CEAAA%3BALrFD%3B%3BgFAAA%3BAK6FC%3BAAAA%3B%3B%3B%3B%3BiBAAA%2CEAAA%3BAD9BE%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAAAA%3BAC2CF%3BAAAA%3B%3B%3B%3BoBAAA%2CEAAA%3BAD3CE%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAKyHC%3BAAAA%3BoBAAA%2CEAAA%3BAD1DE%3BAAAA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BACkEA%3BAAAA%3B%2BBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAAIA%3BAAAA%2CuBAAA%2CEAAA%3BAAGA%3BAAAA%2CuBAAA%2CEAAA%3BAD7EA%3BAAAA%3BAAAA%2CuBAAA%2CEAAA%2CEAAA%3BAAAA%3BACqFF%3BAAAA%2CiDAAA%2CEAAA%3BAAEE%3BAAAA%2C0DAAA%2CEAAA%3BAAAA%3BAAKF%3BAAAA%2CiDAAA%2CEAAA%3BAAEE%3BAAAA%2C0DAAA%2CEAAA%3BAAAA%3BAAMF%3BAAAA%3BsBAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BoBAAA%2CEAAA%3BADzGE%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAI2EG%3BAC0GA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BAAAA%3BADtHA%3BAC6HA%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAKF%3BAACE%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAKF%3BAACE%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BALxMH%3B%3BgFAAA%3BAMEC%3BAAAA%2CgBAAA%2CEAAA%3BANFD%3B%3BgFAAA%3BAMSC%3BAAAA%2CyBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CqBAAA%2CEAAA%3BANbD%3B%3BgFAAA%3BAAAA%2CwBAAA%3BAAAA%2CwCAAA%3BAMoDC%3BAAAA%3BiCAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3ByBAAA%2CEAAA%3BANzDD%3B%3BgFAAA%3BAMqEC%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BuBAAA%2CEAAA%3BAAAA%3BAFEE%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAEyBD%3BAAAA%2CoBAAA%2CEAAA%3BAAGA%3BAAAA%2CqBAAA%2CEAAA%3BAAAA%3BAAKD%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BuBAAA%2CEAAA%3BAF1CE%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%3B2BAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAMqIC%3BAAAA%3BoGAAA%2CEAAA%3BAAEC%3BAAAA%3B%3B2BAAA%2CEAAA%3BAAOA%3BAAAA%2CYAAA%2CEAAA%3BAN9IF%3B%3BgFAAA%3BAMsJC%3BAAAA%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3BcAAA%2CEAAA%3BANhKD%3B%3BgFAAA%3BAAAA%2CmCAAA%3BAAAA%2CmCAAA%3BAAAA%3B%3BgFAAA%3BAOUC%3BAAAA%3B%3B%3B%3B6BAAA%2CEAAA%3BAAAA%3BAHuEE%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2C0CAAA%2CEAAA%2CEAAA%3BAAAA%3BAANA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJvFH%2C0GAAA%3BAO4DC%3BAAAA%2CsIAAA%2CEAAA%3BAAGE%3BAAAA%2C0BAAA%2CEAAA%3BAHkBA%3BAGXA%3BAAAA%2CuBAAA%2CEAAA%3BAAEC%3BAAAA%3BwBAAA%2CEAAA%3BAAAA%3BAAMD%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CgCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2C8BAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CiCAAA%2CEAAA%2CEAAA%3BAPhGH%3B%3BgFAAA%3BAQEC%3BAAAA%3B%3B%3B%3B%3B%3B%3ByIAAA%2CEAAA%3BARFD%3B%3BkFAAA%3BAAAA%3BAQqBC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B0BAAA%2CEAAA%3BAAAA%3BAAcA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%3BiBAAA%2CEAAA%3BAR5CD%3B%3BgFAAA%3BAQoDC%3BAAAA%3BsBAAA%2CEAAA%3BAJWE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAIJF%3BAAAA%3B%3B%3B%3B8BAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByBAAA%2CEAAA%3BAAmBC%3BAAAA%3BkBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAR1FF%3B%3BgFAAA%3BASEC%3BAAAA%3B%3BmBAAA%2CEAAA%3BATFD%3B%3BgFAAA%3BASYE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CgBAAA%2CEAAA%3BAAGA%3BAAAA%2C8CAAA%2CEAAA%3BATpBF%2CwDAAA%3BAI%2BDG%3BAKpCD%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BwBAAA%2CEAAA%3BAAeC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%2CEAAA%3BAT1CH%2CsDAAA%3BASoDC%3BAAAA%2C0DAAA%2CEAAA%3BAACC%3BAAAA%3BwBAAA%2CEAAA%3BATrDF%3B%3BgFAAA%3BASiEC%3BAAAA%3B%3B%3B%3B%3B%3B%3BkBAAA%2CEAAA%3BAASC%3BAAAA%3B%3B%3B%3B%3BqCAAA%2CEAAA%3BAAQA%3BAAAA%2CWAAA%2CEAAA%3BAAGA%3BAAAA%2CaAAA%2CEAAA%3BAAGA%3BAAAA%2CcAAA%2CEAAA%3BATxFF%2C8DAAA%3BAI%2BDG%3BAKgCD%3BAAAA%3BoBAAA%2CEAAA%2CEAAA%3BAT%5C%2FFF%2CuEAAA%3BASsGC%3BAAAA%2CiCAAA%2CEAAA%3BAAEC%3BAAAA%2CoBAAA%2CEAAA%3BAAEC%3BAAAA%3BgCAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3B%2BBAAA%2CEAAA%3BATlHH%3B%3BgFAAA%3BAUGE%3BAAAA%3BoBAAA%2CEAAA%3BAAKA%3BAAAA%2CmBAAA%2CEAAA%3BAVRF%3B%3BgFAAA%3BAUgBC%3BAAAA%3B%3B%3BoBAAA%2CEAAA%3BAVhBD%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAWEC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOE%3BAAAA%2CoBAAA%2CEAAA%3BAXTH%3B%3BgFAAA%3BAWiBC%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%3B%3B%3BgBAAA%2CEAAA%3BAXnBH%3B%3BgFAAA%3BAW8BC%3BAAAA%2CwBAAA%2CEAAA%3BAPiCE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BkFAAA%3BAAAA%3BAW2CC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAQI%3BAAAA%2CmBAAA%2CEAAA%3BAP8BF%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAAlBA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAWmEC%3BAAAA%3BsBAAA%2CEAAA%3BAPJE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAW8EC%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BAPfE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAW4FK%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAMF%3BAAAA%2CuBAAA%2CEAAA%3BAPnCA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2CmDAAA%3BAAAA%3BAW%2BGG%3BAAAA%2CqBAAA%2CEAAA%3BAPhDA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAO%2BDE%3BAAAA%2CqBAAA%2CEAAA%3BAX9HL%3B%3BkFAAA%3BAAAA%3BAWgJG%3BAAAA%3B%3BiBAAA%2CEAAA%3BAPjFA%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAAkBA%3BAAAA%3BAAAA%2C8BAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3B%3BuCAAA%2CEAAA%2CEAAA%3BAAlBA%3BAAAA%3BAAAA%3B%3B2BAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2CiDAAA%3BAWgLG%3BAAAA%2CmBAAA%2CEAAA%3BAPjHA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAOwHA%3BAAAA%2CuBAAA%2CEAAA%3BAAYE%3BAAAA%2CuBAAA%2CEAAA%3BAXnML%3B%3BgFAAA%3BAIiFG%3BAAAA%3BAAAA%2C2BAAA%2CEAAA%2CEAAA%3BAJjFH%3B%3BgFAAA%3BAW8NC%3BAAAA%2CsBAAA%2CEAAA%3BAP%5C%2FJE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAOoKA%3BAAAA%2CuBAAA%2CEAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3B4BAAA%2CEAAA%3BAASA%3BAAAA%2CwBAAA%2CEAAA%3BAPjLA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAO4LA%3BAAAA%3B%3B%3BuBAAA%2CEAAA%3BAASE%3BAAAA%2CmBAAA%2CEAAA%3BAXpQL%2C8CAAA%3BAIiFG%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%3BAO%2BLE%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%2CoCAAA%2CEAAA%2CEAAA%3BAPvNF%3BAAAA%3BAAAA%3BkBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2C8CAAA%3BAWiSC%3BAAAA%3B%3ByBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3BgBAAA%2CEAAA%3BAAMA%3BAAAA%3B%3B%3BeAAA%2CEAAA%3BAAAA%3BAAUE%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BAAKE%3BAAAA%2CkBAAA%2CEAAA%3BAX1TP%3B%3BgFAAA%3BAWoUC%3BAAAA%3B%3B%3BiBAAA%2CEAAA%3BAPrQE%3BAAAA%3BAAAA%2CiCAAA%2CEAAA%2CEAAA%3BAO6QA%3BAAAA%2CwBAAA%2CEAAA%3BAP7QA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAOmRA%3BAAAA%3B%3BwBAAA%2CEAAA%3BAPnRA%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAAkBA%3BAAAA%3BAAAA%3BqCAAA%2CEAAA%2CEAAA%3BAJjFH%3B%3BgFAAA%3BAIuFG%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAQ%5C%2FEA%3BAAAA%2CmBAAA%2CEAAA%3BAZRH%2CmCAAA%3BAYeC%3BAAAA%2CuBAAA%2CEAAA%3BAR4DE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAQtCF%3BAAAA%2CqBAAA%2CEAAA%3BARsCE%3BAAAA%3BAAAA%2CuBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2CkCAAA%3BAYkCG%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BaAAA%2CEAAA%3BAZlCH%2C0CAAA%3BAYmDG%3BAAAA%2CwBAAA%2CEAAA%3BAR8BA%3BAAAA%3BAAAA%2C4BAAA%2CEAAA%2CEAAA%3BAQtBA%3BAAAA%2C0BAAA%2CEAAA%3BAZ3DH%2C2CAAA%3BAYiEC%3BAAAA%3BuBAAA%2CEAAA%3BARFE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2C6CAAA%3BAY0EC%3BAAAA%2CsBAAA%2CEAAA%3BARXE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAAkBA%3BAAAA%3BAAAA%2C4BAAA%2CEAAA%2CEAAA%3BAQGA%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BAAMA%3BAAAA%3BwBAAA%2CEAAA%3BAZ1FH%2CmDAAA%3BAYiGC%3BAAAA%2CsBAAA%2CEAAA%3BAAEE%3BAAAA%2CwBAAA%2CEAAA%3BAZnGH%2CoDAAA%3BAY2GG%3BAAAA%2CiBAAA%2CEAAA%3BAAEE%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAZhHL%2CkDAAA%3BAY0HK%3BAAAA%2CiBAAA%2CEAAA%3BAZ1HL%2CsDAAA%3BAYkIG%3BAAAA%2CgBAAA%2CEAAA%3BAAEE%3BAAAA%3B%3BkCAAA%2CEAAA%3BAAKA%3BAAAA%3BuBAAA%2CEAAA%3BAZzIL%2CmCAAA%3BAYiJC%3BAAAA%3B%3BsBAAA%2CEAAA%3BARlFE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAQyFA%3BAAAA%3B%3BwBAAA%2CEAAA%3BAAKA%3BAAAA%2C0BAAA%2CEAAA%3BAR5EA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAQoFA%3BAAAA%2CsBAAA%2CEAAA%3BARtGA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAQ4GA%3BAAAA%2C8BAAA%2CEAAA%3BAAIA%3BAAAA%2CmBAAA%2CEAAA%3BAAIA%3BAAAA%2CkDAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BmBAAA%2CEAAA%3BAAIA%3BAAAA%3B%3BmBAAA%2CEAAA%3BAAKA%3BAAAA%2C0BAAA%2CEAAA%3BAZnMH%2CsCAAA%3BAYyMC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%3BAAKE%3BAAAA%3B%3B%3BgBAAA%2CEAAA%3BAAAA%3BAAQF%3BAAAA%3BiBAAA%2CEAAA%3BAAGE%3BAAAA%3B%3B%3BuBAAA%2CEAAA%3BAR1JA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2CuCAAA%3BAYqOC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BAR1KA%3BAAAA%3BAAAA%3B4BAAA%2CEAAA%2CEAAA%3BAQqLA%3BAAAA%3BuBAAA%2CEAAA%3BARrLA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAQ6LA%3BAAAA%3B%3B%3BcAAA%2CEAAA%3BAAQA%3BAAAA%3BqCAAA%2CEAAA%3BAAIA%3BAAAA%3BqCAAA%2CEAAA%3BAZxQH%2CsCAAA%3BAY%2BQC%3BAAAA%3BwBAAA%2CEAAA%3BARhNE%3BAAAA%3BAAAA%3ByBAAA%2CEAAA%2CEAAA%3BAQuNA%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BARvNA%3BAAAA%3BAAAA%3B%3B2BAAA%2CEAAA%2CEAAA%3BAQmOA%3BAAAA%3B%3B%3BkCAAA%2CEAAA%3BARnOA%3BAAAA%3BAAAA%3BwBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%2CqCAAA%3BAY%2BSC%3BAAAA%3BwBAAA%2CEAAA%3BARhPE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAQsPA%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BARtPA%3BAAAA%3BAAAA%3B%3B4BAAA%2CEAAA%2CEAAA%3BAQkQA%3BAAAA%3B%3BkCAAA%2CEAAA%3BARlQA%3BAAAA%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAJ%5C%2FDH%3B%3BgFAAA%3BAYiVG%3BAAAA%2CiBAAA%2CEAAA%3BAAIA%3BAAAA%2CuBAAA%2CEAAA%3BAAGA%3BAAAA%3BsBAAA%2CEAAA%3BAZxVH%3B%3BgFAAA%3BAYmWG%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BARxSF%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAQmTE%3BAAAA%2CkBAAA%2CEAAA%3BAZlXL%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3BAYqYG%3BAAAA%2CkBAAA%2CEAAA%3BAAGA%3BAAAA%2CwBAAA%2CEAAA%3BAAAA%3BAAOE%3BAAAA%2CiBAAA%2CEAAA%3BAAKF%3BAAAA%2CkBAAA%2CEAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAIA%3BAAAA%3BqBAAA%2CEAAA%3BAZ3ZH%3B%3BgFAAA%3BAaEC%3BAAAA%2CwBAAA%2CEAAA%3BAbFD%3B%3BgFAAA%3BAaSC%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%2C0BAAA%2CEAAA%3BAbXH%3B%3BgFAAA%3BAaoBG%3BAAAA%3B%3B%3B%3BsBAAA%2CEAAA%3BAAME%3BAAAA%2CwBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3B%3B%3BmBAAA%2CEAAA%3BAb7BL%3B%3BgFAAA%3BAa0CC%3BAAAA%2CqBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BsBAAA%2CEAAA%3BAAKE%3BAAAA%2CgBAAA%2CEAAA%3BAAAA%3BAbjCF%3BAAAA%3B%3B%3B%3BqBAAA%2CEAAA%3BAAME%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAKF%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%3B0BAAA%2CEAAA%3BAAKA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAKA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAKA%3BAAAA%3BmBAAA%2CEAAA%22%7D */
+
+.post-card .post-thumb {
+  position: relative;
+  margin-bottom: 5rem;
+  display: block;
+  width: 100%;
+  padding-bottom: 56.1%;
+  height: 0; }
+
+@media (min-width: 1025px) {
+    .cols-3 .post-thumb {
+      padding-bottom: 70%; } }
+/* IMAGE LEFT THUMB ================== */
+@media (min-width: 769px) {
+    .post-card.img-left {
+      text-align: left;
+      display: flex;
+      justify-content: space-between; }
+      .post-card.img-left .post-thumb {
+        margin-bottom: 0;
+        padding-bottom: 67%; }
+      .post-card.img-left .category-row {
+        text-align: left;
+        padding: 0; }
+      .post-card.img-left h2 {
+        margin-left: 0; }
+      .post-card.img-left .desc, .post-card.img-left h2 {
+        max-width: 85%; }
+      .post-card.img-left .thumb-wrapper {
+        width: calc(66% - 6rem); }
+      .post-card.img-left .text-content {
+        width: 33%; } }
+
+.banner {
+  background: #c19115;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  color: white;
+  text-align: center;
+  position: relative; }
+  .banner h2 {
+    margin: 0; }
+  .banner .shape-right-sm {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 100%; }
+  .banner .shape-left-sm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%; }
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22scss%5C%2Fstyle.scss%22%2C%22scss%5C%2Fpartials%5C%2F_reset.scss%22%2C%22scss%5C%2Fpartials%5C%2F_fonts.scss%22%2C%22scss%5C%2Fpartials%5C%2F_variables.scss%22%2C%22scss%5C%2Fpartials%5C%2F_typography.scss%22%2C%22scss%5C%2Fpartials%5C%2F_images.scss%22%2C%22scss%5C%2Fpartials%5C%2F_layout.scss%22%2C%22scss%5C%2Fpartials%5C%2F_grid.scss%22%2C%22scss%5C%2Fpartials%5C%2F_forms.scss%22%2C%22scss%5C%2Fpartials%5C%2F_nav.scss%22%2C%22scss%5C%2Fpartials%5C%2Ffooter.scss%22%2C%22scss%5C%2Fpartials%5C%2F_mailchimp.scss%22%2C%22scss%5C%2Fsections%5C%2Fmasthead.scss%22%2C%22scss%5C%2Fsections%5C%2F_article-blocks.scss%22%2C%22scss%5C%2Fsections%5C%2F_sidebar.scss%22%2C%22scss%5C%2Fsections%5C%2F_home.scss%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AACD%3B%3B%3BGAAA%3BACIC%3BAAAA%3B%3B%3B%3B%3B2BAAA%2CEAAA%3BADJD%2CiDAAA%3BAC6FC%3BAAAA%2CiBAAA%2CEAAA%3BAAAA%3BAAaA%3BAAAA%2CiBAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CeAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BgBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BoBAAA%2CEAAA%3BAD5HD%3B%3BgFAAA%3BAEEC%3BAAAA%3B%2BQAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuSAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuRAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%2BSAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B2RAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BmTAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuRAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BmTAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B2QAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BuSAAA%2CEAAA%3BAF%5C%2FCD%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAG6CC%3BAAAA%3BiBAAA%2CEAAA%3BAAIE%3BAAAA%2CmBAAA%2CEAAA%3BAHjDH%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAGuHC%3BAAAA%2CgBAAA%2CEAAA%3BAAxDE%3BAAAA%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAIEC%3BAAAA%3B4BAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3B%3B%3B%3B%3B%3BsCAAA%2CEAAA%3BADwDE%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAIwBC%3BAAAA%3B%3BmCAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CiBAAA%2CEAAA%3BAJ9BD%3B%3BgFAAA%3BAIsCC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAASE%3BAAAA%2CyDAAA%2CEAAA%3BAAAA%3BAAKF%3BAAAA%3B%3ByBAAA%2CEAAA%3BADWE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAAAA%3BACAF%3BAAAA%3B%3BwBAAA%2CEAAA%3BADAE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAAAA%3BACWF%3BAAAA%3B%3BsBAAA%2CEAAA%3BADXE%3BAAAA%3BAAAA%3BsBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAIwFC%3BAAAA%3BmCAAA%2CEAAA%3BAJxFD%3B%3BgFAAA%3BAIgGC%3BAAAA%3B%3B%3B%3B%3BiBAAA%2CEAAA%3BADjCE%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAAAA%3BAC8CF%3BAAAA%3B%3B%3B%3BoBAAA%2CEAAA%3BAD9CE%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAI4HC%3BAAAA%3BoBAAA%2CEAAA%3BAD7DE%3BAAAA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BACqEA%3BAAAA%3B%2BBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BAAIA%3BAAAA%2CuBAAA%2CEAAA%3BAAGA%3BAAAA%2CuBAAA%2CEAAA%3BADhFA%3BAAAA%3BAAAA%2CuBAAA%2CEAAA%2CEAAA%3BAAAA%3BACwFF%3BAAAA%2CiDAAA%2CEAAA%3BAAEE%3BAAAA%2C0DAAA%2CEAAA%3BAAAA%3BAAKF%3BAAAA%2CiDAAA%2CEAAA%3BAAEE%3BAAAA%2C0DAAA%2CEAAA%3BAAAA%3BAAMF%3BAAAA%3BsBAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3BoBAAA%2CEAAA%3BAD5GE%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAG2EG%3BAC6GA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BAAAA%3BADzHA%3BACgIA%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAKF%3BAACE%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAAAA%3BAAKF%3BAACE%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAJ3MH%3B%3BgEAAA%3BAKEC%3BAAAA%3B%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%3BmBAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3BeAAA%2CEAAA%3BAAAA%3BAAaE%3BAAAA%2CgBAAA%2CEAAA%3BAAGA%3BAAAA%2CoBAAA%2CEAAA%3BAL7BH%3B%3BgEAAA%3BAKqCC%3BAAAA%3B%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BAASE%3BAAAA%2CeAAA%2CEAAA%3BAAGA%3BAAAA%3B%3B%3B%3B%3B%3BeAAA%2CEAAA%3BAASA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByCAAA%2CEAAA%3BAAcE%3BAAAA%3ByBAAA%2CEAAA%3BALxEL%3B%3BgFAAA%3BAMEC%3BAAAA%2CgBAAA%2CEAAA%3BANFD%3B%3BgFAAA%3BAMSC%3BAAAA%2CyBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%2CqBAAA%2CEAAA%3BANbD%3B%3BgFAAA%3BAAAA%2CwBAAA%3BAMsBC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B0BAAA%2CEAAA%3BANtBD%2CwCAAA%3BAMqDC%3BAAAA%3BiCAAA%2CEAAA%3BAAAA%3BAAKA%3BAAAA%3B%3ByBAAA%2CEAAA%3BAN1DD%3B%3BgFAAA%3BAMsEC%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BuBAAA%2CEAAA%3BAAAA%3BAHCE%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAG0BD%3BAAAA%2CoBAAA%2CEAAA%3BAAGA%3BAAAA%2CqBAAA%2CEAAA%3BAAAA%3BAHXC%3BAAAA%3BAAAA%3B4BAAA%2CEAAA%2CEAAA%3BAAAA%3BAGuBF%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BuBAAA%2CEAAA%3BAHlDE%3BAAAA%3BAAAA%3B0BAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%3B2BAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAM6IC%3BAAAA%3BoGAAA%2CEAAA%3BAAEC%3BAAAA%3B%3B2BAAA%2CEAAA%3BAAOA%3BAAAA%2CYAAA%2CEAAA%3BANtJF%3B%3BgFAAA%3BAM8JC%3BAAAA%3BeAAA%2CEAAA%3BAAAA%3BAAMA%3BAAAA%2CcAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3BcAAA%2CEAAA%3BANxKD%3B%3BgFAAA%3BAAAA%2CmCAAA%3BAAAA%2CmCAAA%3BAAAA%3B%3BgFAAA%3BAOUC%3BAAAA%3B%3B%3B%3B6BAAA%2CEAAA%3BAAAA%3BAJuEE%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2C4CAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2C0CAAA%2CEAAA%2CEAAA%3BAAAA%3BAANA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%2CqCAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3BAAAA%3BqBAAA%2CEAAA%2CEAAA%3BAAMA%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%2CEAAA%3BAHvFH%2C0GAAA%3BAO4DC%3BAAAA%2CsIAAA%2CEAAA%3BAAGE%3BAAAA%2CyBAAA%2CEAAA%3BAJkBA%3BAIXA%3BAAAA%2CyBAAA%2CEAAA%3BAAEC%3BAAAA%3B0BAAA%2CEAAA%3BAAAA%3BAAMD%3BAAAA%2CgCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CkCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CgCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmCAAA%2CEAAA%3BAAAA%3BAAGA%3BAAAA%2CmCAAA%2CEAAA%2CEAAA%3BAPhGH%3B%3BgFAAA%3BAQEC%3BAAAA%3B%3B%3B%3B%3B%3B%3ByIAAA%2CEAAA%3BAAaA%3BAAAA%3B%3B%3B%3BcAAA%2CEAAA%3BARfD%3B%3BgFAAA%3BAQ0BC%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B0BAAA%2CEAAA%3BAAAA%3BAAaA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BARnDD%3B%3BgFAAA%3BAQ2DC%3BAAAA%3BsBAAA%2CEAAA%3BALIE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAKGF%3BAAAA%3B%3B%3B%3B8BAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3ByBAAA%2CEAAA%3BAAmBC%3BAAAA%3BkBAAA%2CEAAA%3BAAIA%3BAAAA%2CwBAAA%2CEAAA%3BARjGF%3B%3BgFAAA%3BASEC%3BAAAA%3B%3BmBAAA%2CEAAA%3BATFD%3B%3BgFAAA%3BASWC%3BAAAA%3B%3B%3ByBAAA%2CEAAA%3BAAKE%3BAAAA%3BuBAAA%2CEAAA%3BAAKA%3BAAAA%3B%2BBAAA%2CEAAA%3BAAAA%3BAASA%3BAAAA%3B%3B%3B%3BiCAAA%2CEAAA%3BAAOE%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAMF%3BAAAA%3BkCAAA%2CEAAA%3BAAIA%3BAAAA%3B%3BiBAAA%2CEAAA%3BAAIE%3BAAAA%2C8CAAA%2CEAAA%3BATnDL%2CqCAAA%3BAS4DC%3BAAAA%2CiBAAA%2CEAAA%3BAAEE%3BAAAA%3BmBAAA%2CEAAA%3BAAGE%3BAAAA%3B0BAAA%2CEAAA%3BATjEL%2CwDAAA%3BAG%2BDG%3BAMWA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BwBAAA%2CEAAA%3BAAeE%3BAAAA%3B%3B%3BqBAAA%2CEAAA%2CEAAA%3BATzFL%2CsDAAA%3BASmGC%3BAAAA%2C0DAAA%2CEAAA%3BAACE%3BAAAA%3BwBAAA%2CEAAA%3BATpGH%3B%3BgFAAA%3BAS8GC%3BAAAA%3B%3B%3B%3B%3B%3B%3BkBAAA%2CEAAA%3BAASE%3BAAAA%3B%3B%3B%3B%3BqCAAA%2CEAAA%3BAAQA%3BAAAA%2CWAAA%2CEAAA%3BAAGA%3BAAAA%2CaAAA%2CEAAA%3BAAGA%3BAAAA%2CcAAA%2CEAAA%3BATrIH%2C8DAAA%3BAG%2BDG%3BAM6EA%3BAAAA%3BoBAAA%2CEAAA%2CEAAA%3BAT5IH%2CuEAAA%3BASmJC%3BAAAA%2CiCAAA%2CEAAA%3BAAEE%3BAAAA%2CoBAAA%2CEAAA%3BAAEE%3BAAAA%3B8BAAA%2CEAAA%3BAAIA%3BAAAA%3BeAAA%2CEAAA%3BAAIA%3BAAAA%3B6BAAA%2CEAAA%3BAT%5C%2FJL%3B%3BgFAAA%3BAUEC%3BAAAA%3BsBAAA%2CEAAA%3BAAGC%3BAAAA%2CmBAAA%2CEAAA%3BAAKA%3BAAAA%3BwBAAA%2CEAAA%3BAAIA%3BAAAA%2CmBAAA%2CEAAA%3BAAIA%3BAAAA%2C8BAAA%2CEAAA%3BAAEC%3BAAAA%3BsBAAA%2CEAAA%3BAAKD%3BAAAA%3BwBAAA%2CEAAA%3BAVzBF%3B%3BgFAAA%3BAUmCC%3BAAAA%3B%3B%3BoBAAA%2CEAAA%3BAVnCD%3B%3BgFAAA%3BAWGC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%3BAAKE%3BAAAA%2CwBAAA%2CEAAA%3BAAGA%3BAAAA%2CwBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAKA%3BAAAA%2CuBAAA%2CEAAA%3BAAIA%3BAAAA%3B%3BmBAAA%2CEAAA%3BAAKA%3BAAAA%3B%3B%3BmBAAA%2CEAAA%3BAX5BH%3B%3BgFAAA%3BAW2CC%3BAAAA%2C0BAAA%2CEAAA%3BAAEE%3BAAAA%3B%3B0BAAA%2CEAAA%3BAAKA%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B8BAAA%2CEAAA%3BAAgBA%3BAAAA%3B%3B%3B%3BiBAAA%2CEAAA%3BAAOA%3BAAAA%3B%3B%3BgCAAA%2CEAAA%3BAAOA%3BAAAA%2CuBAAA%2CEAAA%3BAAEE%3BAAAA%2CkBAAA%2CEAAA%3BAAIF%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAAIA%3BAAAA%3BiBAAA%2CEAAA%3BAXlGH%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAYEC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAOE%3BAAAA%2CoBAAA%2CEAAA%3BAZTH%3B%3BgFAAA%3BAYiBC%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%3B%3B%3BgBAAA%2CEAAA%3BAZnBH%3B%3BgFAAA%3BAY8BC%3BAAAA%2CwBAAA%2CEAAA%3BATiCE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BkFAAA%3BAAAA%3BAY2CC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAAA%3BAAQI%3BAAAA%2CmBAAA%2CEAAA%3BAT8BF%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAAlBA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAYmEC%3BAAAA%3BsBAAA%2CEAAA%3BATJE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAY8EC%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BATfE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAY4FK%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAMF%3BAAAA%2CuBAAA%2CEAAA%3BATnCA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2CmDAAA%3BAAAA%3BAY%2BGG%3BAAAA%2CqBAAA%2CEAAA%3BAThDA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAS%2BDE%3BAAAA%2CqBAAA%2CEAAA%3BAZ9HL%3B%3BkFAAA%3BAAAA%3BAYgJG%3BAAAA%3B%3BiBAAA%2CEAAA%3BATjFA%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAAkBA%3BAAAA%3BAAAA%2C8BAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%3B%3BuCAAA%2CEAAA%2CEAAA%3BAAlBA%3BAAAA%3BAAAA%3B%3B2BAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2CiDAAA%3BAYgLG%3BAAAA%2CmBAAA%2CEAAA%3BATjHA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BASwHA%3BAAAA%2CuBAAA%2CEAAA%3BAAYE%3BAAAA%2CuBAAA%2CEAAA%3BAZnML%3B%3BgFAAA%3BAGiFG%3BAAAA%3BAAAA%2C2BAAA%2CEAAA%2CEAAA%3BAHjFH%3B%3BgFAAA%3BAY8NC%3BAAAA%2CsBAAA%2CEAAA%3BAT%5C%2FJE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BASoKA%3BAAAA%2CuBAAA%2CEAAA%3BAAIA%3BAAAA%3B%3B%3B%3B%3B%3B4BAAA%2CEAAA%3BAASA%3BAAAA%2CwBAAA%2CEAAA%3BATjLA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAAAA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAS4LA%3BAAAA%3B%3B%3BuBAAA%2CEAAA%3BAASE%3BAAAA%2CmBAAA%2CEAAA%3BAZpQL%2C8CAAA%3BAGiFG%3BAAAA%3BAAAA%2CoBAAA%2CEAAA%3BAS%2BLE%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%2CoCAAA%2CEAAA%2CEAAA%3BATvNF%3BAAAA%3BAAAA%3BkBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2C8CAAA%3BAYiSC%3BAAAA%3B%3ByBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3BgBAAA%2CEAAA%3BAAMA%3BAAAA%3B%3B%3BeAAA%2CEAAA%3BAAAA%3BAAUE%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BAAKE%3BAAAA%2CkBAAA%2CEAAA%3BAZ1TP%3B%3BgFAAA%3BAYoUC%3BAAAA%3B%3B%3BiBAAA%2CEAAA%3BATrQE%3BAAAA%3BAAAA%2CiCAAA%2CEAAA%2CEAAA%3BAS6QA%3BAAAA%2CwBAAA%2CEAAA%3BAT7QA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BASmRA%3BAAAA%3B%3BwBAAA%2CEAAA%3BATnRA%3BAAAA%3BAAAA%2CsBAAA%2CEAAA%2CEAAA%3BAAkBA%3BAAAA%3BAAAA%3BqCAAA%2CEAAA%2CEAAA%3BAHjFH%3B%3BgFAAA%3BAGuFG%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAU%5C%2FEA%3BAAAA%2CmBAAA%2CEAAA%3BAbRH%2CmCAAA%3BAaeC%3BAAAA%2CuBAAA%2CEAAA%3BAV4DE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAZA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAAAA%3BAUtCF%3BAAAA%2CqBAAA%2CEAAA%3BAVsCE%3BAAAA%3BAAAA%2CuBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2CkCAAA%3BAakCG%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BaAAA%2CEAAA%3BAblCH%2C0CAAA%3BAamDG%3BAAAA%2CwBAAA%2CEAAA%3BAV8BA%3BAAAA%3BAAAA%2C4BAAA%2CEAAA%2CEAAA%3BAUtBA%3BAAAA%2C0BAAA%2CEAAA%3BAb3DH%2C2CAAA%3BAaiEC%3BAAAA%3BuBAAA%2CEAAA%3BAVFE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2C6CAAA%3BAa0EC%3BAAAA%2CsBAAA%2CEAAA%3BAVXE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAAkBA%3BAAAA%3BAAAA%2C4BAAA%2CEAAA%2CEAAA%3BAUGA%3BAAAA%3B%3B%3BwBAAA%2CEAAA%3BAAMA%3BAAAA%3BwBAAA%2CEAAA%3BAb1FH%2CmDAAA%3BAaiGC%3BAAAA%2CsBAAA%2CEAAA%3BAAEE%3BAAAA%2CwBAAA%2CEAAA%3BAbnGH%2CoDAAA%3BAa2GG%3BAAAA%2CiBAAA%2CEAAA%3BAAEE%3BAAAA%2CmBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAbhHL%2CkDAAA%3BAa0HK%3BAAAA%2CiBAAA%2CEAAA%3BAb1HL%2CsDAAA%3BAakIG%3BAAAA%2CgBAAA%2CEAAA%3BAAEE%3BAAAA%3B%3BkCAAA%2CEAAA%3BAAKA%3BAAAA%3BuBAAA%2CEAAA%3BAbzIL%2CmCAAA%3BAaiJC%3BAAAA%3B%3BsBAAA%2CEAAA%3BAVlFE%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAUyFA%3BAAAA%3B%3BwBAAA%2CEAAA%3BAAKA%3BAAAA%2C0BAAA%2CEAAA%3BAV5EA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAUoFA%3BAAAA%2CsBAAA%2CEAAA%3BAVtGA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAU4GA%3BAAAA%2C8BAAA%2CEAAA%3BAAIA%3BAAAA%2CmBAAA%2CEAAA%3BAAIA%3BAAAA%2CkDAAA%2CEAAA%3BAAAA%3BAAOA%3BAAAA%3BmBAAA%2CEAAA%3BAAIA%3BAAAA%3B%3BmBAAA%2CEAAA%3BAAKA%3BAAAA%2C0BAAA%2CEAAA%3BAbnMH%2CsCAAA%3BAayMC%3BAAAA%3B%3B%3BqBAAA%2CEAAA%3BAAKE%3BAAAA%3B%3B%3BgBAAA%2CEAAA%3BAAAA%3BAAQF%3BAAAA%3BiBAAA%2CEAAA%3BAAGE%3BAAAA%3B%3B%3BuBAAA%2CEAAA%3BAV1JA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2CuCAAA%3BAaqOC%3BAAAA%3B%3BqBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BAV1KA%3BAAAA%3BAAAA%3B4BAAA%2CEAAA%2CEAAA%3BAUqLA%3BAAAA%3BuBAAA%2CEAAA%3BAVrLA%3BAAAA%3BAAAA%2CwBAAA%2CEAAA%2CEAAA%3BAU6LA%3BAAAA%3B%3B%3BcAAA%2CEAAA%3BAAQA%3BAAAA%3BqCAAA%2CEAAA%3BAAIA%3BAAAA%3BqCAAA%2CEAAA%3BAbxQH%2CsCAAA%3BAa%2BQC%3BAAAA%3BwBAAA%2CEAAA%3BAVhNE%3BAAAA%3BAAAA%3ByBAAA%2CEAAA%2CEAAA%3BAUuNA%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BAVvNA%3BAAAA%3BAAAA%3B%3B2BAAA%2CEAAA%2CEAAA%3BAUmOA%3BAAAA%3B%3B%3BkCAAA%2CEAAA%3BAVnOA%3BAAAA%3BAAAA%3BwBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%2CqCAAA%3BAa%2BSC%3BAAAA%3BwBAAA%2CEAAA%3BAVhPE%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAUsPA%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BAVtPA%3BAAAA%3BAAAA%3B%3B4BAAA%2CEAAA%2CEAAA%3BAUkQA%3BAAAA%3B%3BkCAAA%2CEAAA%3BAVlQA%3BAAAA%3BAAAA%2CqBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAaiVG%3BAAAA%2CiBAAA%2CEAAA%3BAAIA%3BAAAA%2CuBAAA%2CEAAA%3BAAGA%3BAAAA%3BsBAAA%2CEAAA%3BAbxVH%3B%3BgFAAA%3BAamWG%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3B%3B%3BsBAAA%2CEAAA%3BAVxSF%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAUmTE%3BAAAA%2CkBAAA%2CEAAA%3BAblXL%3B%3BgFAAA%3BAAAA%3B%3BgFAAA%3BAAAA%3BAaqYG%3BAAAA%2CkBAAA%2CEAAA%3BAAGA%3BAAAA%2CwBAAA%2CEAAA%3BAAAA%3BAAOE%3BAAAA%2CiBAAA%2CEAAA%3BAAKF%3BAAAA%2CkBAAA%2CEAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%3BAAIA%3BAAAA%3BqBAAA%2CEAAA%3BAb3ZH%3B%3BgFAAA%3BAaqaC%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%2CkBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAIE%3BAAAA%3B%3B%3BuBAAA%2CEAAA%3BAAAA%3BAAUF%3BAAAA%3BsBAAA%2CEAAA%3BAAIA%3BAAAA%2C0BAAA%2CEAAA%3BAb5bH%3B%3BgFAAA%3BAcEC%3BAAAA%2CwBAAA%2CEAAA%3BAdFD%3B%3BgFAAA%3BAcSC%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%2C0BAAA%2CEAAA%3BAdXH%3B%3BgFAAA%3BAcoBG%3BAAAA%3B%3B%3B%3BsBAAA%2CEAAA%3BAAME%3BAAAA%2CwBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3B%3B%3BmBAAA%2CEAAA%3BAd7BL%3B%3BgFAAA%3BAc0CC%3BAAAA%2CqBAAA%2CEAAA%3BAAAA%3BAAIA%3BAAAA%3B%3B%3BsBAAA%2CEAAA%3BAAKE%3BAAAA%2CgBAAA%2CEAAA%3BAdnDH%3B%3BgFAAA%3BAeGG%3BAAAA%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3BwBAAA%2CEAAA%3BAZ4DA%3BAAAA%3BAAAA%3B2BAAA%2CEAAA%2CEAAA%3BAYxCA%3BAAAA%3B%3B%3B%3B%3B%3B6BAAA%2CEAAA%3BAASA%3BAAAA%3B%3B%3B%3BuBAAA%2CEAAA%3BAAOA%3BAAAA%3B%3BwBAAA%2CEAAA%3BAZwBA%3BAAAA%3BAAAA%2C4BAAA%2CEAAA%2CEAAA%3BAYhBE%3BAAAA%2CuDAAA%2CEAAA%3BAAIF%3BAAAA%2CwBAAA%2CEAAA%3BAAGA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAKA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAZIA%3BAAAA%3BAAAA%2CyBAAA%2CEAAA%2CEAAA%3BAH%5C%2FDH%3B%3BgFAAA%3BAewEC%3BAAAA%2CqBAAA%2CEAAA%3BAAGE%3BAAAA%2C0BAAA%2CEAAA%3BAZZA%3BAAAA%3BAAAA%2C4BAAA%2CEAAA%2CEAAA%3BAAAA%3BAYoBF%3BAAAA%2CqBAAA%2CEAAA%3BAAEE%3BAAAA%3B0BAAA%2CEAAA%3BAAIE%3BAAAA%2CmBAAA%2CEAAA%3BAAIF%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAKA%3BAAAA%3B%3BuBAAA%2CEAAA%3BAAAA%3BAAQA%3BAAAA%3B%3B%3B%3B%3BYAAA%2CEAAA%3BAAAA%3BAZnBA%3BAAAA%3BAAAA%2C0BAAA%2CEAAA%2CEAAA%3BAHvFH%2CyCAAA%3BAGiFG%3BAAAA%3BAAAA%3B%3BqCAAA%2CEAAA%3BAY%2BCE%3BAAAA%3B4BAAA%2CEAAA%3BAAIA%3BAAAA%3BmBAAA%2CEAAA%3BAAIA%3BAAAA%2CuBAAA%2CEAAA%3BAAGA%3BAAAA%2CuBAAA%2CEAAA%3BAAIA%3BAAAA%2CgCAAA%2CEAAA%3BAAGA%3BAAAA%2CmBAAA%2CEAAA%2CEAAA%3BAAAA%3BAf9HJ%3BAAAA%3B%3B%3B%3B%3BqBAAA%2CEAAA%3BAAOE%3BAAAA%2CcAAA%2CEAAA%3BAAGA%3BAAAA%3B%3B%3B%3BiBAAA%2CEAAA%3BAAOA%3BAAAA%3B%3B%3B%3BiBAAA%2CEAAA%22%7D */

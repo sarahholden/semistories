@@ -21,7 +21,8 @@ html {
 Vertical & Horizontal Alignment
 -----------------------------------------------------------------------------*/
 /* Center vertically  */
-%v-aligner {
+%v-aligner,
+.v-aligner {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -92,6 +93,13 @@ $containerPadding: 14rem;
 	}
 	&.left-only {
 		padding-right: 0;
+	}
+}
+
+.container-full {
+	@include tablet-up {
+		padding-left: 9.6rem;
+		padding-right: 9.6rem;
 	}
 }
 

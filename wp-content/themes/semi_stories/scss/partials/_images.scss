@@ -7,67 +7,30 @@ img {
   height: auto;
 }
 
-.imgSrc50Hero {
-  width: 100%;
-}
-
-img.imgSrcLoad {
-  opacity: 0;
-}
-
-img.imgSrc50,
-img.lazy-load {
-  opacity: 0;
-  width: 100%;
+.bg-image-wrapper {
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
-img.imgSrcLoadOn {
-  opacity: 1;
-  height: auto;
-  -moz-transition: opacity 1s ease-out;
-  -o-transition: opacity 1s ease-out;
-  -webkit-transition: opacity 1s ease-out;
-  transition: opacity 1s ease-out;
-}
-
-/*-----------------------------------------------------------
-Background Images
--------------------------------------------------------------*/
-div.imgSrc50 {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 100%;
+.bg-image {
   position: absolute;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-div.imgSrc50.loaded {
-  opacity: 1;
-}
-
-.bgFadeImage {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   width: 100%;
-  opacity: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  height: 100%;
 }
 
-.bgFadeImage.loaded {
-  opacity: 1;
-}
-
-.bg-img--full-height {
-  height: calc(100vh - 174px);
-  max-height: 752px;
-  min-height: 550px;
-  background-position: center top;
+.icon-orange {
+  .update-fill {
+    fill: $orange;
+  }
+  .update-stroke {
+    stroke: $orange;
+  }
 }
 
 /*-----------------------------------------------------------

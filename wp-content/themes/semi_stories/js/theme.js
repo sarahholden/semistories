@@ -1,5 +1,52 @@
-// $(document).ready(function() {
-//
+$(document).ready(function() {
+
+
+  if ($('.swiper-container-progress-bar').length > 0) {
+      const progressBarSwiper = new Swiper('.swiper-container-progress-bar', {
+        speed: 600,
+        allowTouchMove: true,
+        loop: true,
+        spaceBetween: 0,
+        autoplay: {
+          delay: 9000,
+          disableOnInteraction: true
+        },
+        init: false,
+      });
+
+      // Had to get three step init to not get error
+      progressBarSwiper.on('init', function() {
+        animateProgressBar();
+        console.log('initializing')
+      });
+
+      progressBarSwiper.on('slideChangeTransitionStart', function () {
+        animateProgressBar();
+      });
+
+      // init Swiper
+      progressBarSwiper.init();
+
+      function animateProgressBar () {
+        var startingSlide = progressBarSwiper.realIndex;
+        var currentSlide = progressBarSwiper.realIndex + 1;
+        var totalSlides = progressBarSwiper.slides.length - 2;
+        var progressStartPercentage = (startingSlide / totalSlides) * 100;
+        var progressEndPercentage = (currentSlide / totalSlides) * 100;
+
+
+        $('.progress')
+        .clearQueue()
+        .stop()
+        .css('width', '0%')
+        .animate({ width: '100%'}, 9600, 'linear' );
+        // .css('width', progressStartPercentage + '0%')
+        // .animate({ width: progressEndPercentage + '%'}, 4600, 'linear' );
+      }
+    }
+
+
+
 //   /* ---------------------------------------------
 //   CURSOR
 //   ------------------------------------------------ */
@@ -170,19 +217,7 @@
 //
 //
 //
-//
-//
-//   /* ---------------------------------------------
-//     BREEZY
-//   ------------------------------------------------ */
-//   $('.js-breezy').on('click', function () {
-//     $('.breezy-gurl').addClass('has-zoomies');
-//   });
-//
-//
-//   $('[class*="project-wrapper"] a').on('click', function (e) {
-//     e.preventDefault();
-//   });
+
 //
 //   /* ---------------------------------------------
 //     PARALLAX & SCROLLING ZOOM EFFECTS
@@ -294,4 +329,4 @@
 //   }
 //
 //
-// });
+});

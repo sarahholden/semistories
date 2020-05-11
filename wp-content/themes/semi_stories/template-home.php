@@ -1,7 +1,7 @@
 <?php /* Template Name: Home */ ?>
 
 <?php get_header(); ?>
-<main id="content" class="page-blog">
+<main id="content" class="page-home">
 
 
 <div class="">
@@ -11,18 +11,19 @@
   <?php
     $args = array(
       'post_type' => 'post',
-      'posts_per_page' => 3
+      'posts_per_page' => 3,
+      'tag' => 'featured'
     );
 
     $featuredQuery = new WP_Query( $args );
   ?>
 
-  <header class="container">
-    <div class="swiper-container">
+  <header class="masthead-slideshow">
+    <div class="swiper-container swiper-container-progress-bar">
       <div class="swiper-wrapper">
         <? $i = 0; ?>
         <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
-          <? $className = 'stacked'; ?>
+          <? $className = 'overlay'; ?>
 
           <?php hm_get_template_part( 'template-parts/masthead-slideshow', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
@@ -72,7 +73,8 @@
       $featuredQuery = new WP_Query( $args );
     ?>
 
-    <section class="container padded">
+    <section class="top-stories-section container padded">
+      <h3 class="h1">Top Stories</h3>
       <div class="cols-3">
         <? $i = 0; ?>
         <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
@@ -112,18 +114,16 @@
     </section>
     <?wp_reset_postdata();?>
 
-
-
-
+    <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
 
     <? $featuredArgs = array(
       'post_type' => 'post',
-      'posts_per_page' => 9,
+      'posts_per_page' => 6,
     );
     $featuredQuery = new WP_Query( $featuredArgs );
     ?>
 
-    <section class="blog-posts">
+    <section class="more-blog-posts container padded">
         <div class="cols-3">
           <? $i = 0; ?>
           <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
@@ -143,6 +143,8 @@
     <? } ?> -->
 
 </div>
+
+<? hm_get_template_part( 'template-parts/block-newsletter' ); ?>
 
 
 
