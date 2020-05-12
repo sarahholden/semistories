@@ -7,13 +7,7 @@
     </div>
     <div class="cols-1-2">
 
-      <nav class="cols-2">
-        <div>
-          <a href="">Design</a>
-          <a href="">Technology</a>
-          <a href="">Renovation</a>
-          <a href="">DIY</a>
-        </div>
+      <nav>
         <div>
           <a href="">Design</a>
           <a href="">Technology</a>

@@ -447,3 +447,38 @@ POST - RECIPE & DIY
     margin-bottom: 7.5rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+  AUTHOR BLOCK
+-----------------------------------------------------------------------------*/
+.author-block {
+  .inner {
+    border: 0.6rem solid #EAEBE6;
+    padding: 4.5rem 6rem;
+    max-width: 108rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h5 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-family: $walsheimBold;
+  }
+  h3 {
+    font-family: $superMedItalic;
+    font-size: 2.4rem;
+    margin-bottom: 1.8rem;
+    @include mobile-only {
+      margin-bottom: 1.2rem;
+    }
+  }
+  .social-link {
+    margin-bottom: 2.6rem;
+    a {
+      font-size: 2.4rem;
+      font-family: $superMed;
+
+    }
+  }
+}

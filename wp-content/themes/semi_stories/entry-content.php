@@ -240,38 +240,11 @@
 
       <? endwhile; ?>
       <? endif; ?>
-
-
-      <? if(get_field('author_block_name')) { ?>
-        <?= the_field('author_block_name') ?>
-
-        <? if(get_field('author_block_link')) { ?>
-          <?= the_field('author_block_link') ?>
-        <? } ?>
-
-        <? if(get_field('author_block_about_paragraph')) { ?>
-          <div class="desc">
-            <?= the_field('author_block_about_paragraph') ?>
-          </div>
-        <? } ?>
-
-        <? if (have_rows('author_block_social_links')) { ?>
-          <? while( have_rows('author_block_social_links') ): the_row(); ?>
-            <? if(get_sub_field('social_network')) { ?>
-              <h5><? the_sub_field('social_network'); ?></h5>
-            <? } ?>
-            <? if(get_sub_field('display_handle')) { ?>
-              <a href="<? if(get_sub_field('link')) { ?><?= get_sub_field('link') ?><? } ?>" target="blank">
-                <?= the_sub_field('display_handle') ?>
-              </a>
-            <? } ?>
-          <? endwhile; ?>
-        <? } ?>
-
-      <? } ?>
-
-
     </div>
+
+    <!-- ==============================
+    SIDEBAR
+    =================================== -->
     <aside class="sidebar">
       <div class="share">
         <h2>Share, and share and like.</h2>
@@ -351,6 +324,54 @@
       </div>
     </aside>
   </div>
+
+
+  <!-- ==============================
+  AUTHOR BLOCK
+  =================================== -->
+  <? if(get_field('author_block_name')) { ?>
+    <section class="container author-block">
+      <div class="inner">
+        <div class="cols-2-1">
+          <div>
+            <h5>About</h5>
+            <? if(get_field('author_block_link')) { ?>
+              <a href="<?= the_field('author_block_link') ?>">
+            <? } ?>
+              <h3><?= the_field('author_block_name') ?></h3>
+            <? if(get_field('author_block_link')) { ?>
+              </a>
+            <? } ?>
+
+            <? if(get_field('author_block_about_paragraph')) { ?>
+              <div class="desc">
+                <?= the_field('author_block_about_paragraph') ?>
+              </div>
+            <? } ?>
+
+          </div>
+          <? if (have_rows('author_block_social_links')) { ?>
+            <div>
+              <? while( have_rows('author_block_social_links') ): the_row(); ?>
+                <div class="social-link">
+                  <? if(get_sub_field('social_network')) { ?>
+                    <h5><? the_sub_field('social_network'); ?></h5>
+                  <? } ?>
+                  <? if(get_sub_field('display_handle')) { ?>
+                    <a href="<? if(get_sub_field('link')) { ?><?= get_sub_field('link') ?><? } ?>" target="blank">
+                      <?= the_sub_field('display_handle') ?>
+                    </a>
+                  <? } ?>
+                </div>
+              <? endwhile; ?>
+            </div>
+          <? } ?>
+        </div>
+      </div>
+    </section>
+  <? } ?>
+
+
 
 
   <!-- ==============================

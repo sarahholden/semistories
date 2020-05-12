@@ -1,5 +1,5 @@
 <?
-$authorCount = count(get_field('authors'));
+$authorCount = get_field('authors') ? count(get_field('authors')) : 0;
 $index = 0;
 ?>
 
