@@ -9,7 +9,7 @@ $(document).ready(function() {
         spaceBetween: 0,
         autoplay: {
           delay: 9000,
-          disableOnInteraction: true
+          disableOnInteraction: false
         },
         init: false,
       });
@@ -17,7 +17,6 @@ $(document).ready(function() {
       // Had to get three step init to not get error
       progressBarSwiper.on('init', function() {
         animateProgressBar();
-        console.log('initializing')
       });
 
       progressBarSwiper.on('slideChangeTransitionStart', function () {
@@ -34,12 +33,16 @@ $(document).ready(function() {
         var progressStartPercentage = (startingSlide / totalSlides) * 100;
         var progressEndPercentage = (currentSlide / totalSlides) * 100;
 
+        $('.progress-bar .progress')
+        .clearQueue()
+        .stop()
+        .css('width', '0%');
 
-        $('.progress')
+        $('.progress-bar:nth-of-type(' + currentSlide + ') .progress')
         .clearQueue()
         .stop()
         .css('width', '0%')
-        .animate({ width: '100%'}, 9600, 'linear' );
+        .animate({ width: '100%'}, 9300, 'linear' );
         // .css('width', progressStartPercentage + '0%')
         // .animate({ width: progressEndPercentage + '%'}, 4600, 'linear' );
       }

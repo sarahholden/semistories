@@ -14,8 +14,16 @@ MAILCHIMP EMBED
   <? hm_get_template_part( 'template-parts/vector-shape-left' ); ?>
 
   <div class="inner">
-    <h2 class="h1">Make your inbox a little more fun.</h2>
-    <div class="desc-sans">Share your email to get delightful stories about all things changing at home.</div>
+    <? if(get_field('newsletter_heading', 'option')) { ?>
+      <h2 class="h1">
+        <?= the_field('newsletter_heading', 'option') ?>
+      </h2>
+    <? } ?>
+    <? if(get_field('newsletter_intro', 'option')) { ?>
+      <div class="desc-sans">
+        <?= the_field('newsletter_intro', 'option') ?>
+      </div>
+    <? } ?>
 
 
 

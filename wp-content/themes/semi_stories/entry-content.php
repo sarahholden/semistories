@@ -250,18 +250,26 @@
         <h2>Share, and share and like.</h2>
         <h5 class="small-caps">Share this story on.</h5>
         <div class="social-links">
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
-          </a>
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Twitter">
-          </a>
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Pinterest">
-          </a>
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Instagram">
-          </a>
+          <? if(get_field('facebook_link', 'option')) { ?>
+            <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank">
+              <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
+            </a>
+          <? } ?>
+          <? if(get_field('twitter_link', 'option')) { ?>
+            <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank">
+              <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Facebook">
+            </a>
+          <? } ?>
+          <? if(get_field('pinterest_link', 'option')) { ?>
+            <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank">
+              <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Facebook">
+            </a>
+          <? } ?>
+          <? if(get_field('instagram_link', 'option')) { ?>
+            <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank">
+              <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Facebook">
+            </a>
+          <? } ?>
 
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
@@ -450,5 +458,17 @@
 
 
     <?wp_reset_postdata();?>
+
+    <!-- ==============================
+    AD
+    =================================== -->
+    <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
+
+
+    <!-- ==============================
+    BOTTOM BANNER
+    =================================== -->
+    <? hm_get_template_part( 'template-parts/banner' ); ?>
+
 
 </div>

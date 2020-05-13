@@ -21,14 +21,23 @@
   <header class="masthead-slideshow">
     <div class="swiper-container swiper-container-progress-bar">
       <div class="swiper-wrapper">
-        <? $i = 0; ?>
+        <? $featuredPostsCount = 0; ?>
         <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
           <? $className = 'overlay'; ?>
 
           <?php hm_get_template_part( 'template-parts/masthead-slideshow', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
-          <?$i++;?>
+          <?$featuredPostsCount++;?>
         <?endwhile;?>
+      </div>
+
+      <div class="progress-bars">
+        <? for ($x = 0; $x < $featuredPostsCount; $x++) { ?>
+          <? $percentageWidth = 1 / $featuredPostsCount * 100 ?>
+          <div class="progress-bar" style="width: calc(<?= $percentageWidth ?>% - 24px)">
+            <div class="progress"></div>
+          </div>
+        <? } ?>
       </div>
     </div>
   </header>

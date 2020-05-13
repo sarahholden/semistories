@@ -24,7 +24,11 @@
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
       <h2 data-anim="slide" data-anim-order="1">
         <a href="<? the_permalink() ?>">
-          <? the_title(); ?>
+          <? if (get_field('article_title', $currentPostId)) { ?>
+            <?= the_field('article_title', $currentPostId) ?>
+          <? } else { ?>
+            <? the_title(); ?>
+          <? } ?>
         </a>
       </h2>
     </div>

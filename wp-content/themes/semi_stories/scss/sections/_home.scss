@@ -3,9 +3,10 @@
 -----------------------------------------------------------------------------*/
 .masthead-slideshow {
   .masthead-slide-wrapper {
-    height: 90vh;
+    height: 82vh;
     width: 100%;
     max-height: 86.8rem;
+    min-height: 65rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,6 +18,7 @@
     text-align: center;
     padding-top: 10rem;
     padding-bottom: 10rem;
+    position: relative;
     @include mobile-only {
       padding-top: 6rem;
       padding-bottom: 6rem;
@@ -66,8 +68,33 @@
       margin-top: 2.5rem;
     }
   }
-
 }
+
+.swiper-container-progress-bar {
+  .progress-bars {
+    position: absolute;
+    bottom: 4.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 12rem);
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    .progress-bar {
+      background: rgba(#F7F4EC, .5);
+      height: 0.335rem;
+      position: relative;
+      .progress {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #F7F4EC;
+      }
+    }
+  }
+}
+
 /* --------------------------------------------------------------------------
   HOME SECTIONS
 -----------------------------------------------------------------------------*/
@@ -82,21 +109,21 @@
   }
 }
 
+/* --------------------------------------------------------------------------
+  POST CARDS
+-----------------------------------------------------------------------------*/
 .post-card {
   text-align: center;
   .category-row {
     @extend .small-caps;
     text-align: center;
     margin-bottom: 2.3rem;
+    line-height: 1.4;
     a {
       color: $orange;
     }
   }
-  h2 {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   .text-content {
     max-width: 37.8rem;
     margin-left: auto;
