@@ -155,6 +155,9 @@ OTHER TEXT
   em {
     font-family: $superRegItalic;
   }
+  strong {
+    font-family: $superBold;
+  }
 }
 
 [class*="desc-sans"] {

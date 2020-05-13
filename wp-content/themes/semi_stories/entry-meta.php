@@ -4,7 +4,7 @@ $categoryId = $categories[0]->term_id;
 ?>
 
   <!-- ==============================
-  ADVICE
+  ADVICE (DO AS A DESIGNER DOES)
   =================================== -->
 <? if ($categoryId == 5) { ?>
   <header class="entry-meta masthead container post-advice">
@@ -27,7 +27,7 @@ $categoryId = $categories[0]->term_id;
   <!-- ==============================
   DIY
   =================================== -->
-  <? } else if ($categoryId == 8) { ?>
+  <? } else if ($categoryId == 8 || $categoryId == 18) { ?>
     <header class="entry-meta masthead container post-diy">
       <!-- CATEGORY -->
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
@@ -115,7 +115,7 @@ $categoryId = $categories[0]->term_id;
   <!-- ==============================
   WALKTHROUGH
   =================================== -->
-  <? } else if ($categoryId == 3) { ?>
+  <? } else if ($categoryId == 3 || $categoryId == 13 || $categoryId == 17) { ?>
 
     <!-- BANNER -->
     <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>

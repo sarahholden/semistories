@@ -233,7 +233,7 @@
 
           </section>
           <? $stepIndex++ ?>
-        <? } else if ( get_row_layout() == 'test' ) { ?>
+
         <? } else if ( get_row_layout() == 'test' ) { ?>
 
         <? } ?>
@@ -283,7 +283,7 @@
       $featuredQuery = new WP_Query( $featuredArgs );
       ?>
 
-      <?wp_reset_postdata();?>
+
       <div class="popular-posts">
         <h2 class="h1">Popular Posts</h2>
         <ol>
@@ -324,11 +324,12 @@
       </div>
     </aside>
   </div>
-
+  <?wp_reset_postdata();?>
 
   <!-- ==============================
   AUTHOR BLOCK
   =================================== -->
+
   <? if(get_field('author_block_name')) { ?>
     <section class="container author-block">
       <div class="inner">
@@ -373,36 +374,48 @@
 
 
 
-
   <!-- ==============================
-  MUST HAVES (FOR ADVICE)
+  MUST HAVES
   =================================== -->
-  <? if ($categoryId == 5) { ?>
-      <?php
-        $args = array(
-          'post_type' => 'post',
-          'posts_per_page' => 4
-        );
-
-        $featuredQuery = new WP_Query( $args );
-      ?>
+  <? wp_reset_postdata();?>
+  <? if (have_rows('must_haves')) { ?>
+    <? $itemCount = count(get_field('must_haves')); ?>
+    <? $colsClass = $itemCount % 2 == 1 ? 'cols-3' : 'cols-2'; ?>
 
       <section class="container padded more-stories-section must-haves">
         <div class="inner">
           <h2 class="h1">Must Haves</h2>
-          <div class="cols-2">
-            <? $i = 0; ?>
-            <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+          <div class="<?= $colsClass ?>">
+            <? while( have_rows('must_haves') ): the_row(); ?>
               <? $className = 'stacked'; ?>
 
-              <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
+              <article class="post-card stacked"
+                data-anim="scroll"
+                data-offset="-300" >
 
-              <?$i++;?>
-            <?endwhile;?>
+                <!-- Article Image -->
+                <? if ( get_sub_field('thumbnail') ) { ?>
+                  <div class="thumb-wrapper bg-image-wrapper">
+                    <a href="<? the_sub_field('link'); ?>" title="<? the_sub_field('heading'); ?>" class="post-thumb">
+                      <div style="background-image: url(<?= get_sub_field('thumbnail')['url'] ?>);" class=" bg-image"></div>
+                    </a>
+                  </div>
+                <? } ?>
+                <!-- Text Content -->
+                <div class="text-content">
+                  <div class="title-and-meta">
+                    <h2 data-anim="slide" data-anim-order="1">
+                      <a href="<? the_sub_field('link') ?>">
+                        <? the_sub_field('heading'); ?>
+                      </a>
+                    </h2>
+                  </div>
+                </div>
+              </article>
+            <? endwhile; ?>
           </div>
         </div>
       </section>
-      <?wp_reset_postdata();?>
     <? } ?>
 
 
@@ -433,6 +446,9 @@
         </div>
       </div>
     </section>
+
+
+
     <?wp_reset_postdata();?>
 
 </div>
