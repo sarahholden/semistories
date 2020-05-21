@@ -9,6 +9,7 @@ function blankslate_setup() {
   global $content_width;
   if ( ! isset( $content_width ) ) { $content_width = 1920; }
   register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
+  register_nav_menus( array( 'footer-menu' => esc_html__( 'Footer Menu', 'blankslate' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'blankslate_load_scripts' );
 
@@ -44,6 +45,7 @@ function studio_see_scripts() {
 	wp_enqueue_script( 'ssee_lazy', 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js', array(), '20200122', true );
 	// wp_enqueue_script( 'ssee_modernizr', get_template_directory_uri() . '/js/vendor/modernizr.js', array(), '20200122', true );
 	wp_enqueue_script( 'ssee_swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js', array(), '20200122', true );
+	wp_enqueue_script( 'ssee_modernizer', get_template_directory_uri() . '/js/vendor/modernizr.min.js', array(), '20200122', true );
 	wp_enqueue_script( 'ssee_theme', get_template_directory_uri() . '/js/theme.js', array(), $ver, true );
 
 	wp_enqueue_script( 'ssee_skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20200122', true );
@@ -162,20 +164,28 @@ function blankslate_comment_count( $count ) {
  */
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title' 	=> 'Header/Footer Settings',
-		'menu_title'	=> 'Header/Footer Settings',
+		'page_title' 	=> 'Sitewide Shared Content',
+		'menu_title'	=> 'Sitewide Shared Content',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
 
   acf_add_options_page(array(
-		'page_title' 	=> 'Newsletter Settings',
-		'menu_title'	=> 'Newsletter Settings',
+		'page_title' 	=> 'Newsletter Content',
+		'menu_title'	=> 'Newsletter Content',
 		'menu_slug' 	=> 'theme-newsletter-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+
+  // acf_add_options_page(array(
+	// 	'page_title' 	=> 'Sitewide Settings',
+	// 	'menu_title'	=> 'Sitewide Settings',
+	// 	'menu_slug' 	=> 'theme-sitewide-settings',
+	// 	'capability'	=> 'edit_posts',
+	// 	'redirect'		=> false
+	// ));
 
 
 }

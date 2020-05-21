@@ -10,15 +10,15 @@ Body Open Mobile Nav Styles
 /* --------------------------------------------------------------------------
 Header Navigation Styles
 -----------------------------------------------------------------------------*/
+$bottomPadding: 1.2rem;
 .nav-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 4rem;
+  padding-bottom: $bottomPadding;
   a,
   a:visited {
     color: $orange;
-    margin-right: 18px;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
   a:hover {
     color: $orange;
@@ -28,18 +28,15 @@ Header Navigation Styles
 }
 
 .nav-wrapper {
-
   nav {
     flex-grow: 1;
-    padding-left: 8rem;
-
     display: flex;
     align-items: flex-end;
     transform: translateY(-.3rem);
     a {
-      text-transform: uppercase;
-      font-family: $walsheimBold;
+      font-family: $walsheimMed;
       font-weight: 400;
+      letter-spacing: 0.03rem;
     }
   }
   .search {
@@ -48,21 +45,89 @@ Header Navigation Styles
   }
   .menu {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-grow: 1;
     .current-page {
       /* Styles for the currently active link */
 
     }
   }
+  .nav-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-block;
+    margin-left: 0.3rem;
+    transform: translateY(.3rem);
+    svg {
+      display: inline-block;
+      max-width: 100%;
+    }
+  }
+}
 
+/* SUB MENU ================== */
+.nav-wrapper {
+  position: relative;
+  z-index: 4;
+  .menu-item {
+    position: relative;
+    &:hover {
+      .sub-menu {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+    }
+    &:first-of-type .sub-menu::before {
+      background: $gold;
+    }
+    &:nth-of-type(2) .sub-menu::before {
+      background: $green;
+    }
+    &:nth-of-type(3) .sub-menu::before {
+      background: $lightBlue;
+    }
+  }
+
+  .sub-menu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 50%;
+    width: 30rem;
+    transform: translate(-50%, 100%);
+    padding: 4rem 2rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -.2rem;
+      left: 0;
+      width: 100%;
+      height: calc(100% - #{$bottomPadding});
+    }
+    a {
+      color: white;
+      margin: 0;
+      &:hover {
+        color: white;
+      }
+    }
+    li {
+      margin-bottom: 3rem;
+    }
+  }
 }
 
 /* LOGO WRAPPER ================== */
 .nav-wrapper .logo-wrapper {
-  width: 24.7rem;
+  text-align: center;
   h1 {
-    margin-bottom: 0;
+    margin-bottom: 3rem;
     line-height: 1;
     a:hover {
       opacity: 0.8;

@@ -5,7 +5,7 @@ VIDEO
 <? if(get_field('show_video_in_masthead')) { ?>
   <div class="featured-video-wrapper">
     <? if(get_sub_field('hero_video_placholder_image')) { ?>
-        <? $image = get_sub_field('hero_video_placholder_image'); ?>
+        <? $image =  get_sub_field('hero_video_placholder_image'); ?>
         <img
           <?php acf_responsive_image($image['id']); ?>
           sizes="auto"
@@ -26,7 +26,18 @@ VIDEO
 
   <div class="featured-image-wrapper">
     <div class="featured-image">
-      <? the_post_thumbnail() ?>
+      <? if (get_field('full_hero_image')) { ?>
+        <? $image = get_field('full_hero_image'); ?>
+        <img
+          <?php acf_responsive_image($image['id']); ?>
+          sizes="auto"
+          class="lazyload lazy-fade"
+          alt="<?= $image['alt'] ?>"
+          data-anim="scale"
+          />
+      <? } else { ?>
+        <? the_post_thumbnail() ?>
+      <? }?>
     </div>
 
     <? $thumbnail_caption = get_post(get_post_thumbnail_id())->post_excerpt; ?>

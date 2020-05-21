@@ -1,6 +1,6 @@
 <div class="credit-row">
   <!-- DATE -->
-  <span class="date">Published <?php the_time( get_option( 'date_format' ) ); ?></span>
+  <span class="date">Published: <?php the_time( get_option( 'date_format' ) ); ?></span>
 
   <? if (have_rows('credits')) { ?>
     <? while( have_rows('credits') ): the_row(); ?>

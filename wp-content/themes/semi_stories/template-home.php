@@ -3,45 +3,49 @@
 <?php get_header(); ?>
 <main id="content" class="page-home">
 
+<? $postIdsAlreadyUsed = array(); ?>
+
 
 <div class="">
   <!-- ==============================
   MASTHEAD POSTS
   =================================== -->
-  <?php
-    $args = array(
-      'post_type' => 'post',
-      'posts_per_page' => 3,
-      'tag' => 'featured'
-    );
-
-    $featuredQuery = new WP_Query( $args );
-  ?>
 
   <header class="masthead-slideshow">
     <div class="swiper-container swiper-container-progress-bar">
       <div class="swiper-wrapper">
         <? $featuredPostsCount = 0; ?>
-        <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
-          <? $className = 'overlay'; ?>
+        <?
+        $post_objects = get_field('featured_posts');
+        if( $post_objects ): ?>
+          <?php foreach( $post_objects as $post): ?>
+            <?php setup_postdata($post); ?>
+            <? $postIdsAlreadyUsed[] = $post->ID; ?>
+            <? $className = 'overlay'; ?>
 
-          <?php hm_get_template_part( 'template-parts/masthead-slideshow', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
+            <?php hm_get_template_part( 'template-parts/masthead-slideshow', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
-          <?$featuredPostsCount++;?>
-        <?endwhile;?>
+            <?$featuredPostsCount++;?>
+          <?php endforeach; ?>
+          <?php wp_reset_postdata(); ?>
+        <?php endif;?>
       </div>
 
       <div class="progress-bars">
-        <? for ($x = 0; $x < $featuredPostsCount; $x++) { ?>
-          <? $percentageWidth = 1 / $featuredPostsCount * 100 ?>
-          <div class="progress-bar" style="width: calc(<?= $percentageWidth ?>% - 24px)">
-            <div class="progress"></div>
-          </div>
-        <? } ?>
+        <?
+        $post_objects = get_field('featured_posts');
+        if( $post_objects ): ?>
+          <?php foreach( $post_objects as $post): ?>
+            <? $percentageWidth = 1 / count($post_objects) * 100 ?>
+            <div class="progress-bar" style="width: calc(<?= $percentageWidth ?>% - 24px)">
+              <div class="progress"></div>
+            </div>
+          <?php endforeach; ?>
+          <?php wp_reset_postdata(); ?>
+        <?php endif;?>
       </div>
     </div>
   </header>
-  <?wp_reset_postdata();?>
 
   <? hm_get_template_part( 'template-parts/banner' ); ?>
   <!-- ==============================
@@ -59,83 +63,92 @@
     <section class="container padded">
       <div class="cols-2">
         <? $i = 0; ?>
-        <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
-          <? $className = 'stacked'; ?>
+        <?
+        $post_objects = get_field('section_1_posts');
+        if( $post_objects ): ?>
+          <?php foreach( $post_objects as $post): ?>
+            <?php setup_postdata($post); ?>
+            <? $postIdsAlreadyUsed[] = $post->ID; ?>
+            <? $className = 'stacked'; ?>
 
-          <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
+            <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
-          <?$i++;?>
-        <?endwhile;?>
+            <?$i++;?>
+          <?php endforeach; ?>
+          <?php wp_reset_postdata(); ?>
+        <?php endif;?>
       </div>
     </section>
-    <?wp_reset_postdata();?>
 
   <!-- ==============================
   TOP STORIES
   =================================== -->
-    <?php
-      $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 6
-      );
-
-      $featuredQuery = new WP_Query( $args );
-    ?>
-
-    <section class="top-stories-section container padded">
-      <h3 class="h1">Top Stories</h3>
-      <div class="cols-3">
-        <? $i = 0; ?>
-        <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+  <section class="top-stories-section container padded">
+    <h3 class="h1">Top Stories</h3>
+    <div class="cols-3">
+      <? $i = 0; ?>
+      <?
+      $post_objects = get_field('section_2_posts');
+      if( $post_objects ): ?>
+        <?php foreach( $post_objects as $post): ?>
+          <?php setup_postdata($post); ?>
+          <? $postIdsAlreadyUsed[] = $post->ID; ?>
           <? $className = 'stacked'; ?>
 
           <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
           <?$i++;?>
-        <?endwhile;?>
-      </div>
-    </section>
-    <?wp_reset_postdata();?>
+        <?php endforeach; ?>
+        <?php wp_reset_postdata(); ?>
+      <?php endif;?>
+    </div>
+  </section>
 
   <!-- ==============================
   SPONSORED
   =================================== -->
-    <?php
-      $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 1
-      );
 
-      $featuredQuery = new WP_Query( $args );
-    ?>
-
-    <section class="sponsored container padded">
-      <div class="">
-        <? $i = 0; ?>
-        <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+  <section class="sponsored container padded">
+    <div class="">
+      <? $i = 0; ?>
+      <?
+      $post_objects = get_field('section_3_posts');
+      if( $post_objects ): ?>
+        <?php foreach( $post_objects as $post): ?>
+          <?php setup_postdata($post); ?>
+          <? $postIdsAlreadyUsed[] = $post->ID; ?>
           <? $className = 'img-left'; ?>
 
           <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
           <?$i++;?>
-        <?endwhile;?>
-      </div>
-    </section>
-    <?wp_reset_postdata();?>
+        <?php endforeach; ?>
+        <?php wp_reset_postdata(); ?>
+      <?php endif;?>
+    </div>
+  </section>
 
-    <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
 
-    <? $featuredArgs = array(
-      'post_type' => 'post',
-      'posts_per_page' => 6,
-    );
-    $featuredQuery = new WP_Query( $featuredArgs );
-    ?>
+  <!-- ==============================
+  AD
+  =================================== -->
+
+  <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
+
+
+  <!-- ==============================
+  OVERFLOW
+  =================================== -->
+
+  <?
+  $args = array('post__not_in' => $postIdsAlreadyUsed, 'order' => 'ASC' );
+  $allOtherPosts = new WP_Query( $args );
+  ?>
 
     <section class="more-blog-posts container padded">
         <div class="cols-3">
           <? $i = 0; ?>
-          <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
+          <? while ($allOtherPosts->have_posts()) : $allOtherPosts->the_post(); ?>
             <? $className = $i == 0 ? 'featured-article' : 'blog-landing-article'; ?>
 
             <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>

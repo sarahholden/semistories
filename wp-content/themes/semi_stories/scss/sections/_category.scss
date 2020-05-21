@@ -1,0 +1,19 @@
+/* --------------------------------------------------------------------------
+  CATEGORY
+-----------------------------------------------------------------------------*/
+.page-category {
+  .category-intro,
+  .thumbs-wrapper {
+    padding-top: 5rem;
+  }
+  .category-intro .callout-section {
+    margin-bottom: 0;
+  }
+  .entry-title {
+    padding-top: 8rem;
+    text-align: center;
+    @include mobile-only {
+      padding-top: 4rem;
+    }
+  }
+}

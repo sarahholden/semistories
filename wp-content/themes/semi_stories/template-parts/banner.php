@@ -21,10 +21,10 @@
   <? hm_get_template_part( 'template-parts/vector-shape-left-sm', ['svgColor' => $svgColor] ); ?>
 
   <h2>
-    <? if (get_field('banner_text') != '') { ?>
-      <?= get_field('banner_text') ?>
+    <? if (get_field('banner_tagline', 'option') != '') { ?>
+      <?= get_field('banner_tagline', 'option') ?>
     <? } else { ?>
-      Exploring every corner of your home.
+      A playful take on practical design
     <? } ?>
   </h2>
 </section>

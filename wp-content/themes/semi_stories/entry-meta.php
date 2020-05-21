@@ -20,6 +20,9 @@ $categoryId = $categories[0]->term_id;
     <!-- LEAD CAPTION -->
     <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
 
+    <!-- TOOLS -->
+    <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
+
     <!-- CREDITS -->
     <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
   </header>
@@ -27,6 +30,31 @@ $categoryId = $categories[0]->term_id;
   <!-- ==============================
   DIY
   =================================== -->
+  <? } else if ($categoryId == 20) { ?>
+    <header class="entry-meta masthead container post-illustration">
+      <!-- CATEGORY -->
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+
+      <!-- TITLE & AUTHOR -->
+      <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
+
+
+      <!-- LEAD CAPTION -->
+      <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
+
+      <!-- CREDITS -->
+      <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+
+      <!-- FEATURED IMAGE OR VIDEO -->
+      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+      <!-- TOOLS -->
+      <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
+
+    </header>
+
+
+
   <? } else if ($categoryId == 8 || $categoryId == 18) { ?>
     <header class="entry-meta masthead container post-diy">
       <!-- CATEGORY -->
@@ -40,6 +68,9 @@ $categoryId = $categories[0]->term_id;
 
       <!-- FEATURED IMAGE OR VIDEO -->
       <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+
+      <!-- TOOLS -->
+      <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
 
       <!-- CREDITS -->
       <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
@@ -63,6 +94,9 @@ $categoryId = $categories[0]->term_id;
       <!-- CREDITS -->
       <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
 
+      <!-- TOOLS -->
+      <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
+
       <!-- FEATURED IMAGE OR VIDEO -->
       <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
     </header>
@@ -83,6 +117,9 @@ $categoryId = $categories[0]->term_id;
 
       <!-- CREDITS -->
       <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
+
+      <!-- TOOLS -->
+      <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
 
       <!-- CONTRIBUTORS -->
       <? hm_get_template_part( 'template-parts/blocks-contributors' ); ?>
@@ -134,6 +171,9 @@ $categoryId = $categories[0]->term_id;
       <!-- FEATURED IMAGE OR VIDEO -->
       <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
 
+      <!-- TOOLS -->
+      <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
+
       <!-- CREDITS -->
       <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
     </header>
@@ -157,7 +197,16 @@ $categoryId = $categories[0]->term_id;
         <!-- FEATURED IMAGE OR VIDEO -->
         <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
 
+        <!-- TOOLS -->
+        <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
+
         <!-- CREDITS -->
         <? hm_get_template_part( 'template-parts/masthead-credits' ); ?>
     </header>
   <? } ?>
+
+
+  <!-- ==============================
+  CATEGORY INTRO
+  =================================== -->
+  <? hm_get_template_part( 'template-parts/blocks-category-intro' ); ?>

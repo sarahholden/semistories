@@ -18,6 +18,8 @@ Section Comment
 @import 'sections/article-blocks';
 @import 'sections/sidebar';
 @import 'sections/home';
+@import 'sections/about';
+@import 'sections/category';
 
 .banner {
   background: $gold;

@@ -22,9 +22,9 @@
       </h2>
     </div>
     <div class="desc-sans" data-anim="slide" data-anim-order="1"><? the_excerpt(); ?></div>
-    <button type="button" class="text-only">
+    <a href="<? the_permalink() ?>" class="text-only circle-link">
       <? hm_get_template_part( 'template-parts/vector-circle-arrow' ); ?>
-    </button>
+    </a>
   </div>
 
 </div>

@@ -641,6 +641,8 @@ function get_body_class( $class = '' ) {
 		$classes[] = 'error404';
 	}
 
+	$classes[] = 'site';
+
 	if ( is_singular() ) {
 		$post_id   = $wp_query->get_queried_object_id();
 		$post      = $wp_query->get_queried_object();

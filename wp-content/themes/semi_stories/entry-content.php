@@ -1,6 +1,8 @@
 <? $categories = get_the_category(); ?>
 <? $categoryName = ! empty( $categories ) ? strtolower($categories[0]->name) : ''; ?>
 <? $categoryId = $categories[0]->term_id; ?>
+<? $currentPostId = array(); ?>
+<? $currentPostId[] = $post->ID; ?>
 <?
   function seoUrl($string) {
     //Lower case everything
@@ -55,7 +57,7 @@
         <? } else if (get_row_layout() == 'image_block') { ?>
           <section class="image-block single-image-block">
             <? if(get_sub_field('image')) { ?>
-              <div class="bg-shape-wrapper">
+              <div class="caption-wrapper">
                 <? $image = get_sub_field('image'); ?>
                 <img
                   <?php acf_responsive_image($image['id']); ?>
@@ -64,12 +66,6 @@
                   alt="<?= $image['alt'] ?>"
                   data-anim="scale"
                   />
-
-                  <? if ($post->ID == 179) { ?>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-shape" viewBox="0 0 558.39 370.847">
-                      <path id="Path_107" data-name="Path 107" d="M13240.055,1974.013l-443.44,54.98-114.949-370.847h558.39Z" transform="translate(-12681.665 -1658.146)" fill="#c19115"/>
-                    </svg>
-                  <? } ?>
               </div>
 
               <? if($image && !empty($image['caption'])) { ?>
@@ -82,34 +78,46 @@
         IMAGE GALLERY BLOCK
         =================================== -->
         <? } else if (get_row_layout() == 'gallery_block') { ?>
+          <? $captionsBelowImages = get_sub_field('captions_below_images'); ?>
           <section class="image-gallery">
             <? if (have_rows('image_row')) { ?>
               <? while( have_rows('image_row') ): the_row(); ?>
                 <? $images = get_sub_field('image_row');
+
                 if( $images ) { ?>
                   <div class="gallery-row cols-<?= count($images) ?>">
                     <? foreach( $images as $image ) { ?>
-                      <img
-                      <? acf_responsive_image($image['id']); ?>
-                      sizes="auto"
-                      class="lazyload lazy-fade"
-                      alt="<?= esc_attr($image['alt']); ?>"
-                      />
+                      <div>
+                        <img
+                        <? acf_responsive_image($image['id']); ?>
+                        sizes="auto"
+                        class="lazyload lazy-fade"
+                        alt="<?= esc_attr($image['alt']); ?>"
+                        />
+
+                        <? if ($captionsBelowImages == 1 && !empty($image['caption'])) { ?>
+                          <div class="desc-sans-sm interior-captions">
+                            <?= $image['caption'] ?>
+                          </div>
+                        <? } ?>
+                      </div>
                     <? } ?>
                   </div>
                 <? } ?>
               <? endwhile; ?>
               <!-- CAPTIONS -->
-              <div class="gallery-captions desc-sans-sm">
-                <? while( have_rows('image_row') ): the_row(); ?>
+              <? if ($captionsBelowImages != 1) { ?>
+                <div class="gallery-captions desc-sans-sm">
+                  <? while( have_rows('image_row') ): the_row(); ?>
                   <? $images = get_sub_field('image_row');
                   if ( $images ) { ?>
-                      <? foreach( $images as $image ) { ?>
-                        <? echo esc_html($image['caption']); ?>
-                      <? } ?>
+                    <? foreach( $images as $image ) { ?>
+                      <? echo esc_html($image['caption']); ?>
+                    <? } ?>
                   <? } ?>
                 <? endwhile; ?>
               </div>
+              <? } ?>
             <? } ?>
 
           </section>
@@ -242,95 +250,91 @@
       <? endif; ?>
     </div>
 
-    <!-- ==============================
-    SIDEBAR
-    =================================== -->
-    <aside class="sidebar">
-      <div class="share">
-        <h2>Share, and share and like.</h2>
-        <h5 class="small-caps">Share this story on.</h5>
-        <div class="social-links">
-          <? if(get_field('facebook_link', 'option')) { ?>
-            <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank">
-              <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
-            </a>
-          <? } ?>
-          <? if(get_field('twitter_link', 'option')) { ?>
-            <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank">
-              <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Facebook">
-            </a>
-          <? } ?>
-          <? if(get_field('pinterest_link', 'option')) { ?>
-            <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank">
-              <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Facebook">
-            </a>
-          <? } ?>
-          <? if(get_field('instagram_link', 'option')) { ?>
-            <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank">
-              <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Facebook">
-            </a>
-          <? } ?>
-
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
-          <path id="Spacer_1" data-name="Spacer 1" d="M4080.714,3014.242l-.367-.1-189.09-50.437.524-3.931,188.724,50.339,103.836-50.266.916,3.784Z" transform="translate(-3891.257 -2959.777)" fill="#b8d2cf"/>
-        </svg>
-
-      </div>
-
-
-
+    <? if ($categoryId != 20) { ?>
       <!-- ==============================
-      POPULAR POSTS
+      SIDEBAR
       =================================== -->
+      <aside class="sidebar">
+        <div class="share">
+          <? if(get_field('share_heading', 'option')) { ?>
+            <h2><?= the_field('share_heading', 'option') ?></h2>
+          <? } ?>
+          <? if(get_field('share_subheading', 'option')) { ?>
+            <h5 class="small-caps"><?= the_field('share_subheading', 'option') ?></h5>
+          <? } ?>
 
-      <? $featuredArgs = array(
-        'post_type' => 'post',
-        'posts_per_page' => 5,
-      );
-      $featuredQuery = new WP_Query( $featuredArgs );
-      ?>
+          <!-- SOCIAL SHARE -->
+          <? hm_get_template_part( 'template-parts/share' ); ?>
 
-
-      <div class="popular-posts">
-        <h2 class="h1">Popular Posts</h2>
-        <ol>
-          <? $i = 0; ?>
-          <? while ($featuredQuery->have_posts()) : $featuredQuery->the_post(); ?>
-            <? $className = $i == 0 ? 'featured-article' : 'blog-landing-article'; ?>
-            <li>
-              <a href="<? the_permalink() ?>">
-                <? the_title(); ?>
-              </a>
-            </li>
-            <?$i++;?>
-          <?endwhile;?>
-
-        </ol>
-        <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
-          <path id="Spacer_1" data-name="Spacer 1" d="M4080.714,3014.242l-.367-.1-189.09-50.437.524-3.931,188.724,50.339,103.836-50.266.916,3.784Z" transform="translate(-3891.257 -2959.777)" fill="#b8d2cf"/>
-        </svg>
-
-      </div>
-      <div class="follow">
-        <h2>Follow Semihandmade</h2>
-        <div class="social-links">
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
-          </a>
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Twitter">
-          </a>
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Pinterest">
-          </a>
-          <a href="">
-            <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Instagram">
-          </a>
+          <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
+            <path id="Spacer_1" data-name="Spacer 1" d="M4080.714,3014.242l-.367-.1-189.09-50.437.524-3.931,188.724,50.339,103.836-50.266.916,3.784Z" transform="translate(-3891.257 -2959.777)" fill="#b8d2cf"/>
+          </svg>
 
         </div>
-      </div>
-    </aside>
+
+
+
+        <!-- ==============================
+        POPULAR POSTS
+        =================================== -->
+
+        <? $featuredArgs = array(
+          'post_type' => 'post',
+          'posts_per_page' => 5,
+        );
+        $featuredQuery = new WP_Query( $featuredArgs );
+        ?>
+
+        <div class="popular-posts">
+          <? if(get_field('popular_posts_heading', 'option')) { ?>
+            <h2 class="h1"><?= the_field('popular_posts_heading', 'option') ?></h2>
+          <? } ?>
+          <?php
+            $args = array(
+              'wpp_start' => '<ol>',
+              'wpp_end' => '</ol>',
+              'stats_views' => 0
+            );
+
+            wpp_get_mostpopular($args );
+          ?>
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="spacer" viewBox="0 0 294 54.465">
+            <path id="Spacer_1" data-name="Spacer 1" d="M4080.714,3014.242l-.367-.1-189.09-50.437.524-3.931,188.724,50.339,103.836-50.266.916,3.784Z" transform="translate(-3891.257 -2959.777)" fill="#b8d2cf"/>
+          </svg>
+        </div>
+
+        <!-- FOLLOW -->
+        <div class="follow">
+          <? if(get_field('follow_heading', 'option')) { ?>
+            <h2><?= the_field('follow_heading', 'option') ?></h2>
+          <? } ?>
+          <div class="social-links">
+            <? if(get_field('facebook_link', 'option')) { ?>
+              <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank">
+                <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
+              </a>
+            <? } ?>
+            <? if(get_field('twitter_link', 'option')) { ?>
+              <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank">
+                <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Facebook">
+              </a>
+            <? } ?>
+            <? if(get_field('pinterest_link', 'option')) { ?>
+              <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank">
+                <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Facebook">
+              </a>
+            <? } ?>
+            <? if(get_field('instagram_link', 'option')) { ?>
+              <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank">
+                <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Facebook">
+              </a>
+            <? } ?>
+
+          </div>
+        </div>
+      </aside>
+    <? } ?>
   </div>
   <?wp_reset_postdata();?>
 
@@ -381,7 +385,6 @@
   <? } ?>
 
 
-
   <!-- ==============================
   MUST HAVES
   =================================== -->
@@ -390,9 +393,9 @@
     <? $itemCount = count(get_field('must_haves')); ?>
     <? $colsClass = $itemCount % 2 == 1 ? 'cols-3' : 'cols-2'; ?>
 
-      <section class="container padded more-stories-section must-haves">
+      <section class="container padded must-haves">
         <div class="inner">
-          <h2 class="h1">Must Haves</h2>
+          <!-- <h2 class="h1">Must Haves</h2> -->
           <div class="<?= $colsClass ?>">
             <? while( have_rows('must_haves') ): the_row(); ?>
               <? $className = 'stacked'; ?>
@@ -412,11 +415,12 @@
                 <!-- Text Content -->
                 <div class="text-content">
                   <div class="title-and-meta">
-                    <h2 data-anim="slide" data-anim-order="1">
-                      <a href="<? the_sub_field('link') ?>">
+                    <a href="<? the_sub_field('link') ?>" data-anim="slide" data-anim-order="1" class="more-more-more">
+                      <p class="more-text">
                         <? the_sub_field('heading'); ?>
-                      </a>
-                    </h2>
+                      </p>
+                      <button class="btn btn--bordered">Shop</button>
+                    </a>
                   </div>
                 </div>
               </article>
@@ -433,7 +437,8 @@
     <?php
       $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 3
+        'posts_per_page' => 3,
+        'post__not_in' => $currentPostId
       );
 
       $featuredQuery = new WP_Query( $args );

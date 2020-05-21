@@ -3,20 +3,19 @@
   <h4 class="h1">Semi<em>Stories</em></h4>
   <div class="cols-2">
     <div class="desc-sans">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris m dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <? if(get_field('footer_about', 'option')) { ?>
+        <?= the_field('footer_about', 'option') ?>
+      <? } ?>
     </div>
     <div class="cols-1-2">
 
       <nav>
-        <div>
-          <a href="">Design</a>
-          <a href="">Technology</a>
-          <a href="">Renovation</a>
-          <a href="">DIY</a>
-        </div>
+        <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
       </nav>
       <div >
-        <h5 class="small-caps">Follow Us:</h5>
+        <? if(get_field('follow_us_text', 'option')) { ?>
+          <h5 class="small-caps"><?= the_field('follow_us_text', 'option') ?></h5>
+        <? } ?>
         <div class="social-links">
           <? if(get_field('facebook_link', 'option')) { ?>
             <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank">
@@ -45,7 +44,6 @@
 
   </div>
 </footer>
-</div>
 <?php wp_footer(); ?>
 </body>
 </html>

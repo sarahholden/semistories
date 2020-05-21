@@ -3,10 +3,10 @@
 -----------------------------------------------------------------------------*/
 .masthead-slideshow {
   .masthead-slide-wrapper {
-    height: 82vh;
+    height: 86vh;
     width: 100%;
     max-height: 86.8rem;
-    min-height: 65rem;
+    min-height: 70rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,7 +36,7 @@
   .text-content {
     position: relative;
     z-index: 3;
-    max-width: 50rem;
+    max-width: 60rem;
     margin-left: auto;
     margin-right: auto;
   }
@@ -60,12 +60,17 @@
     margin-left: auto;
     margin-right: auto;
   }
-  button svg {
-    width: 8.2rem;
+  .circle-link {
     display: block;
-    margin-top: 5.5rem;
-    @include mobile-only {
-      margin-top: 2.5rem;
+    svg {
+      width: 8.2rem;
+      display: block;
+      margin-top: 5.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      @include mobile-only {
+        margin-top: 2.5rem;
+      }
     }
   }
 }

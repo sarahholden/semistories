@@ -1,6 +1,6 @@
 <?
-  $currentPostId = $template_args['post'];
-  $className = $template_args['className'];
+  $currentPostId = isset($template_args['post']) ? $template_args['post'] : '';
+  $className = isset($template_args['className']) ? $template_args['className'] : '';
   $url = wp_get_attachment_url( get_post_thumbnail_id() );
 ?>
 
@@ -10,9 +10,19 @@
 
   <!-- Article Image -->
   <? if ( has_post_thumbnail() ) { ?>
-    <div class="thumb-wrapper bg-image-wrapper">
-      <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb">
-        <div style="background-image: url(<?= $url ?>);" class=" bg-image"></div>
+    <div class="thumb-wrapper">
+      <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb bg-image-wrapper">
+        <div class="bg-image">
+          <? $image = get_post_thumbnail_id(); ?>
+          <img
+            <?php acf_responsive_image($image); ?>
+            sizes="auto"
+            class="lazyload lazy-fade"
+            alt="<?= $image['alt'] ?>"
+            data-anim="scale"
+            />
+        </div>
+        <!-- <div style="background-image: url(<?= $url ?>);" class=" bg-image"></div> -->
       </a>
     </div>
   <? } ?>

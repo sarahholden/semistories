@@ -1,7 +1,7 @@
 /* --------------------------------------------------------------------------
 Buttons
 -----------------------------------------------------------------------------*/
-.button,
+.btn,
 button {
 	cursor: pointer;
 	border: 0;
@@ -12,6 +12,16 @@ button {
 	display: inline-block;
 	/* background-color: transparent;  👋🏻 NOTE: Make sure to add a bg color for Firefox & Safari or use transparent for no bg color*/
 	&:hover {}
+}
+
+.btn--bordered {
+	border: 1px solid $primaryTextColor;
+	font-size: 1.4rem;
+	text-align: center;
+	padding: 0.8rem 3rem;
+	border-radius: 30rem;
+	font-family: $superMed;
+
 }
 
 button.text-only {

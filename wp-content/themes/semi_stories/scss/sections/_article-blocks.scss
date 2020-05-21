@@ -1,6 +1,20 @@
 $leftPadding: 10rem;
 
 /* --------------------------------------------------------------------------
+  CATEGORY INTRO
+-----------------------------------------------------------------------------*/
+.category-intro {
+  .callout-section {
+    padding: 5rem 8rem;
+    margin-bottom: 7rem;
+    @include mobile-only {
+      padding: 5rem 3rem;
+
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
   LIFESTYLE
 -----------------------------------------------------------------------------*/
 .blog-content {
@@ -25,9 +39,9 @@ $leftPadding: 10rem;
 }
 
 .image-gallery + .copy-block {
-  margin-top: 7.8rem;
+  margin-top: 5rem;
   @include mobile-only {
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
   }
 }
 
@@ -51,7 +65,18 @@ $leftPadding: 10rem;
 /* IMAGE GALLERY ROW ================== */
 .image-gallery {
   .gallery-row {
-    margin-bottom: 3.4rem;
+    margin-bottom: 4rem;
+    &:last-of-type {
+      margin-bottom: 3rem;
+    }
+    @include tablet-up {
+      &[class*="cols-"] {
+        grid-column-gap: 2.4rem;
+      }
+    }
+  }
+  .interior-captions {
+    margin-top: 2.5rem;
   }
   [class*="cols-"] {
     @include tablet-up {
@@ -66,9 +91,12 @@ $leftPadding: 10rem;
 /* SINGLE IMAGE BLOCK ================== */
 .single-image-block {
   width: 100%;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   @include mobile-only {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
+  }
+  img {
+    margin-bottom: 3rem;
   }
 }
 
@@ -78,9 +106,9 @@ $leftPadding: 10rem;
   @include mobile-only {
     margin-bottom: 4.5rem;
   }
-  .cols-2 {
+  &.cols-2 {
     @include tablet-up {
-      grid-column-gap: 4rem;
+      grid-column-gap: 2.4rem;
     }
   }
   h2 {
@@ -91,7 +119,7 @@ $leftPadding: 10rem;
   }
   img {
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -141,6 +169,10 @@ $leftPadding: 10rem;
       padding-left: 2rem;
     }
   }
+}
+
+.qa-block + .quote.layout-center {
+  padding-top: 8rem;
 }
 
 /* STEP BLOCK ================== */
@@ -342,6 +374,10 @@ $leftPadding: 10rem;
   }
   .single-image-block {
     position: relative;
+    margin-bottom: 5rem;
+    @include mobile-only {
+      margin-bottom: 4rem;
+    }
   }
   .quote {
     color: $gold;
@@ -421,18 +457,47 @@ POST - RECIPE & DIY
   MORE STORIES
 -----------------------------------------------------------------------------*/
 .must-haves {
-  text-align: center;
+  text-align: left;
+  padding-top: 0;
+
+  @include mobile-only {
+    text-align: center;
+  }
   .category-row {
     display: none;
   }
   .post-card .text-content {
     h2 {
       width: 100%;
-      max-width: 95%;
-      margin-left: auto;
-      margin-right: auto;
+
     }
   }
+  .cols-3 .post-thumb {
+    padding-bottom: 100%;
+  }
+  .more-more-more {
+    @include tablet-up {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+    }
+    @include mobile-only {
+      margin-bottom: 2rem;
+    }
+  }
+  .more-text {
+    font-size: 1.6rem;
+    font-family: $superMed;
+    line-height: 1.5;
+    @include tablet-up {
+      padding-right: 2rem;
+      flex-grow: 1;
+    }
+    @include mobile-only {
+      display: block;
+    }
+  }
+
 }
 
 .more-stories-section {
