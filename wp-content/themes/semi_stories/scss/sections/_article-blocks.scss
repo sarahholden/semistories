@@ -469,8 +469,10 @@ POST - RECIPE & DIY
   .post-card .text-content {
     h2 {
       width: 100%;
-
     }
+  }
+  .bg-image {
+    background-size: contain;
   }
   .cols-3 .post-thumb {
     padding-bottom: 100%;

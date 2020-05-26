@@ -9,7 +9,9 @@ $categoryId = $categories[0]->term_id;
 <? if ($categoryId == 5) { ?>
   <header class="entry-meta masthead container post-advice">
     <!-- CATEGORY -->
-    <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+    <div class="category-full">
+      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
+    </div>
 
     <!-- FEATURED IMAGE OR VIDEO -->
     <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
