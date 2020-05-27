@@ -166,6 +166,10 @@ $bottomPadding: 1.6rem;
   h1 {
     margin-bottom: 3rem;
     line-height: 1;
+    font-family: $superBold;
+    em {
+      font-family: $superBoldItalic;
+    }
     @include mobile-only {
       margin-bottom: 0;
     }

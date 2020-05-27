@@ -33,6 +33,14 @@ footer {
 
 			}
 		}
+		a:first-of-type img {
+			margin-left: 0;
+			@include mobile-only {
+				margin-left: 0.8rem;
+				margin-right: 0.8rem;
+
+			}
+		}
 		a {
 			padding: 0;
 		}
@@ -47,12 +55,13 @@ footer {
 
 }
 
-/* --------------------------------------------------------------------------
-LK Site Credit
------------------------------------------------------------------------------*/
-.site-credit {
-	font-size: 1.2rem;
-	text-transform: uppercase;
-	display: block;
-	text-align: right;
+.end-col {
+	justify-content: flex-end;
+	display: flex;
+	.inner {
+		display: inline-block;
+	}
+	h5 {
+		text-align: center;
+	}
 }

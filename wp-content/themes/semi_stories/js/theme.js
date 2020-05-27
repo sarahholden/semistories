@@ -87,10 +87,14 @@ $(document).ready(function() {
   var tl = gsap.timeline();
   document.fonts.ready.then(function () {
     var mySplitText = new SplitText('[data-break="lines"]', {type:"lines", linesClass: 'split-line-++'});
-    var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-++'});
-    var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-mask'});
-    var splitTextInner = new SplitText('[data-break="lines-inner"] span', {type:"lines", linesClass: 'split-line-++'});
-    var splitTextInner = new SplitText('[data-break="lines-inner"] span', {type:"lines", linesClass: 'split-line-mask'});
+    // if ($('[data-break="lines-inner"] p') != null) {
+    //   var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-++'});
+    //   var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-mask'});
+    // }
+    // if ($('[data-break="lines-inner"] span') != null) {
+    //   var splitTextInner = new SplitText('[data-break="lines-inner"] span', {type:"lines", linesClass: 'split-line-++'});
+    //   var splitTextInner = new SplitText('[data-break="lines-inner"] span', {type:"lines", linesClass: 'split-line-mask'});
+    // }
 
     $('.js-loading').removeClass('js-loading')
 

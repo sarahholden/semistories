@@ -10,7 +10,13 @@ button {
 	font-family: inherit;
 	outline: none;
 	display: inline-block;
-	/* background-color: transparent;  👋🏻 NOTE: Make sure to add a bg color for Firefox & Safari or use transparent for no bg color*/
+	background-color: transparent;
+	position: relative;
+	overflow: hidden;
+	.text-span {
+		position: relative;
+		z-index: 1;
+	}
 	&:hover {}
 }
 
@@ -18,10 +24,28 @@ button {
 	border: 1px solid $primaryTextColor;
 	font-size: 1.4rem;
 	text-align: center;
-	padding: 0.8rem 3rem;
+	padding: 0.8rem 1rem;
+	width: 10rem;
 	border-radius: 30rem;
 	font-family: $superMed;
-
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		background: $primaryTextColor;
+		transform: translateX(-100%);
+		transition: all 0.3s ease-in-out;
+	}
+	&:hover {
+		color: $white;
+		&:before {
+			transform: none;
+		}
+	}
 }
 
 button.text-only {

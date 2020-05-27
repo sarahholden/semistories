@@ -50,8 +50,3 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
-
-AuthType Basic
-AuthName "Restricted Area"
-AuthUserFile /home/l1r406iwcj73/.htpasswd
-require valid-user

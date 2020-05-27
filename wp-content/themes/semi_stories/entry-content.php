@@ -424,7 +424,9 @@
                       <p class="more-text">
                         <? the_sub_field('heading'); ?>
                       </p>
-                      <button class="btn btn--bordered">Shop</button>
+                      <button class="btn btn--bordered">
+                        <span class="text-span">Shop</span>
+                      </button>
                     </a>
                   </div>
                 </div>
