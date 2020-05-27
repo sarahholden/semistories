@@ -79,7 +79,8 @@ $containerPadding: 14rem;
 	// border: 1px solid pink;
 }
 
-[class*="container"] {
+[class*="container-"],
+.container {
 	@include tablet-only {
 		padding-left: 8rem;
 		padding-right: 8rem;
@@ -132,8 +133,8 @@ $containerPadding: 14rem;
 		padding-bottom: 12rem;
 	}
 	@include mobile-only {
-		padding-top: 9.5rem;
-		padding-bottom: 9.5rem;
+		padding-top: 7.5rem;
+		padding-bottom: 7.5rem;
 	}
 }
 

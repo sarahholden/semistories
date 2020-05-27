@@ -179,13 +179,13 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 
-  // acf_add_options_page(array(
-	// 	'page_title' 	=> 'Sitewide Settings',
-	// 	'menu_title'	=> 'Sitewide Settings',
-	// 	'menu_slug' 	=> 'theme-sitewide-settings',
-	// 	'capability'	=> 'edit_posts',
-	// 	'redirect'		=> false
-	// ));
+  acf_add_options_page(array(
+		'page_title' 	=> 'Category Settings',
+		'menu_title'	=> 'Category Settings',
+		'menu_slug' 	=> 'theme-category-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 
 
 }

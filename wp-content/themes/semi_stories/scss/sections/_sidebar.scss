@@ -3,6 +3,9 @@
 -----------------------------------------------------------------------------*/
 .sidebar .spacer {
   margin-bottom: 5.4rem;
+  @include mobile-only {
+    margin-bottom: 3rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -25,8 +28,14 @@
     font-size: 3.4rem;
     font-family: $superBold;
     font-weight: normal;
+    @include mobile-only {
+      padding-left: 4rem;
+    }
     li {
       margin-bottom: 5rem;
+      @include mobile-only {
+        margin-bottom: 3rem;
+      }
     }
     li a {
       color: $brown;
@@ -34,6 +43,9 @@
       line-height: 1.56;
       padding-left: 2rem;
       display: block;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -53,6 +65,11 @@
   a {
     padding-left: 2rem;
     padding-right: 2rem;
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
   }
   a:first-of-type {
     padding-left: 0;
@@ -62,6 +79,6 @@
   }
   img {
     width: 4rem;
-
+    transition: all 0.3s ease-in-out;
   }
 }

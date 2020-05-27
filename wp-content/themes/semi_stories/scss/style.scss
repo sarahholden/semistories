@@ -31,6 +31,8 @@ Section Comment
   position: relative;
   h2 {
     margin: 0;
+    position: relative;
+    z-index: 3;
   }
   .shape-right-sm {
     position: absolute;
@@ -38,6 +40,9 @@ Section Comment
     right: 0;
     width: auto;
     height: 100%;
+    @include mobile-only {
+      transform: translateX(60%);
+    }
   }
   .shape-left-sm {
     position: absolute;
@@ -45,5 +50,8 @@ Section Comment
     left: 0;
     width: auto;
     height: 100%;
+    @include mobile-only {
+      transform: translateX(-60%);
+    }
   }
 }

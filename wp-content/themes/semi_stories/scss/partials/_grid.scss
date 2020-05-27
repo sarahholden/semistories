@@ -15,6 +15,9 @@ Grid Styles
 	grid-column-gap: $gridColumnGutterSize;
 	grid-row-gap: $gridRowGutterSize;
 	grid-template-columns: 1fr;
+	@include mobile-only {
+		grid-row-gap: 5rem;
+	}
 }
 
 .cols-2 {

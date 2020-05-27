@@ -9,7 +9,7 @@ $(document).ready(function() {
         spaceBetween: 0,
         autoplay: {
           delay: 9000,
-          disableOnInteraction: false
+          disableOnInteraction: true
         },
         init: false,
       });
@@ -76,7 +76,9 @@ $(document).ready(function() {
     $('.loading-nav').removeClass('loading-nav');
   }, 1200);
 
-
+  // ADD ICON TO LAST MENU ITEM
+  $('.js-nav-icon').appendTo('#menu-top-nav > .menu-item:last-child a');
+  $('.js-nav-icon').removeClass('pre-load')
 
   /* ---------------------------------------------
     SPLIT TEXT / LIST ANIMATIONS
@@ -85,7 +87,12 @@ $(document).ready(function() {
   var tl = gsap.timeline();
   document.fonts.ready.then(function () {
     var mySplitText = new SplitText('[data-break="lines"]', {type:"lines", linesClass: 'split-line-++'});
-    // var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-++'});
+    var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-++'});
+    var splitTextInner = new SplitText('[data-break="lines-inner"] p', {type:"lines", linesClass: 'split-line-mask'});
+    var splitTextInner = new SplitText('[data-break="lines-inner"] span', {type:"lines", linesClass: 'split-line-++'});
+    var splitTextInner = new SplitText('[data-break="lines-inner"] span', {type:"lines", linesClass: 'split-line-mask'});
+
+    $('.js-loading').removeClass('js-loading')
 
     // resize function
     $(window).resize(function() {
@@ -132,7 +139,7 @@ $(document).ready(function() {
       var scrollOffset = $(this).data('offset') || 0;
       new ScrollMagic.Scene({
         triggerElement: this,
-        triggerHook: .75
+        triggerHook: .9
       })
         .setClassToggle(this, 'js-animate') // add class toggle
         .reverse(false)

@@ -4,6 +4,9 @@ Footer Navigation Styles
 footer {
 	color: $orange;
 	background: $lightGreyBg;
+	@include mobile-only {
+		text-align: center;
+	}
 	a,
 	a:visited {
 		color: $orange;
@@ -18,18 +21,28 @@ footer {
 		@extend .small-caps;
 	}
 	.social-links {
-		justify-content: flex-end;
+		@include tablet-up {
+			justify-content: flex-end;
+		}
 		img {
 			width: 2rem;
 			margin-left: 1.6rem;
+			@include mobile-only {
+				margin-left: 0.8rem;
+				margin-right: 0.8rem;
+
+			}
 		}
 		a {
 			padding: 0;
 		}
 	}
 	h5 {
-		text-align: right;
 		margin-bottom: 1rem;
+		@include tablet-up {
+			text-align: right;
+
+		}
 	}
 
 }

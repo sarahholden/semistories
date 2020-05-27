@@ -7,6 +7,7 @@
   color: white;
   text-align: center;
   position: relative;
+  overflow: hidden;
   .h1 {
     margin-bottom: 3rem;
   }
@@ -17,6 +18,8 @@
     max-width: 76.8rem;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 3;
   }
   .shape-left,
   .shape-right {
@@ -26,12 +29,18 @@
     bottom: 0;
     right: 0;
     width: 18.4rem;
+    @include mobile-only {
+      transform: translate(30%, 30%);
+    }
   }
   .shape-left {
     position: absolute;
     top: 0;
     left: 0;
     width: 18.8rem;
+    @include mobile-only {
+      transform: translate(-30%, -30%);
+    }
   }
 }
 
@@ -42,12 +51,15 @@ $inputSize: 3.4rem;
 $inputFont: $superMed;
 $inputFontWeight: 400;
 $bottomBorder: 4px solid $orange;
+$bottomBorderMobile: 2px solid $orange;
 .newsletter-signup #mc_embed_signup {
   background: transparent;
   #mc_embed_signup_scroll {
-    display: flex;
-    border-bottom: $bottomBorder;
-    align-items: flex-end;
+    @include tablet-up {
+      display: flex;
+      border-bottom: $bottomBorder;
+      align-items: flex-end;
+    }
   }
   .mc-field-group input {
     border: none;
@@ -59,11 +71,17 @@ $bottomBorder: 4px solid $orange;
     display: inline-block;
     width: 100%;
     padding-bottom: 1.2rem;
-    padding-left: 4.1rem;
     font-family: $inputFont;
     font-weight: $inputFontWeight;
     text-transform: lowercase;
-
+    @include tablet-up {
+      // Offset for button
+      padding-left: 4.1rem;
+    }
+    @include mobile-only {
+      font-size: 1.8rem;
+      border-bottom: $bottomBorderMobile;
+    }
   }
   .mc-field-group {
     width: 100%;
@@ -81,9 +99,17 @@ $bottomBorder: 4px solid $orange;
 
   .icon-btn {
     margin: 0 0 1.2rem;
+    @include mobile-only {
+      margin: 3rem auto 0;
+    }
     svg {
       width: 8.2rem;
+      @include mobile-only {
+        width: 6rem;
+
+      }
     }
+
   }
   ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */

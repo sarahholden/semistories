@@ -3,6 +3,7 @@ $categories = get_the_category();
 $categoryId = $categories[0]->term_id;
 ?>
 
+
   <!-- ==============================
   ADVICE (DO AS A DESIGNER DOES)
   =================================== -->
@@ -14,7 +15,9 @@ $categoryId = $categories[0]->term_id;
     </div>
 
     <!-- FEATURED IMAGE OR VIDEO -->
-    <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+    <? $mastheadIcon = get_field('question_advice_icon', 'option'); ?>
+    <? hm_get_template_part( 'template-parts/masthead-image-video', ['mastheadIcon' =>  $mastheadIcon] ); ?>
+
 
     <!-- TITLE & AUTHOR -->
     <? hm_get_template_part( 'template-parts/masthead-title' ); ?>
@@ -80,7 +83,7 @@ $categoryId = $categories[0]->term_id;
 
 
   <!-- ==============================
-  ESSAY
+  ESSAY / START FRESH
   =================================== -->
   <? } else if ($categoryId == 4) { ?>
     <header class="entry-meta masthead container post-essay">
@@ -100,7 +103,9 @@ $categoryId = $categories[0]->term_id;
       <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>
 
       <!-- FEATURED IMAGE OR VIDEO -->
-      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+      <? $mastheadIcon = get_field('fresh_start_icon', 'option'); ?>
+      <? hm_get_template_part( 'template-parts/masthead-image-video', ['mastheadIcon' =>  $mastheadIcon] ); ?>
+      temppartvariables
     </header>
 
   <!-- ==============================
@@ -171,7 +176,9 @@ $categoryId = $categories[0]->term_id;
       <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
 
       <!-- FEATURED IMAGE OR VIDEO -->
-      <? hm_get_template_part( 'template-parts/masthead-image-video' ); ?>
+      <? $mastheadIcon = $categoryId == 3 ? get_field('b_a_icon', 'option') : ''; ?>
+      <? hm_get_template_part( 'template-parts/masthead-image-video', ['mastheadIcon' =>  $mastheadIcon] ); ?>
+
 
       <!-- TOOLS -->
       <? hm_get_template_part( 'template-parts/blocks-tools' ); ?>

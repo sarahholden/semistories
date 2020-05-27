@@ -165,7 +165,9 @@
         PULLOUT QUOTE
         =================================== -->
         <? } else if ( get_row_layout() == 'pullout_quote' ) { ?>
-          <div class="quote <? if(get_sub_field('layout')) { ?>layout-<?= get_sub_field('layout') ?><? } ?>">
+          <div
+            class="quote <? if(get_sub_field('layout')) { ?>layout-<?= get_sub_field('layout') ?><? } ?>"
+            data-anim="scroll">
             <? if(get_sub_field('image')) { ?>
               <? $image = get_sub_field('image'); ?>
               <div class="circle-image">
@@ -174,13 +176,14 @@
                   sizes="auto"
                   class="lazyload lazy-fade"
                   alt="<?= $image['alt'] ?>"
-                  data-anim="scale"
                   />
               </div>
             <? } ?>
             <? if(get_sub_field('quote')) { ?>
-              <div class="desc-large">
-                <?= get_sub_field('quote') ?>
+              <div class="desc-large" >
+                <div class="js-loading" data-break="lines-inner">
+                  <?= get_sub_field('quote') ?>
+                </div>
                 <? if (get_sub_field('layout') == 'center') { ?>
                   <span class="quote-top">&ldquo;</span>
                   <span class="quote-bottom">&rdquo;</span>
@@ -194,7 +197,8 @@
         QUESTION BLOCK
         =================================== -->
         <? } else if ( get_row_layout() == 'question_block' || get_row_layout() == 'answer_block' || get_row_layout() == 'qa_blocks' ) { ?>
-          <div class="qa-block <?= get_row_layout(); ?>">
+          <? $qaType = get_sub_field('qa_type') ? get_sub_field('qa_type') : ''; ?>
+          <div class="qa-block <?= get_row_layout(); ?> <?= $qaType ?>">
             <? if(get_sub_field('heading')) { ?>
               <h5><?= get_sub_field('heading') ?></h5>
             <? } ?>
@@ -471,7 +475,8 @@
     <? if (get_field('ad_image')) { ?>
       <? hm_get_template_part( 'template-parts/ad' ); ?>
     <? } else { ?>
-      <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
+      <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="" class="hide-mobile">
+      <img src="<?= get_template_directory_uri() ?>/images/sample_ad_mobile.png" width="100%" alt="" class="show-mobile">
     <? } ?>
 
 

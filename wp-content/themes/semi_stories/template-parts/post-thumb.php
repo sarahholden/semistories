@@ -4,22 +4,20 @@
   $url = wp_get_attachment_url( get_post_thumbnail_id() );
 ?>
 
-<article class="post-card <?= $className ?> "
-   >
+<article class="post-card <?= $className ?> ">
 
   <!-- Article Image -->
   <? if ( has_post_thumbnail() ) { ?>
     <div class="thumb-wrapper" data-anim="scroll">
       <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb bg-image-wrapper">
         <div class="bg-image" data-anim="slide">
-          <div>
+          <div class="scaling-image-wrapper">
             <? $image = get_post_thumbnail_id(); ?>
             <img
               <?php acf_responsive_image($image); ?>
               sizes="auto"
               class="lazyload lazy-fade"
               alt="<?= $image['alt'] ?>"
-
               />
           </div>
         </div>

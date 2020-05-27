@@ -1,4 +1,4 @@
-
+<? $mastheadIcon = isset($template_args['mastheadIcon']) ? $template_args['mastheadIcon'] : ''; ?>
 <!-- ==============================
 VIDEO
 =================================== -->
@@ -26,6 +26,22 @@ VIDEO
 
   <div class="featured-image-wrapper">
     <div class="featured-image">
+      <? if ($mastheadIcon) { ?>
+        <div class="featured-icon">
+          <? $image = $mastheadIcon; ?>
+          <img
+          <?php acf_responsive_image($image['id']); ?>
+          sizes="auto"
+          class="lazyload lazy-fade"
+          alt="<?= $image['alt'] ?>"
+          data-anim="scale"
+          />
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="corner-icon" viewBox="0 0 168.83 154.016">
+          <path id="Path_66" data-name="Path 66" d="M8930.782,1577.017l33.89,154.016h134.94V1577.017Z" transform="translate(-8930.782 -1577.017)" fill="#fff"/>
+        </svg>
+
+      <? } ?>
       <? if (get_field('full_hero_image')) { ?>
         <? $image = get_field('full_hero_image'); ?>
         <img

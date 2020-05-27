@@ -6,7 +6,6 @@
 
 
 <div class="swiper-slide masthead-slide-wrapper <?= $className ?>"
-  data-anim="scroll"
   data-offset="-300"
   style="background-image: url(<?= $url ?>)">
   <div class="overlay-bg"></div>
@@ -14,17 +13,19 @@
   <div class="text-content">
     <div class="title-and-meta">
       <!-- <? hm_get_template_part( 'template-parts/masthead-category' ); ?> -->
-      <h1>Semi<em>Stories</em></h1>
-      <h2 class="h1" data-anim="slide" data-anim-order="1">
+      <!-- <h1 data-anim="slide" data-anim-order="1">Semi<em>Stories</em></h1> -->
+      <h2 class="h1" data-anim="slide" data-anim-order="2">
         <a href="<? the_permalink() ?>">
           <? the_title(); ?>
         </a>
       </h2>
     </div>
-    <div class="desc-sans" data-anim="slide" data-anim-order="1"><? the_excerpt(); ?></div>
-    <a href="<? the_permalink() ?>" class="text-only circle-link">
-      <? hm_get_template_part( 'template-parts/vector-circle-arrow' ); ?>
-    </a>
+    <div class="desc-sans" data-anim="slide" data-anim-order="3"><? the_excerpt(); ?></div>
+    <div class="circle-link-wrapper">
+      <a href="<? the_permalink() ?>" class="text-only circle-link" >
+        <? hm_get_template_part( 'template-parts/vector-circle-arrow' ); ?>
+      </a>
+    </div>
   </div>
 
 </div>
