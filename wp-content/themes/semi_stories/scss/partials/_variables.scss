@@ -26,6 +26,8 @@ $secondaryTextColor: $brown;
 $borderColor: #383938;
 $border: 1px solid $borderColor;
 
+$ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
 /* --------------------------------------------------------------------------
 Font Sizes
 -----------------------------------------------------------------------------*/
@@ -119,14 +121,14 @@ $monitor-width: 1440px;
 Hide / Show
 -----------------------------------------------------------------------------*/
 .hide-mobile {
-  display: none;
   @include mobile-only {
-    display: block;
+    display: none;
   }
 }
 
 .show-mobile {
+  display: none;
   @include mobile-only {
-    display: none;
+    display: block;
   }
 }

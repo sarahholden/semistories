@@ -5,22 +5,23 @@
 ?>
 
 <article class="post-card <?= $className ?> "
-  data-anim="scroll"
-  data-offset="-300" >
+   >
 
   <!-- Article Image -->
   <? if ( has_post_thumbnail() ) { ?>
-    <div class="thumb-wrapper">
+    <div class="thumb-wrapper" data-anim="scroll">
       <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb bg-image-wrapper">
-        <div class="bg-image">
-          <? $image = get_post_thumbnail_id(); ?>
-          <img
-            <?php acf_responsive_image($image); ?>
-            sizes="auto"
-            class="lazyload lazy-fade"
-            alt="<?= $image['alt'] ?>"
-            data-anim="scale"
-            />
+        <div class="bg-image" data-anim="slide">
+          <div>
+            <? $image = get_post_thumbnail_id(); ?>
+            <img
+              <?php acf_responsive_image($image); ?>
+              sizes="auto"
+              class="lazyload lazy-fade"
+              alt="<?= $image['alt'] ?>"
+
+              />
+          </div>
         </div>
         <!-- <div style="background-image: url(<?= $url ?>);" class=" bg-image"></div> -->
       </a>
@@ -29,10 +30,10 @@
 
 
   <!-- Text Content -->
-  <div class="text-content">
+  <div class="text-content" data-anim="scroll">
     <div class="title-and-meta">
-      <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
-      <h2 data-anim="slide" data-anim-order="1">
+      <? hm_get_template_part( 'template-parts/category-only' ); ?>
+      <h2 data-anim="slide" data-anim-order="2">
         <a href="<? the_permalink() ?>">
           <? if (get_field('article_title', $currentPostId)) { ?>
             <?= the_field('article_title', $currentPostId) ?>
@@ -42,7 +43,13 @@
         </a>
       </h2>
     </div>
-    <div class="desc" data-anim="slide" data-anim-order="1"><? the_excerpt(); ?></div>
+    <? if (get_field('lead_caption', $currentPostId)) { ?>
+      <div class="desc" data-anim="slide" data-anim-order="3"><?= get_field('lead_caption', $currentPostId) ?></div>
+    <? } else { ?>
+      <div class="desc" data-anim="slide" data-anim-order="3"><? the_excerpt(); ?></div>
+
+    <? } ?>
+
   </div>
 
 </article>

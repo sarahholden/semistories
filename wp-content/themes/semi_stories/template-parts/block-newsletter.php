@@ -39,7 +39,7 @@ MAILCHIMP EMBED
       <form action="<?= $mailchimpSignupUrl ?>&amp;id=<?= $mailchimpId ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
           <div class="mc-field-group">
-            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="add your email address">
           </div>
           <div id="mce-responses" class="clear">
             <div class="response" id="mce-error-response" style="display:none"></div>

@@ -80,6 +80,24 @@
       </div>
     </section>
 
+    <!-- ==============================
+    AD
+    =================================== -->
+    <? if (get_field('section_1_ad')) { ?>
+      <section class="ad" target="_blank">
+        <a href="<?= get_field('section_1_ad_link') ?>" target="_blank">
+          <? $image = get_field('section_1_ad'); ?>
+          <img
+            <?php acf_responsive_image($image['id']); ?>
+            sizes="auto"
+            class="lazyload lazy-fade"
+            alt="<?= $image['alt'] ?>"
+            data-anim="scale"
+            />
+        </a>
+      </section>
+    <? } ?>
+
   <!-- ==============================
   TOP STORIES
   =================================== -->
@@ -103,6 +121,24 @@
       <?php endif;?>
     </div>
   </section>
+
+  <!-- ==============================
+  AD
+  =================================== -->
+  <? if (get_field('section_2_ad')) { ?>
+    <section class="ad" target="_blank">
+      <a href="<?= get_field('section_2_ad_link') ?>" target="_blank">
+        <? $image = get_field('section_2_ad'); ?>
+        <img
+          <?php acf_responsive_image($image['id']); ?>
+          sizes="auto"
+          class="lazyload lazy-fade"
+          alt="<?= $image['alt'] ?>"
+          data-anim="scale"
+          />
+      </a>
+    </section>
+  <? } ?>
 
   <!-- ==============================
   SPONSORED
@@ -132,8 +168,20 @@
   <!-- ==============================
   AD
   =================================== -->
-
-  <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
+  <? if (get_field('section_3_ad')) { ?>
+    <section class="ad" target="_blank">
+      <a href="<?= get_field('section_3_ad_link') ?>" target="_blank">
+        <? $image = get_field('section_3_ad'); ?>
+        <img
+          <?php acf_responsive_image($image['id']); ?>
+          sizes="auto"
+          class="lazyload lazy-fade"
+          alt="<?= $image['alt'] ?>"
+          data-anim="scale"
+          />
+      </a>
+    </section>
+  <? } ?>
 
 
   <!-- ==============================
@@ -141,28 +189,48 @@
   =================================== -->
 
   <?
-  $args = array('post__not_in' => $postIdsAlreadyUsed, 'order' => 'ASC' );
-  $allOtherPosts = new WP_Query( $args );
+  // $args = array('post__not_in' => $postIdsAlreadyUsed, 'order' => 'ASC' );
+  // $allOtherPosts = new WP_Query( $args );
   ?>
 
     <section class="more-blog-posts container padded">
-        <div class="cols-3">
-          <? $i = 0; ?>
-          <? while ($allOtherPosts->have_posts()) : $allOtherPosts->the_post(); ?>
-            <? $className = $i == 0 ? 'featured-article' : 'blog-landing-article'; ?>
+      <div class="cols-3">
+        <? $i = 0; ?>
+        <?
+        $post_objects = get_field('section_4_posts');
+        if( $post_objects ): ?>
+          <?php foreach( $post_objects as $post): ?>
+            <?php setup_postdata($post); ?>
+            <? $postIdsAlreadyUsed[] = $post->ID; ?>
+            <? $className = 'stacked'; ?>
 
             <?php hm_get_template_part( 'template-parts/post-thumb', [ 'post' => $post->ID, 'className' => $className, ] ); ?>
 
             <?$i++;?>
-          <?endwhile;?>
-          <?wp_reset_postdata();?>
-        </div>
+          <?php endforeach; ?>
+          <?php wp_reset_postdata(); ?>
+        <?php endif;?>
+      </div>
     </section>
 
-    <!-- <? if (  $wp_query->max_num_pages > 1 ) { ?>
-      <? $cat_id = get_query_var('cat'); ?>
-      <button type="button" id="more_posts" class="js-load-more"  data-page-number="2" data-category="<? $cat_id; ?>">Load More</button>
-    <? } ?> -->
+    <!-- ==============================
+    AD
+    =================================== -->
+    <? if (get_field('section_4_ad')) { ?>
+      <section class="ad" target="_blank">
+        <a href="<?= get_field('section_4_ad_link') ?>" target="_blank">
+          <? $image = get_field('section_4_ad'); ?>
+          <img
+            <?php acf_responsive_image($image['id']); ?>
+            sizes="auto"
+            class="lazyload lazy-fade"
+            alt="<?= $image['alt'] ?>"
+            data-anim="scale"
+            />
+        </a>
+      </section>
+    <? } ?>
+
 
 </div>
 

@@ -111,6 +111,9 @@ $leftPadding: 10rem;
       grid-column-gap: 2.4rem;
     }
   }
+  &.stacked > div:last-of-type {
+    margin-top: 4rem;
+  }
   h2 {
     font-family: $superMedItalic;
     text-decoration: underline;

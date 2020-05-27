@@ -26,6 +26,24 @@
   }
 }
 
+.post-diy,
+.post-lifestyle,
+.post-walkthrough {
+  .featured-image {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.post-illustration {
+  .featured-image {
+    max-width: 68rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* --------------------------------------------------------------------------
   CATEGORY
 -----------------------------------------------------------------------------*/

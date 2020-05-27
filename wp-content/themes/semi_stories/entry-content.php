@@ -68,7 +68,7 @@
                   />
               </div>
 
-              <? if($image && !empty($image['caption'])) { ?>
+              <? if ($image && !empty($image['caption'])) { ?>
                 <p class="caption desc-sans-sm"><?= $image['caption'] ?></p>
               <? } ?>
             <? } ?>
@@ -125,7 +125,7 @@
           BEFORE AFTER BLOCK
           =================================== -->
         <? } else if ( get_row_layout() == 'before_after_image_block' ) { ?>
-          <section class="before-after-block cols-2">
+          <section class="before-after-block <? if (get_sub_field('use_columns')) { ?>cols-2<? } else { ?>stacked<? } ?>">
             <div>
               <? if(get_sub_field('before_heading')) { ?>
                 <h2><?= get_sub_field('before_heading') ?></h2>
@@ -293,7 +293,8 @@
             $args = array(
               'wpp_start' => '<ol>',
               'wpp_end' => '</ol>',
-              'stats_views' => 0
+              'stats_views' => 0,
+              'limit' => 3
             );
 
             wpp_get_mostpopular($args );
@@ -467,7 +468,11 @@
     <!-- ==============================
     AD
     =================================== -->
-    <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
+    <? if (get_field('ad_image')) { ?>
+      <? hm_get_template_part( 'template-parts/ad' ); ?>
+    <? } else { ?>
+      <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="">
+    <? } ?>
 
 
     <!-- ==============================

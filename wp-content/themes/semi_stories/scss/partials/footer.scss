@@ -20,8 +20,11 @@ footer {
 	.social-links {
 		justify-content: flex-end;
 		img {
-			width: 3rem;
-			margin-left: 1rem;
+			width: 2rem;
+			margin-left: 1.6rem;
+		}
+		a {
+			padding: 0;
 		}
 	}
 	h5 {

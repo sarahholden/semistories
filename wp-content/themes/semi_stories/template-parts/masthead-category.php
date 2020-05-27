@@ -5,7 +5,7 @@ $nextArrowImg = '<div class="article-navigation next-arrow"><img src="' . get_te
 
 <? $categories = get_the_category(); ?>
 <? if ( ! empty( $categories ) ) { ?>
-  <div class="category-row">
+  <div class="category-row" data-anim="slide" data-anim-order="2">
     <? previous_post_link('%link', $prevArrowImg); ?>
     <? next_post_link('%link', $nextArrowImg); ?>
     <a href="<?= esc_url( get_category_link( $categories[0]->term_id ) ) ?>">
