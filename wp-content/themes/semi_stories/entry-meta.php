@@ -105,7 +105,6 @@ $categoryId = $categories[0]->term_id;
       <!-- FEATURED IMAGE OR VIDEO -->
       <? $mastheadIcon = get_field('fresh_start_icon', 'option'); ?>
       <? hm_get_template_part( 'template-parts/masthead-image-video', ['mastheadIcon' =>  $mastheadIcon] ); ?>
-      temppartvariables
     </header>
 
   <!-- ==============================
@@ -176,7 +175,7 @@ $categoryId = $categories[0]->term_id;
       <? hm_get_template_part( 'template-parts/masthead-caption' ); ?>
 
       <!-- FEATURED IMAGE OR VIDEO -->
-      <? $mastheadIcon = $categoryId == 3 ? get_field('b_a_icon', 'option') : ''; ?>
+      <? $mastheadIcon = $categoryId == 17 ? get_field('b_a_icon', 'option') : ''; ?>
       <? hm_get_template_part( 'template-parts/masthead-image-video', ['mastheadIcon' =>  $mastheadIcon] ); ?>
 
 
