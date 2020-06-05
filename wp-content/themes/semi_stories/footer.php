@@ -1,6 +1,8 @@
 </div>
 <footer id="footer" class="container padded">
-  <h4 class="h1">Semi<em>Stories</em></h4>
+  <h4 class="h1"><a href="/">
+    Semi<em>Stories</em>
+  </a></h4>
   <div class="cols-2">
     <div class="desc-sans">
       <? if(get_field('footer_about', 'option')) { ?>
@@ -19,23 +21,23 @@
           <? } ?>
           <div class="social-links">
             <? if(get_field('facebook_link', 'option')) { ?>
-              <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank">
+              <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank" aria-label="Facebook">
                 <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
               </a>
             <? } ?>
             <? if(get_field('twitter_link', 'option')) { ?>
-              <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank">
-                <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Facebook">
+              <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank" aria-label="Twitter">
+                <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Twitter">
               </a>
             <? } ?>
             <? if(get_field('pinterest_link', 'option')) { ?>
-              <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank">
-                <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Facebook">
+              <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank" aria-label="Pinterest">
+                <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Pinterest">
               </a>
             <? } ?>
             <? if(get_field('instagram_link', 'option')) { ?>
-              <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank">
-                <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Facebook">
+              <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank" aria-label="Instagram">
+                <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Instagram">
               </a>
             <? } ?>
           </div>

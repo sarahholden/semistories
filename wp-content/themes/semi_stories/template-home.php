@@ -83,19 +83,8 @@
     <!-- ==============================
     AD
     =================================== -->
-    <? if (get_field('section_1_ad')) { ?>
-      <section class="ad" target="_blank">
-        <a href="<?= get_field('section_1_ad_link') ?>" target="_blank">
-          <? $image = get_field('section_1_ad'); ?>
-          <img
-            <?php acf_responsive_image($image['id']); ?>
-            sizes="auto"
-            class="lazyload lazy-fade"
-            alt="<?= $image['alt'] ?>"
-            data-anim="scale"
-            />
-        </a>
-      </section>
+    <? if (get_field('show_ad_section_1') == 1) { ?>
+      <? hm_get_template_part( 'template-parts/ad' ); ?>
     <? } ?>
 
   <!-- ==============================
@@ -125,19 +114,8 @@
   <!-- ==============================
   AD
   =================================== -->
-  <? if (get_field('section_2_ad')) { ?>
-    <section class="ad" target="_blank">
-      <a href="<?= get_field('section_2_ad_link') ?>" target="_blank">
-        <? $image = get_field('section_2_ad'); ?>
-        <img
-          <?php acf_responsive_image($image['id']); ?>
-          sizes="auto"
-          class="lazyload lazy-fade"
-          alt="<?= $image['alt'] ?>"
-          data-anim="scale"
-          />
-      </a>
-    </section>
+  <? if (get_field('show_ad_section_2') == 1) { ?>
+    <? hm_get_template_part( 'template-parts/ad' ); ?>
   <? } ?>
 
   <!-- ==============================
@@ -165,22 +143,12 @@
   </section>
 
 
+
   <!-- ==============================
   AD
   =================================== -->
-  <? if (get_field('section_3_ad')) { ?>
-    <section class="ad" target="_blank">
-      <a href="<?= get_field('section_3_ad_link') ?>" target="_blank">
-        <? $image = get_field('section_3_ad'); ?>
-        <img
-          <?php acf_responsive_image($image['id']); ?>
-          sizes="auto"
-          class="lazyload lazy-fade"
-          alt="<?= $image['alt'] ?>"
-          data-anim="scale"
-          />
-      </a>
-    </section>
+  <? if (get_field('show_ad_section_3') == 1) { ?>
+    <? hm_get_template_part( 'template-parts/ad' ); ?>
   <? } ?>
 
 
@@ -213,22 +181,12 @@
       </div>
     </section>
 
+
     <!-- ==============================
     AD
     =================================== -->
-    <? if (get_field('section_4_ad')) { ?>
-      <section class="ad" target="_blank">
-        <a href="<?= get_field('section_4_ad_link') ?>" target="_blank">
-          <? $image = get_field('section_4_ad'); ?>
-          <img
-            <?php acf_responsive_image($image['id']); ?>
-            sizes="auto"
-            class="lazyload lazy-fade"
-            alt="<?= $image['alt'] ?>"
-            data-anim="scale"
-            />
-        </a>
-      </section>
+    <? if (get_field('show_ad_section_4') == 1) { ?>
+      <? hm_get_template_part( 'template-parts/ad' ); ?>
     <? } ?>
 
 

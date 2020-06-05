@@ -1,3 +1,20 @@
+<?
+  $adCount = count(get_field('ads', 'option'));
+
+  $previousAdIndex = isset($_COOKIE["adIndex"]) ? $_COOKIE["adIndex"] : -1;
+  $previousAdIndex = (int)$previousAdIndex;
+  $whileLoopIndex = 0;
+
+  if ($previousAdIndex < $adCount - 1) {
+    $currentAdIndex = $previousAdIndex + 1;
+  } else {
+    $currentAdIndex = 0;
+  }
+
+  setcookie('adIndex', $currentAdIndex);
+
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -23,7 +40,7 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <header id="header" >
+  <header id="header" class="site-header" >
     <div class="nav-wrapper  container-full">
       <div class="logo-wrapper">
         <h1 id="home-link">

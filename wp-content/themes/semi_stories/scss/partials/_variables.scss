@@ -62,6 +62,7 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 $desktop-lg-width: 1250px;
 $monitor-width: 1440px;
+$xl-monitor-width: 1919px;
 
 @mixin mobile-only {
   @media (max-width: #{$tablet-width}) {
@@ -117,11 +118,24 @@ $monitor-width: 1440px;
   }
 }
 
+@mixin xl-monitor-up {
+  @media (min-width: #{$xl-monitor-width + 1}) {
+    @content;
+  }
+}
+
 /* --------------------------------------------------------------------------
 Hide / Show
 -----------------------------------------------------------------------------*/
 .hide-mobile {
   @include mobile-only {
+    display: none;
+  }
+}
+
+.show-monitor {
+  display: none;
+  @include xl-monitor-up {
     display: none;
   }
 }

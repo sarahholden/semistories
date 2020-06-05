@@ -11,10 +11,14 @@ Body Open Mobile Nav Styles
 Header Navigation Styles
 -----------------------------------------------------------------------------*/
 $bottomPadding: 1.6rem;
+.site-header {
+  background: $cream;
+}
 .nav-wrapper {
   padding-top: 4rem;
   padding-bottom: $bottomPadding;
   animation: 1s slide-down ease-in-out;
+
   @include mobile-only {
     padding-bottom: 2rem;
     padding-top: 2rem;

@@ -136,6 +136,29 @@
   }
   a {
     @extend %smallCaps;
+
+  }
+}
+
+.category-row,
+.post-card .category-row {
+  &.yellow a {
+    color: $gold;
+    &:hover {
+      color: $gold;
+    }
+  }
+  &.green a {
+    color: $green;
+    &:hover {
+      color: $green;
+    }
+  }
+  &.blue a {
+    color: $lightBlue;
+    &:hover {
+      color: $lightBlue;
+    }
   }
 }
 
@@ -294,13 +317,18 @@
     .date {
       @include tablet-up {
         padding-right: 3.6rem;
+        border-right: 1px solid $slate;
       }
     }
     .credit {
       @include tablet-up {
-        padding-right: 3.6rem;
-        padding-left: 3.6rem;
-        border-left: 1px solid $slate;
+        padding-right: 2.6rem;
+        padding-left: 2.6rem;
+        margin-bottom: 1.6rem;
+        display: inline-block;
+        &:not(:last-of-type) {
+          border-right: 1px solid $slate;
+        }
       }
     }
     .credit,
@@ -481,6 +509,10 @@
   border: 0.6rem solid #EAEBE6;
   padding: 5rem 6rem;
   color: $brown;
+
+  @include tablet-up {
+    padding: 5rem 3rem 2rem;
+  }
   @include mobile-only {
     padding: 5rem 3rem 3rem;
     margin: 6.5rem 0;
@@ -492,6 +524,9 @@
       margin-bottom: 3rem;
     }
   }
+  a {
+    text-decoration: underline;
+  }
   .desc-large {
     font-family: $headingFont;
     font-size: 4.6rem;
@@ -502,9 +537,28 @@
 
   }
   .tools-grid {
+
     @include tablet-up {
-      display: flex;
-      justify-content: space-between;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 14rem;
+      ul {
+        column-count: 2;
+        column-gap: 30;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        text-align: left;
+        list-style-type: disc;
+      }
+
+      .tool {
+        padding: 0 2rem 2rem 0;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
     }
 
   }
@@ -517,7 +571,6 @@
     &:last-of-type {
       border-bottom: 0;
       margin-bottom: 0;
-      padding-bottom: 0;
     }
   }
 }

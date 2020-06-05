@@ -474,12 +474,7 @@
     <!-- ==============================
     AD
     =================================== -->
-    <? if (get_field('ad_image')) { ?>
-      <? hm_get_template_part( 'template-parts/ad' ); ?>
-    <? } else { ?>
-      <img src="<?= get_template_directory_uri() ?>/images/sample_ad.png" width="100%" alt="" class="hide-mobile">
-      <img src="<?= get_template_directory_uri() ?>/images/sample_ad_mobile.png" width="100%" alt="" class="show-mobile">
-    <? } ?>
+    <? hm_get_template_part( 'template-parts/ad' ); ?>
 
 
     <!-- ==============================

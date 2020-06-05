@@ -5,7 +5,16 @@ $nextArrowImg = '<div class="article-navigation next-arrow"><img src="' . get_te
 
 <? $categories = get_the_category(); ?>
 <? if ( ! empty( $categories ) ) { ?>
-  <div class="category-row">
+<?
+  if ($categories[0]->category_parent == 8) {
+    $color = 'yellow';
+  } else if ($categories[0]->category_parent == 2) {
+    $color = 'green';
+  } else {
+    $color = 'blue';
+  }
+?>
+  <div class="category-row <?= $color ?>">
     <? previous_post_link('%link', $prevArrowImg, false); ?>
     <? next_post_link('%link', $nextArrowImg, false); ?>
     <a href="<?= esc_url( get_category_link( $categories[0]->term_id ) ) ?>">

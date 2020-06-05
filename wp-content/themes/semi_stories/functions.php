@@ -180,6 +180,14 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
   acf_add_options_page(array(
+		'page_title' 	=> 'Ads',
+		'menu_title'	=> 'Ads',
+		'menu_slug' 	=> 'theme-ads-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+  acf_add_options_page(array(
 		'page_title' 	=> 'Category Settings',
 		'menu_title'	=> 'Category Settings',
 		'menu_slug' 	=> 'theme-category-settings',
