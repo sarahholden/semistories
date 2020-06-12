@@ -8,7 +8,7 @@ $index = 0;
     By
     <? while( have_rows('authors') ): the_row(); ?>
       <? if(get_sub_field('url')) { ?>
-        <a href="<?= get_sub_field('url') ?>" target="_blank">
+        <a href="<?= get_sub_field('url') ?>" target="_blank" >
         <? } ?>
         <? if(get_sub_field('name')) { ?>
           <span><?= get_sub_field('name') ?></span>

@@ -15,7 +15,7 @@
         <? if(get_field('letter_lead_in')) { ?>
           <h2><?= the_field('letter_lead_in') ?></h2>
         <? } ?>
-        <div class="cols-2-1">
+        <div class="cols-2-1 m-flex-reverse">
           <? if(get_field('letter_body')) { ?>
             <div class="desc">
               <?= the_field('letter_body') ?>

@@ -61,6 +61,13 @@ Grid Styles
 	}
 }
 
+.m-flex-reverse {
+	@include mobile-only {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+
 /* ⭐  Styles for IE & OLDER BROWSERS that don't support CSS Grid using Modernizr's .no-cssgrid class  */
 .no-cssgrid {
 	[class^="cols"] {

@@ -3,6 +3,9 @@
 -----------------------------------------------------------------------------*/
 .page-about header {
   padding-top: 8rem;
+  @include mobile-only {
+    padding-top: 5rem;
+  }
   h4 {
     text-align: center;
     margin-bottom: 4rem;
@@ -22,20 +25,31 @@
     margin-bottom: 5rem;
     @include mobile-only {
       border-top: 2px solid $brown;
+      margin-bottom: 2rem;
     }
   }
   .letter {
     padding: 6rem 10rem 7rem;
     background: #EAEBE6;
+    @include mobile-only {
+      padding: 4rem 3rem;
+    }
   }
   .headshot {
     border-radius: 50%;
     margin-bottom: 6rem;
+    @include mobile-only {
+      margin-bottom: 2rem;
+    }
   }
   .signature {
-    max-width: 24.3rem;
+    max-width: 12.3rem;
     margin-left: auto;
     margin-right: auto;
+    @include mobile-only {
+      max-width: 8rem;
+      margin-bottom: 3rem;
+    }
   }
   .cols-2-1 {
     @include tablet-up {
@@ -54,6 +68,14 @@
     max-width: 96.4rem;
     margin-left: auto;
     margin-right: auto;
+    @include mobile-only {
+      margin-top: 5rem;
+      text-align: center;
+      &:not(:first-of-type) {
+        padding-top: 5rem;
+        border-top: 2px solid $orange;
+      }
+    }
   }
   .headshot {
     border-radius: 50%;
@@ -63,6 +85,11 @@
     margin-bottom: 2.4rem;
     @include mobile-only {
       margin-bottom: 2.2rem;
+    }
+  }
+  [class*="cols"] {
+    @include mobile-only {
+      grid-row-gap: 2rem;
     }
   }
 }
