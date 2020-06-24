@@ -24,6 +24,7 @@ $index = 0;
 
   <!-- Display Wordpress Author if not author has been added -->
   <? } else { ?>
+    By
     <span class="author vcard"><?php the_author_posts_link(); ?></span>
   <? } ?>
 

@@ -15,31 +15,27 @@
         <? if(get_field('letter_lead_in')) { ?>
           <h2><?= the_field('letter_lead_in') ?></h2>
         <? } ?>
-        <div class="cols-2-1 m-flex-reverse">
-          <? if(get_field('letter_body')) { ?>
-            <div class="desc">
-              <?= the_field('letter_body') ?>
-            </div>
-          <? } ?>
+        <div>
           <div>
-            <? if(get_field('letter_image')) { ?>
-              <? $image = get_field('letter_image'); ?>
-              <img
-                <?php acf_responsive_image($image['id']); ?>
-                sizes="auto"
-                class="lazyload lazy-fade headshot"
-                alt="<?= $image['alt'] ?>"
-                />
+            <? if(get_field('letter_body')) { ?>
+              <div class="desc">
+                <?= the_field('letter_body') ?>
+              </div>
             <? } ?>
-            <? if(get_field('signature')) { ?>
-              <? $image = get_field('signature'); ?>
-              <img
-                <?php acf_responsive_image($image['id']); ?>
-                sizes="auto"
-                class="lazyload lazy-fade signature"
-                alt="<?= $image['alt'] ?>"
-                />
-            <? } ?>
+              <? if(get_field('signature')) { ?>
+                <? $image = get_field('signature'); ?>
+                <img
+                  <?php acf_responsive_image($image['id']); ?>
+                  sizes="auto"
+                  class="lazyload lazy-fade signature"
+                  alt="<?= $image['alt'] ?>"
+                  />
+              <? } ?>
+              <? if(get_field('name_and_role')) { ?>
+                <div class="desc">
+                  <?= the_field('name_and_role') ?>
+                </div>
+              <? } ?>
           </div>
         </div>
       </div>

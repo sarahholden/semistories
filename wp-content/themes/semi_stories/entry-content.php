@@ -1,9 +1,20 @@
-<? $categories = get_the_category(); ?>
-<? $categoryName = ! empty( $categories ) ? strtolower($categories[0]->name) : ''; ?>
-<? $categoryId = $categories[0]->term_id; ?>
-<? $currentPostId = array(); ?>
-<? $currentPostId[] = $post->ID; ?>
 <?
+
+$currentPostId = array();
+$currentPostId[] = $post->ID;
+
+$term_list = wp_get_post_terms($post->ID, 'category', ['fields' => 'all']);
+$primary_category = $term_list[0];
+foreach($term_list as $term) {
+   if( get_post_meta($post->ID, '_yoast_wpseo_primary_category', true) == $term->term_id ) {
+     // this is a primary category
+     $primary_category = $term;
+   }
+}
+
+$categoryName = ! empty( $primary_category ) ? strtolower($primary_category->name) : '';
+$categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_id) : '';
+
   function seoUrl($string) {
     //Lower case everything
     $string = strtolower($string);

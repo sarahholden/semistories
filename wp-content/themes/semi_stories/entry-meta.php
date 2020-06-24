@@ -1,6 +1,17 @@
 <?
-$categories = get_the_category();
-$categoryId = $categories[0]->term_id;
+
+$categories = wp_get_post_terms($post->ID, 'category', ['fields' => 'all']);
+$primary_category = $categories[0];
+foreach($categories as $term) {
+   if( get_post_meta($post->ID, '_yoast_wpseo_primary_category', true) == $term->term_id ) {
+     // this is a primary category
+     $primary_category = $term;
+   }
+}
+
+$categoryName = ! empty( $primary_category ) ? strtolower($primary_category->name) : '';
+$categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_id) : '';
+
 ?>
 
 

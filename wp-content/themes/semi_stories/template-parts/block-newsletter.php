@@ -136,7 +136,7 @@ MAILCHIMP EMBED
 
     var email = $('#email').val();
     if (validateEmail(email)) {
-      $('body').append('<img src="https://app.bronto.com/public/?q=direct_add&fn=Public_DirectAddForm&id=bhalawrxtqrpufsoyqpdbbtnrwexbch&email='+ email + '&list2=0bc103ec0000000000000000000000159110" width="0" height="0" border="0" alt=""/>');
+      $('body').append('<img src="https://app.bronto.com/public/?q=direct_add&fn=Public_DirectAddForm&id=bhalawrxtqrpufsoyqpdbbtnrwexbch&email='+ email + '&list2=c7eeb3ec-36ce-4d6f-b3a0-1d740e380c83&list3=0bc103ec0000000000000000000000159110" width="0" height="0" border="0" alt=""/>');
 
       $('#mc_embed_signup').hide();
       $('.js-thank-you').fadeIn();

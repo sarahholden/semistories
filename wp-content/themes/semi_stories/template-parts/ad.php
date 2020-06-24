@@ -8,7 +8,6 @@
       $currentAdIndex = (int)$currentAdIndex;
 
     ?>
-
     <? while( have_rows('ads', 'option') ): the_row(); ?>
       <? if ($whileLoopIndex == $currentAdIndex) { ?>
         <? $image = get_sub_field('ad_image_monitor'); ?>
@@ -20,6 +19,7 @@
             class="lazyload lazy-fade show-monitor"
             alt="<?= $image['alt'] ?>"
             data-anim="scale"
+            id="monitor-<?= get_sub_field('ad_tracking_id') ?>"
             />
           <? } ?>
           <? if(get_sub_field('ad_image_desktop')) { ?>
@@ -30,6 +30,7 @@
             class="lazyload lazy-fade hide-mobile hide-monitor"
             alt="<?= $image['alt'] ?>"
             data-anim="scale"
+            id="desktop-<?= get_sub_field('ad_tracking_id') ?>"
             />
           <? } ?>
           <? if(get_sub_field('ad_image_mobile')) { ?>
@@ -40,6 +41,7 @@
             class="lazyload lazy-fade show-mobile"
             alt="<?= $image['alt'] ?>"
             data-anim="scale"
+            id="mobile-<?= get_sub_field('ad_tracking_id') ?>"
             />
           <? } ?>
         </a>
