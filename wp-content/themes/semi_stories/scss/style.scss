@@ -61,3 +61,15 @@ Section Comment
     width: 100%;
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: -400px;
+  left: 0;
+  padding: 0.8rem;
+  z-index: 400;
+  background: white;
+  &:focus {
+    top: 0;
+  }
+}
