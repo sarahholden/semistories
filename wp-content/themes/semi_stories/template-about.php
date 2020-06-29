@@ -77,9 +77,9 @@
                   <h2><?= get_sub_field('name') ?></h2>
                 <? } ?>
                 <? if(get_sub_field('bio')) { ?>
-                  <span class="desc">
+                  <div class="desc">
                     <?= get_sub_field('bio') ?>
-                  </span>
+                  </div>
                 <? } ?>
                 <? if(get_sub_field('link')) { ?>
                   </a>
