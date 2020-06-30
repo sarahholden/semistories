@@ -73,17 +73,18 @@
                 <? if(get_sub_field('link')) { ?>
                   <a href="<? the_sub_field('link'); ?>" target="_blank" alt="Headshot <? the_sub_field('name'); ?>">
                 <? } ?>
-                <? if(get_sub_field('name')) { ?>
-                  <h2><?= get_sub_field('name') ?></h2>
+                  <? if(get_sub_field('name')) { ?>
+                    <h2><?= get_sub_field('name') ?></h2>
+                  <? } ?>
+                <? if(get_sub_field('link')) { ?>
+                  </a>
                 <? } ?>
                 <? if(get_sub_field('bio')) { ?>
                   <div class="desc">
                     <?= get_sub_field('bio') ?>
                   </div>
                 <? } ?>
-                <? if(get_sub_field('link')) { ?>
-                  </a>
-                <? } ?>
+
 
               </div>
             </div>
