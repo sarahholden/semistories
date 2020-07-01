@@ -21,22 +21,22 @@
           <? } ?>
           <div class="social-links">
             <? if(get_field('facebook_link', 'option')) { ?>
-              <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank" aria-label="Facebook">
+              <a href="<?= get_field('facebook_link', 'option') ?>" target="_blank" aria-label="Facebook">
                 <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
               </a>
             <? } ?>
             <? if(get_field('twitter_link', 'option')) { ?>
-              <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank" aria-label="Twitter">
+              <a href="<?= get_field('twitter_link', 'option') ?>" target="_blank" aria-label="Twitter">
                 <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Twitter">
               </a>
             <? } ?>
             <? if(get_field('pinterest_link', 'option')) { ?>
-              <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank" aria-label="Pinterest">
+              <a href="<?= get_field('pinterest_link', 'option') ?>" target="_blank" aria-label="Pinterest">
                 <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Pinterest">
               </a>
             <? } ?>
             <? if(get_field('instagram_link', 'option')) { ?>
-              <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank" aria-label="Instagram">
+              <a href="<?= get_field('instagram_link', 'option') ?>" target="_blank" aria-label="Instagram">
                 <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Instagram">
               </a>
             <? } ?>

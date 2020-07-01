@@ -74,11 +74,12 @@ MAILCHIMP EMBED
       <form action="" method="post" id="bronto-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" >
         <div id="mc_embed_signup_scroll">
           <div class="mc-field-group">
+            <label for="email" class="visually-hidden">Email Address</label>
             <input type="email" value="" name="EMAIL" class="required email" id="email" placeholder="add your email address">
             <div class="error"></div>
           </div>
           <div class="clear">
-            <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="text-only icon-btn icon-orange">
+            <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="text-only icon-btn icon-orange" aria-label="Subscribe">
               <? hm_get_template_part( 'template-parts/vector-circle-arrow' ); ?>
             </button></div>
         </div>

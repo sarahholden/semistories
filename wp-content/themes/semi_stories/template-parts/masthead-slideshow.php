@@ -22,7 +22,7 @@
     </div>
     <div class="desc-sans" data-anim="slide" data-anim-order="3"><? the_excerpt(); ?></div>
     <div class="circle-link-wrapper">
-      <a href="<? the_permalink() ?>" class="text-only circle-link" >
+      <a href="<? the_permalink() ?>" class="text-only circle-link" aria-label="view full post">
         <? hm_get_template_part( 'template-parts/vector-circle-arrow' ); ?>
       </a>
     </div>

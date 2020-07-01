@@ -10,13 +10,13 @@ Body Open Mobile Nav Styles
 /* --------------------------------------------------------------------------
 Header Navigation Styles
 -----------------------------------------------------------------------------*/
-$bottomPadding: 1.6rem;
+$bottomPadding: 16px;
 .site-header {
   background: $cream;
 }
 .nav-wrapper {
   padding-top: 4rem;
-  padding-bottom: $bottomPadding;
+
   animation: 1s slide-down ease-in-out;
 
   @include mobile-only {
@@ -49,8 +49,6 @@ $bottomPadding: 1.6rem;
 
 .nav-wrapper {
   nav {
-
-    transform: translateY(-.3rem);
     @include tablet-up {
       flex-grow: 1;
       display: flex;
@@ -97,6 +95,9 @@ $bottomPadding: 1.6rem;
 .nav-wrapper {
   position: relative;
   z-index: 4;
+  #menu-top-nav > .menu-item {
+    padding-bottom: 16px;
+  }
   .menu-item {
     position: relative;
     &:hover {
@@ -110,13 +111,13 @@ $bottomPadding: 1.6rem;
       display: block;
       margin-bottom: 2rem;
     }
-    &:first-of-type .sub-menu::before {
+    &:first-of-type .sub-menu {
       background: $gold;
     }
-    &:nth-of-type(2) .sub-menu::before {
+    &:nth-of-type(2) .sub-menu {
       background: $green;
     }
-    &:nth-of-type(3) .sub-menu::before {
+    &:nth-of-type(3) .sub-menu {
       background: $lightBlue;
     }
   }
@@ -129,7 +130,8 @@ $bottomPadding: 1.6rem;
     bottom: 0;
     left: 50%;
     width: 30rem;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%) translateZ(0);
+    backface-visibility: hidden;
     padding: 4rem 2rem 1rem;
     text-align: center;
     transition: all 0.3s ease-in-out;
@@ -137,10 +139,10 @@ $bottomPadding: 1.6rem;
       content: '';
       display: block;
       position: absolute;
-      bottom: -.2rem;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: calc(100% - #{$bottomPadding});
+      height: 100%;
     }
     a {
       color: white;
@@ -192,7 +194,7 @@ $bottomPadding: 1.6rem;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, .95);
+    background-color: $cream;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;

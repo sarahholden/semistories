@@ -9,7 +9,7 @@
   <!-- Article Image -->
   <? if ( has_post_thumbnail() ) { ?>
     <div class="thumb-wrapper" data-anim="scroll">
-      <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb bg-image-wrapper">
+      <a href="<? the_permalink(); ?>" title="<? the_title_attribute(); ?>" class="post-thumb bg-image-wrapper" aria-label="view full post">
         <div class="bg-image" data-anim="slide">
           <div class="scaling-image-wrapper">
             <? $image = get_post_thumbnail_id(); ?>

@@ -94,9 +94,15 @@
   }
   h2 {
     color: $orange;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1rem;
     @include mobile-only {
-      margin-bottom: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+  .small-caps {
+    margin-bottom: 2rem;
+    @include mobile-only {
+      margin-bottom: 1.6rem;
     }
   }
   [class*="cols"] {

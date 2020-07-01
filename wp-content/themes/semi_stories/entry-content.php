@@ -327,22 +327,22 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
           <? } ?>
           <div class="social-links">
             <? if(get_field('facebook_link', 'option')) { ?>
-              <a href="<?= the_field('facebook_link', 'option') ?>" target="_blank">
+              <a href="<?= get_field('facebook_link', 'option') ?>" target="_blank">
                 <img src="<?= get_template_directory_uri() ?>/images/facebook.svg" alt="Facebook">
               </a>
             <? } ?>
             <? if(get_field('twitter_link', 'option')) { ?>
-              <a href="<?= the_field('twitter_link', 'option') ?>" target="_blank">
+              <a href="<?= get_field('twitter_link', 'option') ?>" target="_blank">
                 <img src="<?= get_template_directory_uri() ?>/images/twitter.svg" alt="Facebook">
               </a>
             <? } ?>
             <? if(get_field('pinterest_link', 'option')) { ?>
-              <a href="<?= the_field('pinterest_link', 'option') ?>" target="_blank">
+              <a href="<?= get_field('pinterest_link', 'option') ?>" target="_blank">
                 <img src="<?= get_template_directory_uri() ?>/images/pinterest.svg" alt="Facebook">
               </a>
             <? } ?>
             <? if(get_field('instagram_link', 'option')) { ?>
-              <a href="<?= the_field('instagram_link', 'option') ?>" target="_blank">
+              <a href="<?= get_field('instagram_link', 'option') ?>" target="_blank">
                 <img src="<?= get_template_directory_uri() ?>/images/instagram.svg" alt="Facebook">
               </a>
             <? } ?>
@@ -365,7 +365,7 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
           <div>
             <h5>About</h5>
             <? if(get_field('author_block_link')) { ?>
-              <a href="<?= the_field('author_block_link') ?>">
+              <a href="<?= get_field('author_block_link')['url'] ?>">
             <? } ?>
               <h3><?= the_field('author_block_name') ?></h3>
             <? if(get_field('author_block_link')) { ?>

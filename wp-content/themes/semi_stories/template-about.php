@@ -54,7 +54,7 @@
             <div class="cols-1-2">
               <div>
                 <? if(get_sub_field('link')) { ?>
-                  <a href="<? the_sub_field('link'); ?>" target="_blank" alt="Headshot <? the_sub_field('name'); ?>">
+                  <a href="<? the_sub_field('link'); ?>" alt="" aria-label="Visit Author Page on SemiStories">
                 <? } ?>
                 <? if(get_sub_field('headshot')) { ?>
                   <? $image = get_sub_field('headshot'); ?>
@@ -62,7 +62,7 @@
                     <?php acf_responsive_image($image['id']); ?>
                     sizes="auto"
                     class="lazyload lazy-fade headshot"
-                    alt="<?= $image['alt'] ?>"
+                    alt="Headshot <? the_sub_field('name'); ?>"
                     />
                 <? } ?>
                 <? if(get_sub_field('link')) { ?>
@@ -71,13 +71,16 @@
               </div>
               <div class="v-aligner">
                 <? if(get_sub_field('link')) { ?>
-                  <a href="<? the_sub_field('link'); ?>" target="_blank" alt="Headshot <? the_sub_field('name'); ?>">
+                  <a href="<? the_sub_field('link'); ?>" alt="Headshot <? the_sub_field('name'); ?>" aria-label="visit author page on Semistories">
                 <? } ?>
                   <? if(get_sub_field('name')) { ?>
                     <h2><?= get_sub_field('name') ?></h2>
                   <? } ?>
                 <? if(get_sub_field('link')) { ?>
                   </a>
+                <? } ?>
+                <? if(get_sub_field('title')) { ?>
+                  <h3 class="small-caps"><?= get_sub_field('title') ?></h3>
                 <? } ?>
                 <? if(get_sub_field('bio')) { ?>
                   <div class="desc">
