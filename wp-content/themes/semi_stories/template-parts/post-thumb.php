@@ -45,7 +45,6 @@
       <div class="desc" data-anim="slide" data-anim-order="3"><?= get_field('lead_caption', $currentPostId) ?></div>
     <? } else { ?>
       <div class="desc" data-anim="slide" data-anim-order="3"><? the_excerpt(); ?></div>
-
     <? } ?>
 
   </div>

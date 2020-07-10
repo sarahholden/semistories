@@ -9,7 +9,8 @@ function blankslate_setup() {
   global $content_width;
   if ( ! isset( $content_width ) ) { $content_width = 1920; }
   register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
-  register_nav_menus( array( 'footer-menu' => esc_html__( 'Footer Menu', 'blankslate' ) ) );
+  register_nav_menus( array( 'footer-menu' => esc_html__( 'Footer Menu Categories', 'blankslate' ) ) );
+  register_nav_menus( array( 'footer-menu-right' => esc_html__( 'Footer Menu Right Column', 'blankslate' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'blankslate_load_scripts' );
 
@@ -31,6 +32,8 @@ function studio_see_scripts() {
 
 	wp_enqueue_style( 'ssee_swiper-css', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/css/swiper.min.css' );
 
+  // PAGINATION STEP 1
+  global $wp_query;
 	wp_enqueue_script( 'ssee_jquery', 'https://code.jquery.com/jquery-3.4.1.min.js' );
 
 	// wp_enqueue_script( 'ssee_gsap_jquery', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/jquery.gsap.min.js', array(), '20200122', true );
@@ -46,7 +49,18 @@ function studio_see_scripts() {
 	// wp_enqueue_script( 'ssee_modernizr', get_template_directory_uri() . '/js/vendor/modernizr.js', array(), '20200122', true );
 	wp_enqueue_script( 'ssee_swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js', array(), '20200122', true );
 	wp_enqueue_script( 'ssee_modernizer', get_template_directory_uri() . '/js/vendor/modernizr.min.js', array(), '20200122', true );
+
 	wp_enqueue_script( 'ssee_theme', get_template_directory_uri() . '/js/theme.js', array(), $ver, true );
+
+  // PAGINATION STEP 2
+ // LOCALIZATION FOR AJAX
+ wp_localize_script( 'ssee_theme', 'ajaxpagination', array(
+ 	'ajaxurl' => admin_url( 'admin-ajax.php' ),
+ 	'posts' => json_encode( $wp_query->query_vars ),
+  'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+	'max_page' => $wp_query->max_num_pages
+ ));
+
 
 	wp_enqueue_script( 'ssee_skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20200122', true );
 
@@ -358,3 +372,64 @@ function hm_get_template_part( $file, $template_args = array(), $cache_args = ar
 
 	echo $data;
 }
+
+
+/* AJAX LOAD MORE POSTS
+================================================== */
+function more_post_ajax(){
+
+  $ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 3;
+  $page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
+  $postType = (isset($_POST['postType'])) ? $_POST['postType'] : 'post';
+  $taxonomy = $postType == 'news' ? 'news_category' : 'category';
+  // header("Content-Type: text/html");
+
+  $args = array(
+      'post_type' => $postType,
+      'orderby' => 'date',
+      'order'	=> $_POST['date'],
+  );
+
+  if( !isset( $_POST['query'] )) {
+    $args['posts_per_page'] = $ppp;
+    $args['paged'] = $page;
+  }
+
+  // for taxonomies / categories
+  if( isset( $_POST['categoryFilter'] ) && $_POST['categoryFilter'] != '' ) {
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => $taxonomy,
+        'field' => 'id',
+        'terms' => $_POST['categoryFilter']
+      )
+    );
+  }
+
+  // SEARCH QUERY
+  if( isset( $_POST['query'] )) {
+    $args['s'] = urlencode($_POST['query']);
+  }
+
+    // if post thumbnail is set
+  // if( isset( $_POST['featured_image'] ) && $_POST['featured_image'] == 'on' )
+    $args['meta_query'][] = array(
+      'key' => '_thumbnail_id',
+      'compare' => 'EXISTS'
+    );
+
+  $loop = new WP_Query($args);
+
+  $out = '';
+
+  if ($loop -> have_posts()) :  while ($loop -> have_posts()) : $loop -> the_post();
+    $className = $postType == 'post' ? 'blog-landing-article' : '';
+    hm_get_template_part( 'template-parts/post-thumb',  ['className' => $className, 'catName' => $taxonomy, 'post' => get_the_id()] );
+  endwhile;
+  endif;
+  wp_reset_postdata();
+  die();
+}
+
+add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax');
+add_action('wp_ajax_more_post_ajax', 'more_post_ajax');

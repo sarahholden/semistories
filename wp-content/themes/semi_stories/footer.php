@@ -12,8 +12,16 @@
     <div class="cols-1-2">
 
       <nav>
-        <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
+        <div class="cols-2">
+          <div>
+            <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
+          </div>
+          <div>
+            <?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right' ) ); ?>
+          </div>
+        </div>
       </nav>
+
       <div class="end-col">
         <div class="inner">
           <? if(get_field('follow_us_text', 'option')) { ?>

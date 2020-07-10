@@ -20,6 +20,12 @@ footer {
 		display: block;
 		@extend .small-caps;
 	}
+	.cols-2 {
+		@include mobile-only {
+			display: block;
+			margin-top: 3rem;
+		}
+	}
 	.social-links {
 		@include tablet-up {
 			justify-content: flex-end;
@@ -45,6 +51,12 @@ footer {
 			padding: 0;
 		}
 	}
+	h4 {
+		font-family: $superBold;
+		em {
+			font-family: $superBoldItalic;
+		}
+	}
 	h5 {
 		margin-bottom: 1rem;
 		@include tablet-up {
@@ -56,8 +68,10 @@ footer {
 }
 
 .end-col {
-	justify-content: flex-end;
-	display: flex;
+	@include tablet-up {
+		justify-content: flex-end;
+		display: flex;
+	}
 	.inner {
 		display: inline-block;
 	}

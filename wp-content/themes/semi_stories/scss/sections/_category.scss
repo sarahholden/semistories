@@ -17,3 +17,16 @@
     }
   }
 }
+
+.load-more-row {
+  text-align: center;
+  margin-bottom: 8.6rem;
+  .load-more-posts {
+    font-size: 4.6rem;
+    color: $lightBlue;
+    font-family: $superMed;
+    @include mobile-only {
+      font-size: 2rem;
+    }
+  }
+}

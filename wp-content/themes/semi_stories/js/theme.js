@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
   if ($('.swiper-container-progress-bar').length > 0) {
       const progressBarSwiper = new Swiper('.swiper-container-progress-bar', {
         speed: 600,
@@ -136,68 +134,137 @@ $(document).ready(function() {
   /* ---------------------------------------------
     PARALLAX & SCROLLING ZOOM EFFECTS
   ------------------------------------------------ */
-  document.fonts.ready.then(function () {
+  function setUpScrollMagic (self) {
 
-    $('[data-anim="scroll"]').each(function() {
-      var scrollWrapper = this;
-      var scrollOffset = $(this).data('offset') || 0;
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        triggerHook: .9
-      })
-        .setClassToggle(this, 'js-animate') // add class toggle
-        .reverse(false)
-        // .addIndicators()
+    var scrollWrapper = self;
+    var scrollOffset = $(self).data('offset') || 0;
+    new ScrollMagic.Scene({
+      triggerElement: self,
+      triggerHook: .9
+    })
+      .setClassToggle(self, 'js-animate') // add class toggle
+      .reverse(false)
+      // .addIndicators()
+      .addTo(controller);
+
+
+      // SCALE IMAGE UP OR DOWN
+      var $imageToScale = $(self).find('[data-anim="scale"]')
+      if ($imageToScale.length > 0) {
+        var scaleFrom = $imageToScale.data('scale-from') != undefined ? parseFloat($imageToScale.data('scale-from')) : 1.04;
+        var scaleTo = $imageToScale.data('scale-to') != undefined ? parseFloat($imageToScale.data('scale-to')) : 1;
+        var pointToTrigger = $imageToScale.data('trigger-hook') != undefined ? parseFloat($imageToScale.data('trigger-hook')) : 0.7;
+        var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
+
+        var timelineScale = new TimelineMax();
+        var imageToAnimate = $imageToScale;
+        timelineScale.fromTo(imageToAnimate, 1, {scale: scaleFrom}, {scale: scaleTo});
+
+        var scaleScene = new ScrollMagic.Scene({
+          triggerElement: scrollWrapper,
+          triggerHook: pointToTrigger,
+          duration: dataDuration
+        })
+        .setTween(timelineScale)
         .addTo(controller);
+      }
 
+      if ($(window).innerWidth() > 768) {
+        // PARALLAX EFFECT
+        var $itemToTranslate = $(self).find('[data-anim="parallax"]');
+        if ($itemToTranslate.length > 0) {
+          $itemToTranslate.each(function() {
+            var timelineParallax = new TimelineMax();
+            var translateFrom = $(this).data('translate-from') != undefined ? parseFloat($(this).data('translate-from')) : 40;
+            var translateTo = $(this).data('translate-to') != undefined ? parseFloat($(this).data('translate-to')) : -40;
+            var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
+            timelineParallax.fromTo($(this), 1, {y: translateFrom}, {y: translateTo});
 
-        // SCALE IMAGE UP OR DOWN
-        var $imageToScale = $(this).find('[data-anim="scale"]')
-        if ($imageToScale.length > 0) {
-          var scaleFrom = $imageToScale.data('scale-from') != undefined ? parseFloat($imageToScale.data('scale-from')) : 1.04;
-          var scaleTo = $imageToScale.data('scale-to') != undefined ? parseFloat($imageToScale.data('scale-to')) : 1;
-          var pointToTrigger = $imageToScale.data('trigger-hook') != undefined ? parseFloat($imageToScale.data('trigger-hook')) : 0.7;
-          var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
-
-          var timelineScale = new TimelineMax();
-          var imageToAnimate = $imageToScale;
-          timelineScale.fromTo(imageToAnimate, 1, {scale: scaleFrom}, {scale: scaleTo});
-
-          var scaleScene = new ScrollMagic.Scene({
-            triggerElement: scrollWrapper,
-            triggerHook: pointToTrigger,
-            duration: dataDuration
-          })
-          .setTween(timelineScale)
-          .addTo(controller);
+            var scene = new ScrollMagic.Scene({
+              triggerElement: scrollWrapper,
+              triggerHook: 0.4,
+              duration: dataDuration
+            })
+            .setTween(timelineParallax)
+            .addTo(controller);
+          });
         }
+      }
+  }
 
-        if ($(window).innerWidth() > 768) {
-          // PARALLAX EFFECT
-          var $itemToTranslate = $(this).find('[data-anim="parallax"]');
-          if ($itemToTranslate.length > 0) {
-            $itemToTranslate.each(function() {
-              var timelineParallax = new TimelineMax();
-              var translateFrom = $(this).data('translate-from') != undefined ? parseFloat($(this).data('translate-from')) : 40;
-              var translateTo = $(this).data('translate-to') != undefined ? parseFloat($(this).data('translate-to')) : -40;
-              var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
-              timelineParallax.fromTo($(this), 1, {y: translateFrom}, {y: translateTo});
 
-              var scene = new ScrollMagic.Scene({
-                triggerElement: scrollWrapper,
-                triggerHook: 0.4,
-                duration: dataDuration
-              })
-              .setTween(timelineParallax)
-              .addTo(controller);
-            });
-          }
-        }
 
+
+  document.fonts.ready.then(function () {
+    $('[data-anim="scroll"]').each(function() {
+      setUpScrollMagic(this);
     });
-
-  // END OF FONT LOADING
   });
+  // END OF FONT LOADING
+
+
+  // document.fonts.ready.then(function () {
+  //
+  //   $('[data-anim="scroll"]').each(function() {
+  //     var scrollWrapper = this;
+  //     var scrollOffset = $(this).data('offset') || 0;
+  //     new ScrollMagic.Scene({
+  //       triggerElement: this,
+  //       triggerHook: .9
+  //     })
+  //       .setClassToggle(this, 'js-animate') // add class toggle
+  //       .reverse(false)
+  //       // .addIndicators()
+  //       .addTo(controller);
+  //
+  //
+  //       // SCALE IMAGE UP OR DOWN
+  //       var $imageToScale = $(this).find('[data-anim="scale"]')
+  //       if ($imageToScale.length > 0) {
+  //         var scaleFrom = $imageToScale.data('scale-from') != undefined ? parseFloat($imageToScale.data('scale-from')) : 1.04;
+  //         var scaleTo = $imageToScale.data('scale-to') != undefined ? parseFloat($imageToScale.data('scale-to')) : 1;
+  //         var pointToTrigger = $imageToScale.data('trigger-hook') != undefined ? parseFloat($imageToScale.data('trigger-hook')) : 0.7;
+  //         var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
+  //
+  //         var timelineScale = new TimelineMax();
+  //         var imageToAnimate = $imageToScale;
+  //         timelineScale.fromTo(imageToAnimate, 1, {scale: scaleFrom}, {scale: scaleTo});
+  //
+  //         var scaleScene = new ScrollMagic.Scene({
+  //           triggerElement: scrollWrapper,
+  //           triggerHook: pointToTrigger,
+  //           duration: dataDuration
+  //         })
+  //         .setTween(timelineScale)
+  //         .addTo(controller);
+  //       }
+  //
+  //       if ($(window).innerWidth() > 768) {
+  //         // PARALLAX EFFECT
+  //         var $itemToTranslate = $(this).find('[data-anim="parallax"]');
+  //         if ($itemToTranslate.length > 0) {
+  //           $itemToTranslate.each(function() {
+  //             var timelineParallax = new TimelineMax();
+  //             var translateFrom = $(this).data('translate-from') != undefined ? parseFloat($(this).data('translate-from')) : 40;
+  //             var translateTo = $(this).data('translate-to') != undefined ? parseFloat($(this).data('translate-to')) : -40;
+  //             var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
+  //             timelineParallax.fromTo($(this), 1, {y: translateFrom}, {y: translateTo});
+  //
+  //             var scene = new ScrollMagic.Scene({
+  //               triggerElement: scrollWrapper,
+  //               triggerHook: 0.4,
+  //               duration: dataDuration
+  //             })
+  //             .setTween(timelineParallax)
+  //             .addTo(controller);
+  //           });
+  //         }
+  //       }
+  //
+  //   });
+  //
+  // // END OF FONT LOADING
+  // });
 
 //   /* ---------------------------------------------
 //   Marquee (up up up text)
@@ -247,4 +314,81 @@ $(document).ready(function() {
 //   }
 //
 //
+
+
+  /* ---------------------------------------------
+  AJAX PAGINATION
+  ------------------------------------------------ */
+  function loadPosts (self, query) {
+
+    var pageNumber = $(self).data('page-number') ? parseInt($(self).data('page-number')) : 0;
+    var ppp = $(self).data('ppp') ? parseInt($(self).data('ppp')) : 10;
+    var postType = $(self).data('post-type') ? $(self).data('post-type') : 'post';
+    var loadType = $(self).data('load-type') ? $(self).data('load-type') : 'more';
+    var categoryFilter = $(self).data('category') ? $(self).data('category') : '';
+    var newHeading = query ? query : $(self).data('category-text');
+    pageNumber++;
+
+    var queryData = {
+      pageNumber: pageNumber,
+      ppp: ppp,
+      postType: postType,
+      categoryFilter: categoryFilter,
+      query: query,
+      action: 'more_post_ajax'
+    }
+
+
+    $.ajax({
+      type: 'POST',
+      dataType: 'html',
+      url: ajaxpagination.ajaxurl,
+      data: queryData,
+      success: function(data){
+        var $data = $(data);
+
+        console.log(data);
+
+        if ($data.length) {
+
+          // EMPTY DATA IF FILTER OR SEARCH
+          $(self).data('page-number', pageNumber);
+
+          // UPDATE DATA
+          $('#ajax-posts').append($data);
+          $(self).attr('disabled', false);
+
+          $(self).find('.btn-text').text(originalButtonText);
+          $(self).find('.icon').fadeIn();
+
+        } else {
+          $(self).attr('disabled', true);
+        }
+
+        // SET UP SCROLL ANIMATIONS FOR NEW ITEMS
+        $('[data-anim="scroll"]:not(.js-animate)').each(function() {
+          setUpScrollMagic(this);
+        });
+
+      },
+      error : function(jqXHR, textStatus, errorThrown) {
+        $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+      }
+
+    });
+    return false;
+  }
+
+  var originalButtonText = '';
+
+  $('.js-load-more').on('click',function(){ // When btn is pressed.
+    var buttonTextEl = $(this).find('.btn-text');
+    $(this).attr('disabled',true);
+    originalButtonText = $(buttonTextEl).text();
+    $(buttonTextEl).text('Loading more posts...');
+    $(this).find('.icon').hide();
+    loadPosts(this);
+  });
+
+
 });
