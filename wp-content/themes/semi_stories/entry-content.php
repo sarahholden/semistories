@@ -423,20 +423,20 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
                 <!-- Article Image -->
                 <? if ( get_sub_field('thumbnail') ) { ?>
                   <div class="thumb-wrapper bg-image-wrapper">
-                    <a href="<? the_sub_field('link'); ?>" title="<? the_sub_field('heading'); ?>" class="post-thumb">
-                      <div style="background-image: url(<?= get_sub_field('thumbnail')['url'] ?>);" class=" bg-image"></div>
+                    <a href="<? the_sub_field('link'); ?>" title="<? the_sub_field('heading'); ?>" target="_blank" aria-label="opens in new tab" class="post-thumb">
+                      <div style="background-image: url(<?= get_sub_field('thumbnail')['url'] ?>);" class="ga-trigger bg-image"></div>
                     </a>
                   </div>
                 <? } ?>
                 <!-- Text Content -->
                 <div class="text-content">
                   <div class="title-and-meta">
-                    <a href="<? the_sub_field('link') ?>" data-anim="slide" data-anim-order="1" class="more-more-more">
-                      <p class="more-text">
+                    <a href="<? the_sub_field('link') ?>" data-anim="slide" data-anim-order="1" class="more-more-more" target="_blank" aria-label="opens in new tab" >
+                      <p class="more-text ga-trigger">
                         <? the_sub_field('heading'); ?>
                       </p>
                       <button class="btn btn--bordered">
-                        <span class="text-span">Shop</span>
+                        <span class="text-span ga-trigger">Shop</span>
                       </button>
                     </a>
                   </div>

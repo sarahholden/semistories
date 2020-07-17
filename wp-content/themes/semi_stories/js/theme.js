@@ -347,12 +347,15 @@ $(document).ready(function() {
       success: function(data){
         var $data = $(data);
 
-        console.log(data);
-
         if ($data.length) {
 
           // EMPTY DATA IF FILTER OR SEARCH
           $(self).data('page-number', pageNumber);
+
+          // If this is the last page, remove the +More Stories section
+          if ($(self).data('total-post-count') <= (pageNumber * ppp)) {
+            $('.js-more-section').remove();
+          }
 
           // UPDATE DATA
           $('#ajax-posts').append($data);
