@@ -2,12 +2,16 @@
   $currentPostId = $template_args['post'];
   $className = $template_args['className'];
   $url = has_post_thumbnail() ? wp_get_attachment_url( get_post_thumbnail_id() ) : '';
+  if (get_field('thumbnail_horizontal_orientation', $currentPostId) && get_field('thumb_vertical_orientation', $currentPostId)) {
+    $backgroundPosition = "background-position: " . get_field('thumb_vertical_orientation', $currentPostId) . ' ' . get_field('thumbnail_horizontal_orientation', $currentPostId) . ";";
+  }
 ?>
 
 
 <div class="swiper-slide masthead-slide-wrapper <?= $className ?>"
   data-offset="-300"
-  style="background-image: url(<?= $url ?>)">
+  style="background-image: url(<?= $url ?>); <? if ($backgroundPosition) { ?><?= $backgroundPosition ?><? } ?> ">
+
   <div class="overlay-bg"></div>
   <!-- Text Content -->
   <div class="text-content">

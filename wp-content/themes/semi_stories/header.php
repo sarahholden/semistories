@@ -74,11 +74,11 @@
       <span class="nav-icon js-nav-icon pre-load">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
           <g data-name="Group 73" transform="translate(-1082 -199)">
-            <g data-name="Ellipse 12" transform="translate(1082 199)" fill="none" stroke="#af6e43" stroke-width="1">
+            <g data-name="Ellipse 12" transform="translate(1082 199)" fill="none" stroke="#39465E" stroke-width="1">
               <circle cx="9" cy="9" r="9" stroke="none"/>
               <circle cx="9" cy="9" r="8.5" fill="none"/>
             </g>
-            <path data-name="Path 115" d="M2636,203.7l4.456,4.541L2636,212.677" transform="translate(-1547)" fill="none" stroke="#af6e43" stroke-width="1"/>
+            <path data-name="Path 115" d="M2636,203.7l4.456,4.541L2636,212.677" transform="translate(-1547)" fill="none" stroke="#39465E" stroke-width="1"/>
           </g>
         </svg>
       </span>

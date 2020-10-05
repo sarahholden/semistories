@@ -17,6 +17,9 @@
               <?php acf_responsive_image($image); ?>
               sizes="auto"
               class="lazyload lazy-fade"
+              <? if (get_field('thumbnail_horizontal_orientation', $currentPostId) && get_field('thumb_vertical_orientation', $currentPostId)) { ?>
+                style="object-position: <?= get_field('thumb_vertical_orientation', $currentPostId) ?> <?= get_field('thumbnail_horizontal_orientation', $currentPostId) ?>;"
+              <? } ?>
               alt="<?= $image['alt'] ?>"
               />
           </div>

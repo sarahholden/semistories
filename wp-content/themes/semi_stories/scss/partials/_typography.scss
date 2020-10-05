@@ -46,7 +46,8 @@ h6 {
   font-family: $headingFont;
   font-weight: normal;
   font-style: normal;
-  em {
+  em,
+  i {
     font-family: $superMedItalic;
   }
 }
@@ -139,7 +140,8 @@ OTHER TEXT
   strong {
     font-weight: normal;
   }
-  em {
+  em,
+  i {
     font-style: normal;
   }
   p + p {
@@ -152,7 +154,8 @@ OTHER TEXT
 
 .desc {
   font-family: $superReg;
-  em {
+  em,
+  i {
     font-family: $superRegItalic;
   }
   strong {
@@ -162,7 +165,8 @@ OTHER TEXT
 
 [class*="desc-sans"] {
   font-family: $walsheimReg;
-  em {
+  em,
+  i {
     font-family: $walsheimRegItalic;
   }
 

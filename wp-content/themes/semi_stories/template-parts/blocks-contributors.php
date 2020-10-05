@@ -18,7 +18,7 @@ CONTRIBUTORS
             data-anim="scale"
             />
             <svg xmlns="http://www.w3.org/2000/svg" class="bg-shape " viewBox="0 0 558.39 370.847">
-              <path id="Path_107" data-name="Path 107" d="M13240.055,1974.013l-443.44,54.98-114.949-370.847h558.39Z" transform="translate(-12681.665 -1658.146)" fill="#c19115"/>
+              <path id="Path_107" data-name="Path 107" d="M13240.055,1974.013l-443.44,54.98-114.949-370.847h558.39Z" transform="translate(-12681.665 -1658.146)" fill="#B9AFA5"/>
             </svg>
           </div>
         <? } ?>

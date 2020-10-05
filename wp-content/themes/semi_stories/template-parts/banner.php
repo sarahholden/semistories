@@ -11,7 +11,7 @@
     $bannerColor = '#F5D4CF';
     $svgColor = '#F0C1BB';
   } else  {
-    $bannerColor = '#C19115';
+    $bannerColor = '#B9AFA5';
     $svgColor = '#A9720D';
   }
 ?>
