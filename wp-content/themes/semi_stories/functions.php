@@ -28,7 +28,7 @@ function studio_see_scripts() {
   $t_dir = get_template_directory();
   $t_dir_uri = get_template_directory_uri();
   $ver = filemtime($t_dir . '/scss/style.scss');
-  wp_enqueue_style('ssee_style', $t_dir_uri . '/style.php/style.scss', array(), $ver);
+  wp_enqueue_style('ssee_style', $t_dir_uri . '/style.php/style.scss', array(), 'cache-bust');
 
 	wp_enqueue_style( 'ssee_swiper-css', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/css/swiper.min.css' );
 

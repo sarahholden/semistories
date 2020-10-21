@@ -247,23 +247,21 @@ $(document).ready(function() {
 
   const queryString = window.location.search;
 
-  if (queryString.includes('preview')) {
-    // Get cookies on load;
-    const hasVisited = getCookie('email-popup-dismissed');
+  // Get cookies on load;
+  const hasVisited = getCookie('email-pop-dismissed');
 
-    // if (true) {
-    if (hasVisited === null) {
-      setTimeout(function () {
-        $('body').addClass('show-email-popup');
-        $('.js-email-popup').addClass('js-animate');
-      }, 7000);
-    }
+  // if (true) {
+  if (hasVisited === null) {
+    setTimeout(function () {
+      $('body').addClass('show-email-popup');
+      $('.js-email-popup').addClass('js-animate');
+    }, 7000);
   }
 
   // CLOSE POPUP AND SET COOKIE
   $('.js-close-email-popup').on('click', function () {
     $('body').removeClass('show-email-popup');
-    setCookie('email-popup-dismissed');
+    setCookie('email-pop-dismissed');
   });
 
 
@@ -287,7 +285,7 @@ $(document).ready(function() {
 
       setTimeout(function () {
         $('body').removeClass('show-email-popup');
-        setCookie('email-popup-dismissed');
+        setCookie('email-pop-dismissed');
       }, 3000);
     } else {
       $formWrapper.find('.error').html('Please enter a valid email address');
