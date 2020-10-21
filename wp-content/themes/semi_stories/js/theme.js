@@ -202,118 +202,98 @@ $(document).ready(function() {
   });
   // END OF FONT LOADING
 
+  /* ---------------------------------------------
+  Newsletter Popup
+  ------------------------------------------------ */
+  /* ---------------------------------------------
+  COOKIES
+  ------------------------------------------------ */
+   // GET COOKIE -------------
+   function getCookie(name) {
+     const dc = document.cookie;
+     const prefix = `${name}=`;
+     let begin = dc.indexOf(`; ${prefix}`);
+     if (begin == -1) {
+       begin = dc.indexOf(prefix);
+       if (begin != 0) return null;
+     } else {
+       begin += 2;
+       var end = document.cookie.indexOf(';', begin);
+       if (end == -1) {
+         end = dc.length;
+       }
+     }
 
-  // document.fonts.ready.then(function () {
-  //
-  //   $('[data-anim="scroll"]').each(function() {
-  //     var scrollWrapper = this;
-  //     var scrollOffset = $(this).data('offset') || 0;
-  //     new ScrollMagic.Scene({
-  //       triggerElement: this,
-  //       triggerHook: .9
-  //     })
-  //       .setClassToggle(this, 'js-animate') // add class toggle
-  //       .reverse(false)
-  //       // .addIndicators()
-  //       .addTo(controller);
-  //
-  //
-  //       // SCALE IMAGE UP OR DOWN
-  //       var $imageToScale = $(this).find('[data-anim="scale"]')
-  //       if ($imageToScale.length > 0) {
-  //         var scaleFrom = $imageToScale.data('scale-from') != undefined ? parseFloat($imageToScale.data('scale-from')) : 1.04;
-  //         var scaleTo = $imageToScale.data('scale-to') != undefined ? parseFloat($imageToScale.data('scale-to')) : 1;
-  //         var pointToTrigger = $imageToScale.data('trigger-hook') != undefined ? parseFloat($imageToScale.data('trigger-hook')) : 0.7;
-  //         var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
-  //
-  //         var timelineScale = new TimelineMax();
-  //         var imageToAnimate = $imageToScale;
-  //         timelineScale.fromTo(imageToAnimate, 1, {scale: scaleFrom}, {scale: scaleTo});
-  //
-  //         var scaleScene = new ScrollMagic.Scene({
-  //           triggerElement: scrollWrapper,
-  //           triggerHook: pointToTrigger,
-  //           duration: dataDuration
-  //         })
-  //         .setTween(timelineScale)
-  //         .addTo(controller);
-  //       }
-  //
-  //       if ($(window).innerWidth() > 768) {
-  //         // PARALLAX EFFECT
-  //         var $itemToTranslate = $(this).find('[data-anim="parallax"]');
-  //         if ($itemToTranslate.length > 0) {
-  //           $itemToTranslate.each(function() {
-  //             var timelineParallax = new TimelineMax();
-  //             var translateFrom = $(this).data('translate-from') != undefined ? parseFloat($(this).data('translate-from')) : 40;
-  //             var translateTo = $(this).data('translate-to') != undefined ? parseFloat($(this).data('translate-to')) : -40;
-  //             var dataDuration = $(this).data('duration') != undefined ? $(this).data('duration') : '100%';
-  //             timelineParallax.fromTo($(this), 1, {y: translateFrom}, {y: translateTo});
-  //
-  //             var scene = new ScrollMagic.Scene({
-  //               triggerElement: scrollWrapper,
-  //               triggerHook: 0.4,
-  //               duration: dataDuration
-  //             })
-  //             .setTween(timelineParallax)
-  //             .addTo(controller);
-  //           });
-  //         }
-  //       }
-  //
-  //   });
-  //
-  // // END OF FONT LOADING
-  // });
+     return decodeURI(dc.substring(begin + prefix.length, end));
+   }
 
-//   /* ---------------------------------------------
-//   Marquee (up up up text)
-//   ------------------------------------------------ */
-//   $('.marquee').marquee({
-//     //If you wish to always animate using jQuery
-//     allowCss3Support: true,
-//     //works when allowCss3Support is set to true - for full list see http://www.w3.org/TR/2013/WD-css3-transitions-20131119/#transition-timing-function
-//     css3easing: 'linear',
-//     //'left', 'right', 'up' or 'down'
-//     direction: 'right',
-//     //true or false - should the marquee be duplicated to show an effect of continues flow
-//     duplicated: true,
-//     //speed in milliseconds of the marquee in milliseconds
-//     duration: 4000,
-//     //gap in pixels between the tickers
-//     gap: 8,
-//     //the marquee is visible initially positioned next to the border towards it will be moving
-//     startVisible: true
-//   });
-//
-//   /* ---------------------------------------------
-//   SMOOTH SCROLL
-//   ------------------------------------------------ */
-//   $('.js-scroll-to').on('click', function(e) {
-//     smoothScroll(e, this);
-//   });
-//
-//   $('.home-menu a').on('click', function (e) {
-//     smoothScroll(e, this);
-//   })
-//
-//
-//   function smoothScroll (evt, self) {
-//     evt.preventDefault();
-//     var thisTarget = $(self).attr('href');
-//
-//     if (thisTarget == '#bottom') {
-//       var targetOffset = $('#top').offset().top + $('#top').outerHeight() - $(window).height();
-//     } else {
-//       var targetOffset = $(thisTarget).offset().top;
-//     }
-//
-//     $('html, body').animate({
-//       scrollTop: $(thisTarget).offset().top
-//     }, 400);
-//   }
-//
-//
+ // SET COOKIE -------------
+ function setCookie (cookieName) {
+   const date = new Date();
+   const days = 30;
+
+  // Get unix milliseconds at current time plus number of days
+   date.setTime(+date + days * 86400000); // 24 * 60 * 60 * 1000
+   window.document.cookie = `${cookieName +
+     '=' +
+     'no' +
+     '; expires='}${date.toGMTString()}; path=/`;
+ }
+
+
+  /* ---------------------------------------------
+  EMAIL POPUP
+  ------------------------------------------------ */
+
+  const queryString = window.location.search;
+
+  if (queryString.includes('preview')) {
+    // Get cookies on load;
+    const hasVisited = getCookie('email-popup-dismissed');
+
+    // if (true) {
+    if (hasVisited === null) {
+      setTimeout(function () {
+        $('body').addClass('show-email-popup');
+        $('.js-email-popup').addClass('js-animate');
+      }, 7000);
+    }
+  }
+
+  // CLOSE POPUP AND SET COOKIE
+  $('.js-close-email-popup').on('click', function () {
+    $('body').removeClass('show-email-popup');
+    setCookie('email-popup-dismissed');
+  });
+
+
+  // VALIDATE EMAIL
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  // SUBMIT EMAIL
+  $('#bronto-form, #bronto-popup-form').on('submit', function (e) {
+    e.preventDefault();
+    var $form = $(this);
+    var $formWrapper = $form.closest('.js-bronto-parent');
+    var email = $form.find('.js-email').val();
+    if (validateEmail(email)) {
+      $('body').append('<img src="https://app.bronto.com/public/?q=direct_add&fn=Public_DirectAddForm&id=bhalawrxtqrpufsoyqpdbbtnrwexbch&email='+ email + '&list2=c7eeb3ec-36ce-4d6f-b3a0-1d740e380c83&list3=0bc103ec0000000000000000000000159110" width="0" height="0" border="0" alt=""/>');
+
+      $formWrapper.find('.js-form-outer-wrapper').hide();
+      $formWrapper.find('.js-thank-you').fadeIn();
+
+      setTimeout(function () {
+        $('body').removeClass('show-email-popup');
+        setCookie('email-popup-dismissed');
+      }, 3000);
+    } else {
+      $formWrapper.find('.error').html('Please enter a valid email address');
+    }
+
+  });
 
 
   /* ---------------------------------------------

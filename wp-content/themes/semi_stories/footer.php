@@ -56,6 +56,10 @@
 
   </div>
 </footer>
+
+<?php hm_get_template_part( 'template-parts/blocks-newsletter-popup' ); ?>
+
+
 <?php wp_footer(); ?>
 </body>
 </html>

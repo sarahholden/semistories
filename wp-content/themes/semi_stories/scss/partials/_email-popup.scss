@@ -1,0 +1,208 @@
+/* --------------------------------------------------------------------------
+  POPUP
+-----------------------------------------------------------------------------*/
+/* OPEN POPUP ================== */
+.show-email-popup {
+  .close-popup-overlay {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s $ease;
+    pointer-events: auto;
+  }
+  .email-popup {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s $ease 0.3s;
+    pointer-events: auto;
+  }
+}
+
+// Styles when email is successfully submitted, right before closing
+.email-submitted {
+  .close-popup {
+    display: none;
+  }
+}
+
+.close-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 499;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, .4);
+}
+
+/* POPUP FORM STYLES ================== */
+.email-popup {
+  position: fixed;
+  max-height: calc(100vh - 4rem);
+  overflow-y: scroll;
+  width: calc(100vw - 4rem);
+  max-width: 64rem;
+  z-index: 500;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s $ease;
+  background: $cream;
+  padding: 5rem;
+  color: $newBlue;
+  text-align: center;
+  @include mobile-only {
+    padding: 4rem 2rem;
+  }
+  .content {
+    overflow: hidden;
+  }
+  .text-content {
+    position: relative;
+    z-index: 3;
+  }
+  h1 {
+    margin-bottom: 1.4rem;
+    line-height: 1;
+  }
+  svg {
+    display: block;
+  }
+  .shape-left {
+    width: 4rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include mobile-only {
+      width: 2rem;
+    }
+  }
+  .shape-right {
+    width: 8rem;
+    position: absolute;
+    right: -2rem;
+    bottom: 0;
+    @include mobile-only {
+      width: 7rem;
+    }
+  }
+  .desc-sans {
+    margin-bottom: 2rem;
+    // font-weight: bold;
+    line-height: 1.4;
+  }
+  .close-button-icon {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    svg {
+      width: 4rem;
+      @include mobile-only {
+        width: 2rem;
+      }
+    }
+    .close-circle {
+      fill: $cream;
+      stroke: $newBlue;
+      transition: all 0.5s $ease;
+    }
+    .close-path {
+      stroke: $newBlue;
+      transition: all 0.5s $ease;
+    }
+    &:hover {
+      .close-circle {
+        fill: $newBlue;
+      }
+      .close-path {
+        stroke: $cream;
+      }
+    }
+  }
+  input {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    text-align: center;
+    color: $newBlue;
+    font-family: $superMed;
+    font-size: 2.5rem;
+    padding-bottom: 0;
+    @include mobile-only {
+      font-size: 1.8rem;
+      margin-left: 1.2rem;
+    }
+  }
+  .input-wrapper {
+    flex-grow: 1;
+
+    @include tablet-up {
+      margin-left: 3rem;
+    }
+  }
+  .error {
+    color: $newBlue;
+    bottom: -8px;
+    left: 0;
+  }
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: $newBlue;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $newBlue;
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: $newBlue;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $newBlue;
+  }
+  .update-stroke {
+    stroke: $newBlue;
+  }
+  .update-fill {
+    fill: $newBlue;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid $newBlue;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  button[type="submit"] {
+    width: 4rem;
+    @include mobile-only {
+      width: 2rem;
+    }
+    .submit-circle {
+      fill: $cream;
+      stroke: $newBlue;
+      transition: all 0.5s $ease;
+    }
+    .submit-path {
+      stroke: $newBlue;
+      transition: all 0.5s $ease;
+    }
+    &:hover {
+      .submit-circle {
+        fill: $newBlue;
+      }
+      .submit-path {
+        stroke: $cream;
+      }
+    }
+  }
+  .btn {
+    min-width: 20rem;
+  }
+}

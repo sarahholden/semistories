@@ -19,6 +19,9 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
   ADVICE (DO AS A DESIGNER DOES)
   =================================== -->
 <? if ($categoryId == 5) { ?>
+  <!-- BANNER -->
+  <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
   <header class="entry-meta masthead container post-advice">
     <!-- CATEGORY -->
     <div class="category-full">
@@ -47,6 +50,9 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
   DIY
   =================================== -->
   <? } else if ($categoryId == 20) { ?>
+    <!-- BANNER -->
+    <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
     <header class="entry-meta masthead container post-illustration">
       <!-- CATEGORY -->
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
@@ -72,6 +78,9 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
 
 
   <? } else if ($categoryId == 8 || $categoryId == 18) { ?>
+    <!-- BANNER -->
+    <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
     <header class="entry-meta masthead container post-diy">
       <!-- CATEGORY -->
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
@@ -97,6 +106,9 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
   ESSAY / START FRESH
   =================================== -->
   <? } else if ($categoryId == 4) { ?>
+    <!-- BANNER -->
+    <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
     <header class="entry-meta masthead container post-essay">
       <!-- CATEGORY -->
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
@@ -122,6 +134,9 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
   ISLAND HOPPING / Q&A
   =================================== -->
   <? } else if ($categoryId == 6) { ?>
+    <!-- BANNER -->
+    <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
     <header class="entry-meta masthead container post-island-hopping post-qa">
       <!-- CATEGORY -->
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
@@ -146,6 +161,9 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
   RECIPE
   =================================== -->
   <? } else if ($categoryId == 7) { ?>
+    <!-- BANNER -->
+    <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
+
     <header class="entry-meta masthead container post-recipe">
       <!-- CATEGORY -->
       <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
@@ -203,6 +221,8 @@ $categoryId = ! empty( $primary_category ) ? strtolower($primary_category->term_
   LIFESTYLE
   =================================== -->
   <? } else { ?>
+    <!-- BANNER -->
+    <? hm_get_template_part( 'template-parts/masthead-banner' ); ?>
     <header class="entry-meta masthead container post-lifestyle">
         <!-- CATEGORY -->
         <? hm_get_template_part( 'template-parts/masthead-category' ); ?>
